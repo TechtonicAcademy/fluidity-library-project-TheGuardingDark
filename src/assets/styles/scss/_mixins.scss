@@ -1,0 +1,10 @@
+
+@use "./variables" as v;
+
+@mixin test {
+    font-family: Arial, Helvetica, sans-serif;
+    color: lighten(v.$coffee, 20%);
+    text-decoration: none;
+    font-size: 1.3rem;
+
+};

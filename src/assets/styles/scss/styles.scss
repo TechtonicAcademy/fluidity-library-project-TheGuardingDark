@@ -1,8 +1,72 @@
-@use "./mixins";
-@use "./variables";
+@use "./mixins" as m;
+@use "./variables" as v;
 
+body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: v.$grey;
+}
 
+// .wrapper {
+//     position: absolute;
+// }
 
-h1 {
-    color:green;
+.nav {
+    background-color: v.$coffee;
+    height: 4rem;
+    width: 100%; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    &__list {
+        margin-top: .7rem;
+    }
+    &__item  {
+        list-style-type: none;
+        display: inline;
+        margin-right: 2.8rem;
+
+        &--logo {
+            @include m.test;
+            font-size: 2rem;
+            color: v.$beige;
+        }
+        
+        &--link {
+            &:hover {
+                color: v.$beige;
+            }
+            // font-family: Arial, Helvetica, sans-serif;
+            // color: v.$beige;
+            // text-decoration: none;
+            @include m.test;
+            
+
+        }
+    }
+    &__search {
+        position: relative;
+        right: -13.9rem;
+        top: -.2rem;
+        &--form {
+           height: 2.1rem;
+           width: 17rem;
+           font-size: 1rem;
+           padding-left: .6rem;
+           border-radius: .5rem;
+       }
+       &--btn {
+           height: 2.3rem;
+           width: 5.5rem;
+           border-radius: 8%;
+           border: 2px solid cyan;
+           color: cyan;
+           font-size: 1rem;
+           background-color: v.$coffee;
+           margin-left: .8rem;
+           
+       }
+    }
+    
 }
