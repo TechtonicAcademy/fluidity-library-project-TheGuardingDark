@@ -1,9 +1,18 @@
 @use "./mixins" as m;
 @use "./variables" as v;
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
 body {
     overflow-x: hidden;
     min-height: 100vh;
+    width: 100%;
     background-color: v.$coffee;
     margin: 0;
 }
@@ -136,4 +145,35 @@ body {
     h4 {
         color: v.$beige;
     }
+}
+
+
+// lg 1025px - 1200px  md 769px - 1024px
+
+@media only screen and (max-width: 1440px) {
+    html {
+        font-size: 18px;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 13px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 9.5px;
+    }
+
 }
