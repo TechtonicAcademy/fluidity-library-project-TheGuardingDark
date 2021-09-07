@@ -20,6 +20,7 @@ body {
     top: 0;
     left: 0;
     overflow: hidden;
+    z-index: 10;
     &__list {
         margin-top: .7rem;
     }
@@ -63,7 +64,7 @@ body {
        &--btn {
            height: 2.3rem;
            width: 5.5rem;
-           border-radius: 8%;
+           border-radius: .7rem;
            border: 2px solid cyan;
            color: cyan;
            font-size: 1rem;
@@ -99,6 +100,40 @@ body {
         }
     }
 
+}
 
+.mainContent {
+    background-color: v.$beige;
+    height: 29rem;
+    margin-top: 3rem;
+    &__header {
+        font-size: 2rem;
+        padding-top: 2.7rem;
+        text-align: center;
+    }
+    &__text {
+        font-size: 1.3rem;
+        padding: 1rem 9rem;
+        text-align: left;
+        p {
+            margin-bottom: 2rem;
+        }
+        &--btn {
+            height: 2.5rem;
+            width: 11.5rem;
+            border-radius: .7rem;
+            color: v.$beige;
+            font-size: 1rem;
+            background-color: v.$coffee;
+           margin-left: 25rem;
+        }
+    }
+}
 
+.footer {
+    text-align: center;
+    font-size: 1rem;
+    h4 {
+        color: v.$beige;
+    }
 }
