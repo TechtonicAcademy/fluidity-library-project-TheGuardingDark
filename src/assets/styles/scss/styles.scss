@@ -218,7 +218,7 @@ body {
         &__search {
             display: none;
         }
-    };
+    }
 
     .mainContent {
         height: 40rem;
@@ -228,7 +228,7 @@ body {
             }
         }
     }
-};
+}
 
 
 @media only screen and (max-width: 425px) {
@@ -247,17 +247,40 @@ body {
         &__search {
             display: none;
         }
-    };
-
-    .mainContent {
-        height: 40rem;
-        &__text {
-            &--btn {
-                margin-left: 8rem;
+    }
+    .heroImg {
+        height: 31rem;
+        &__caption {
+            font-size: 3.3rem;
+            &--lg {
+                font-size: 7.6rem;
+                padding-top: 8rem;
             }
         }
     }
-};
+    .mainContent {
+        height: 61rem;
+        p {
+            margin-bottom: 3rem;
+        }
+        &__header {
+            font-size: 4rem;
+        }
+        &__text {
+            font-size: 2.3rem;
+            padding: 1rem 3rem;
+            &--btn {
+                margin-left: 12rem;
+                height: 3.5rem;
+                width: 14.5rem;
+                font-size: 2rem;
+            }
+        }
+    }
+    .footer {
+        font-size: 2rem;
+    }
+}
 
 @media only screen and (max-width: 375px) {
 
