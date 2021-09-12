@@ -1,7 +1,7 @@
 
 @use "./variables" as v;
 
-@mixin test {
+@mixin navObj {
     font-family: Arial, Helvetica, sans-serif;
     color: lighten(v.$coffee, 20%);
     text-decoration: none;
