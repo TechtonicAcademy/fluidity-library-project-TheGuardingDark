@@ -200,3 +200,109 @@ body {
 }
 
 
+// Mobile Breakpoints 375px-480px
+
+@media only screen and (max-width: 480px) {
+
+    .nav {
+        height: 6rem;
+        padding-top: .6rem;
+        &__item {
+            &--logo {
+                font-size: 3.3rem;
+            }
+            &--link {
+                display: none;
+            }
+        }
+        &__search {
+            display: none;
+        }
+    };
+
+    .mainContent {
+        height: 40rem;
+        &__text {
+            &--btn {
+                margin-left: 8rem;
+            }
+        }
+    }
+};
+
+
+@media only screen and (max-width: 425px) {
+
+    .nav {
+        height: 6rem;
+        padding-top: .6rem;
+        &__item {
+            &--logo {
+                font-size: 3.3rem;
+            }
+            &--link {
+                display: none;
+            }
+        }
+        &__search {
+            display: none;
+        }
+    };
+
+    .mainContent {
+        height: 40rem;
+        &__text {
+            &--btn {
+                margin-left: 8rem;
+            }
+        }
+    }
+};
+
+@media only screen and (max-width: 375px) {
+
+    .nav {
+        &__item {
+            &--logo {
+                margin-left: -2rem;
+            }
+            &--mobile {
+                display: inline-block;
+            }
+        }
+    };
+
+    .heroImg {
+        background-size: 257%;
+        height: 30rem;
+        &__caption {
+            font-size: 3.5rem;
+            &--lg {
+                padding-top: 10rem;
+                font-size: 7.6rem;
+            }
+        }
+    }
+
+    .mainContent {
+        margin-top: 7rem;
+        height: 54rem;
+        &__header {
+            font-size: 3rem;
+        }
+        &__text {
+            font-size: 1.9rem;
+            padding: 1rem 3rem;
+            &--btn {
+                margin-left: 8.5rem;
+                height: 3.5rem;
+                width: 15.5rem;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .footer {
+        font-size: 2rem;
+    }
+}
