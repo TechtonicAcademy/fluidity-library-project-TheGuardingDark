@@ -322,6 +322,9 @@ body {
             &--logo {
                 top: -1rem;
             }
+            &--link {
+                margin-left: 6rem;
+            }
         }
     }
 
@@ -343,7 +346,6 @@ body {
     }
 
     .mainContent {
-        margin-top: 7rem;
         height: 56rem;
         &__header {
             font-size: 3rem;
