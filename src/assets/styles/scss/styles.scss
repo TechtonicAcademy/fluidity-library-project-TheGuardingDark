@@ -145,6 +145,11 @@ body {
     html {
         font-size: 18px;
     }
+    .nav {
+        &__search {
+            right: -14rem;
+        }
+    }
     .mainContent {
         &__text {
             &--btn {
@@ -177,13 +182,6 @@ body {
     html {
         font-size: 13px;
     }
-    .mainContent {
-        &__text {
-            &--btn {
-                margin-left: 24.5rem;
-            }
-        }
-    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -205,80 +203,115 @@ body {
 @media only screen and (max-width: 480px) {
 
     .nav {
-        height: 6rem;
-        padding-top: .6rem;
+        overflow: hidden;
+        background-color: v.$coffee;
+        height: 8rem;
         &__item {
+            display: block;
+            padding: 1rem;
             &--logo {
-                font-size: 3.3rem;
+                font-size: 3.7rem;
+                margin-left: -3rem;
             }
             &--link {
+                font-size: 4.3rem;
+                margin-left: 11rem;
                 display: none;
             }
         }
         &__search {
             display: none;
         }
-    }
-
-    .mainContent {
-        height: 40rem;
-        &__text {
-            &--btn {
-                margin-left: 8rem;
+        &__container {
+            position: fixed;
+            right: 4rem;
+            top: 2rem;
+            &--bar1,
+            &--bar2,
+            &--bar3 {
+                width: 35px;
+                height: 5px;
+                background-color: v.$beige;
+                margin: 6px 0;
+                transition: 0.4s;                   
+            }
+            .change &--bar1 {
+                -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                transform: rotate(-45px) translate(-9px, -6px);
+            }
+            .change &--bar2 {
+                opacity: 0;
+            } 
+            .change &--bar3 {
+                -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                transform: rotate(45deg) translate(-8px, -8px);
             }
         }
     }
-}
 
-
-@media only screen and (max-width: 425px) {
-
-    .nav {
-        height: 6rem;
-        padding-top: .6rem;
-        &__item {
-            &--logo {
-                font-size: 3.3rem;
-            }
-            &--link {
-                display: none;
-            }
-        }
-        &__search {
-            display: none;
-        }
-    }
     .heroImg {
-        height: 31rem;
+        height: 30rem;
         &__caption {
             font-size: 3.3rem;
             &--lg {
-                font-size: 7.6rem;
+                font-size: 8.6rem;
                 padding-top: 8rem;
             }
         }
     }
+    
     .mainContent {
-        height: 61rem;
+        height: 55rem;
         p {
             margin-bottom: 3rem;
         }
+        margin-top: 4rem;
         &__header {
-            font-size: 4rem;
+            font-size: 4.5rem;
         }
         &__text {
             font-size: 2.3rem;
             padding: 1rem 3rem;
             &--btn {
-                margin-left: 12rem;
+                margin-left: 13.5rem;
                 height: 3.5rem;
-                width: 14.5rem;
+                width: 16.5rem;
                 font-size: 2rem;
             }
         }
     }
     .footer {
         font-size: 2rem;
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+
+    .container {
+        position: relative;
+        right: -8rem;
+    }
+
+    .heroImg {
+        height: 31rem;
+        &__caption {
+            &--lg {
+                font-size: 7.6rem;
+            }
+        }
+    }
+    .mainContent {
+        height: 61rem;
+        &__header {
+            font-size: 4rem;
+        }
+        &__text {
+            &--btn {
+                margin-left: 12rem;
+                width: 14.5rem;
+            }
+        }
     }
 }
 
@@ -287,13 +320,15 @@ body {
     .nav {
         &__item {
             &--logo {
-                margin-left: -2rem;
-            }
-            &--mobile {
-                display: inline-block;
+                top: -1rem;
             }
         }
-    };
+    }
+
+    .container {
+        right: -3rem;
+    }
+
 
     .heroImg {
         background-size: 257%;
@@ -301,15 +336,15 @@ body {
         &__caption {
             font-size: 3.5rem;
             &--lg {
-                padding-top: 10rem;
-                font-size: 7.6rem;
+                padding-top: 9rem;
+                font-size: 8rem;
             }
         }
     }
 
     .mainContent {
         margin-top: 7rem;
-        height: 54rem;
+        height: 56rem;
         &__header {
             font-size: 3rem;
         }
@@ -318,14 +353,9 @@ body {
             padding: 1rem 3rem;
             &--btn {
                 margin-left: 8.5rem;
-                height: 3.5rem;
                 width: 15.5rem;
-                font-size: 2rem;
             }
         }
     }
-
-    .footer {
-        font-size: 2rem;
-    }
 }
+

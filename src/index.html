@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/styles/scss/styles.scss" />
+    <script src="assets/js/index.js"></script>
   </head>
   <body class="page">
     <div class="wrapper">
@@ -27,11 +28,11 @@
           <li class="nav__item"><a class="nav__item--link" href="#">Add Book</a></li>
           <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
           <button class="btn nav__search nav__search--btn">Search</button>
-          <li class="nav_item nav__item--mobile" onClick="myFunction(this)">
-            <icon class="mobileBar1"></icon>
-            <icon class="mobileBar2"></icon>
-            <icon class="mobileBar3"></icon>
-          </li>
+          <div class="nav__container" onClick="myFunction(this)">
+            <div class="nav__container--bar1"></div>
+            <div class="nav__container--bar2"></div>
+            <div class="nav__container--bar3"></div>
+          </div>
         </ul>
       </nav>
       
