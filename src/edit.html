@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+    <title>The Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/scss/styles.scss" />
+    <script src="assets/js/index.js"></script>
+  </head>
+  <body class="page">
+    <div class="wrapper">
+
+      <!-- NavBar with title 3 links search form -->
+      
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
+          <li class="nav__item"><a class="nav__item--link" href="#">Home</a></li>
+          <li class="nav__item"><a class="nav__item--link" href="#">Bookshelf</a></li>
+          <li class="nav__item"><a class="nav__item--link" href="#">Add Book</a></li>
+          <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+          <button class="btn nav__search nav__search--btn">Search</button>
+          <div class="nav__container" onClick="myFunction(this)">
+            <div class="nav__container--bar1"></div>
+            <div class="nav__container--bar2"></div>
+            <div class="nav__container--bar3"></div>
+          </div>
+        </ul>
+      </nav>
+      
+    <container class="editBook">
+
+        <header class="editBook editBook__header">Edit Book</header>
+        
+        <form action="" class="editBook editBook__form">
+            <section class="titleAuthor">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="booktitle" placeholder="Snuff">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="bookauthor" placeholder="Terry Pratchett">
+            </section>
+            
+            <figure class="editBook editBook__bookImg">
+                <img class="editBook__bookImg--img" src="assets/images/snuff.jpg" alt="Book Cover">
+                <button class="btn editBook__bookImg--btn">Change Image</button>
+            </figure>
+            
+            <section class="editBook editBook__synopsis">
+                <label for="editBook__synopsis">Synopsis</label>
+                <textarea id="synopsis" name="synopsis" placeholder="Write something..."></textarea>
+            </section>
+            
+            <section class="editBook editBook__details">
+                <label for="editBook__details--published">Published</label>
+                <select>
+                    <option value="0">10/11/2011</option>
+                </select>
+                <label for="editBook__details--pages">Pages</label>
+                <select class="editBook__details--pages" name="pages">
+                    <option value=""></option>
+                </select>
+            </section>
+            
+            <section class="editBook editBook__rating">
+                <label for="editBook__rating">Rating</label>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </section>
+            
+            <section class="editBook editBook__btns">
+                <button class="btn editBook__btns--submit">Submit</button>
+                <button class="btn editBook__btns--cancel">Cancel</button>
+            </section>   
+            
+        </form>
+        
+    </container>
+
+
+      <!-- footer copyright -->
+      <footer class="footer">
+        <h4>Copyright 2020 ya boi</h4>
+      </footer>
+      
+    </div>
+  </body>
+</html>
