@@ -202,7 +202,6 @@ body {
 
 @media only screen and (max-width: 480px) {
 
-
     .nav {
         overflow: hidden;
         background-color: v.$coffee;
@@ -227,7 +226,7 @@ body {
         &__container {
             position: absolute;
             top: 1.8rem;
-            left: 44rem;
+            left: 42rem;
             &--bar1,
             &--bar2,
             &--bar3 {
@@ -250,8 +249,13 @@ body {
             }
         }
     }
+
 // EDIT BOOK PAGE
 
+
+    .editContain {
+        margin: 2rem;
+    }
     .editBook {
         display: block;
         background-color: v.$beige;
@@ -363,9 +367,6 @@ body {
                 background-color: lighten(grey, 75%);
                 margin-bottom: 4rem;
             }
-
-
-
         }
     }
 
@@ -414,14 +415,28 @@ body {
 
 
 @media only screen and (max-width: 425px) {
-    // .nav {
-    //     &__container {
-    //         left: 34rem;
-    //     }
-    // }
+
+    .nav {
+        &__container {
+            left: 38rem;
+        }
+        &__item {
+            &--link {
+                margin-left: 1rem;
+            }
+        }
+    }
     .container {
         position: relative;
         right: -8rem;
+    }
+    .editBook {
+        &__btns {
+            padding: 0;
+        }
+    }
+    .editContain {
+        margin: 1rem;
     }
 
     .heroImg {
@@ -448,17 +463,18 @@ body {
 
 @media only screen and (max-width: 375px) {
 
+
     .nav {
         &__item {
             &--logo {
                 top: -1rem;
             }
             &--link {
-                margin-left: 6rem;
+                margin-left: 0rem;
             }
         }
         &__container {
-            left: 33rem;
+            left: 34rem;
         }
     }
 
@@ -466,6 +482,10 @@ body {
         right: -3rem;
     }
 
+    .editContain {
+        width: fit-content;
+        margin: -1rem;
+    }
 
     .heroImg {
         background-size: 257%;
