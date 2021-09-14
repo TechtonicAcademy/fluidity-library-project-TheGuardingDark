@@ -188,6 +188,9 @@ body {
     html {
         font-size: 9.5px;
     }
+    .nav {
+        height: 4rem;
+    }
     .mainContent {
         &__text {
             &--btn {
@@ -253,9 +256,9 @@ body {
 // EDIT BOOK PAGE
 
 
-    .editContain {
-        margin: 2rem;
-    }
+    // .editContain {
+    //     margin: 1rem 0rem;
+    // }
     .editBook {
         display: block;
         background-color: v.$beige;
@@ -435,9 +438,9 @@ body {
             padding: 0;
         }
     }
-    .editContain {
-        margin: 1rem;
-    }
+    // .editContain {
+    //     margin: 1rem;
+    // }
 
     .heroImg {
         height: 31rem;
@@ -484,7 +487,6 @@ body {
 
     .editContain {
         width: fit-content;
-        margin: -1rem;
     }
 
     .heroImg {
