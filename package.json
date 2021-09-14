@@ -17,9 +17,11 @@
     "url": "https://github.com/TechtonicAcademy/fluidity-library-project-TheGuardingDark/issues"
   },
   "homepage": "https://github.com/TechtonicAcademy/fluidity-library-project-TheGuardingDark#readme",
-  
   "dependencies": {
     "@parcel/transformer-sass": "^2.0.0-rc.0",
     "sass": "^1.38.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0"
   }
 }
