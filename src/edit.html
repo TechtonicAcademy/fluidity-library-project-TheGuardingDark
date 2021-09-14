@@ -8,7 +8,7 @@
     <title>The Library</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2066c41de0.js" crossorigin="anonymous"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
@@ -42,11 +42,11 @@
         <header class="editBook editBook__header">Edit Book</header>
         
         <form action="" class="editBook editBook__form">
-            <section class="titleAuthor">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="booktitle" placeholder="Snuff">
-                <label for="author">Author</label>
-                <input type="text" id="author" name="bookauthor" placeholder="Terry Pratchett">
+            <section class="editBook__titleAuthor">
+                <label class="editBook__titleAuthor--text" for="title">Title</label>
+                <input type="text" class="editBook__titleAuthor--input" id="title" name="booktitle" placeholder="Snuff">
+                <label class="editBook__titleAuthor--text" for="author">Author</label>
+                <input type="text" class="editBook__titleAuthor--input" id="author" name="bookauthor" placeholder="Terry Pratchett">
             </section>
             
             <figure class="editBook editBook__bookImg">
@@ -55,28 +55,30 @@
             </figure>
             
             <section class="editBook editBook__synopsis">
-                <label for="editBook__synopsis">Synopsis</label>
-                <textarea id="synopsis" name="synopsis" placeholder="Write something..."></textarea>
+                <label class="editBook__synopsis--title" for="editBook__synopsis--title">Synopsis</label>
+                <textarea class="editBook__synopsis--textBox" id="synopsis" name="synopsis" placeholder="Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment."></textarea>
             </section>
             
             <section class="editBook editBook__details">
-                <label for="editBook__details--published">Published</label>
-                <select>
+                <label class="editBook__details editBook__details--title" for="editBook__details--published">Published</label>
+                <select class="editBook__details--menu">
                     <option value="0">10/11/2011</option>
                 </select>
-                <label for="editBook__details--pages">Pages</label>
-                <select class="editBook__details--pages" name="pages">
-                    <option value=""></option>
+                <label for="editBook__details--pages" class="editBook__details--pages">Pages</label>
+                <select class="editBook__details--pageNo" name="pages">
+                    <option value="">378</option>
                 </select>
             </section>
             
             <section class="editBook editBook__rating">
-                <label for="editBook__rating">Rating</label>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
+                <label for="editBook__rating" class="editBook__rating">Rating</label>
+                <span class="editBook__rating--stars">
+                    <i class="fas fa-star checked"></i>
+                    <span class="fas fa-star checked"></span>
+                    <span class="fas fa-star checked"></span>
+                    <span class="fas fa-star checked"></span>
+                    <span class="fas fa-star"></span>
+                </span>
             </section>
             
             <section class="editBook editBook__btns">
