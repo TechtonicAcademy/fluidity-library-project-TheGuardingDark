@@ -1,6 +1,7 @@
 
 @use "./variables" as v;
 
+
 @mixin navObj {
     font-family: Arial, Helvetica, sans-serif;
     color: lighten(v.$coffee, 20%);
@@ -9,3 +10,96 @@
 
 };
 
+@mixin navBar {
+    .nav {
+        overflow: hidden;
+        z-index: 10;
+        &__container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 1fr;
+            background-color: v.$coffee;
+            text-align: center;
+        }
+        &__item  {
+            list-style-type: none;
+            margin-right: 3.8rem;
+            align-self: center; 
+            padding: 1rem;
+            
+            &--logo {
+                @include navObj;
+                font-size: 3rem;
+                color: v.$beige;
+            }
+            
+            &--link {
+                font-size: 1.5rem;
+                &:hover {
+                    color: v.$brown;
+                }
+                &:active {
+                    color: v.$beige;
+                }
+                @include navObj;           
+            }
+        }
+        &__search {
+            align-self: center;
+            justify-self: center;
+            right: -33.9rem;
+            top: -.2rem;
+            &--form {
+                height: 2.1rem;
+                width: 17rem;
+                font-size: 1rem;
+                padding-left: .6rem;
+                border-radius: .5rem;
+            }
+            &--btn {
+                justify-self: left;
+                height: 2.3rem;
+                width: 5.5rem;
+                border-radius: .7rem;
+                border: 2px solid cyan;
+                color: cyan;
+                font-size: 1rem;
+                background-color: v.$coffee;
+                margin-left: .8rem;
+            }
+        }        
+    }
+}
+
+@mixin editForm {
+    grid-column: 1/2;
+    justify-self: self-end;
+    align-self: center;
+    font-size: 1.7rem;
+    font-family: initial;
+    margin-right: 3rem;
+};
+
+@mixin stars {
+            display: block;
+            color: lighten(grey, 25%);
+            text-shadow: 0 0 3px black;
+            :checked {
+                color: yellow;
+            }
+            i {
+                margin: 2px;
+            }
+            .checked {
+                color: yellow;
+            }
+        }
+
+@mixin button {
+    width: 17rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: v.$coffee;
+    color: white;
+    margin-left: 2rem;
+}

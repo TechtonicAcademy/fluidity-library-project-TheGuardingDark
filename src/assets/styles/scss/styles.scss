@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     width: 100%;
-    background-color: v.$coffee;
+    background-color: v.$beige;
     margin: 0;
 }
 
@@ -158,6 +158,33 @@ body {
         }
     }
 }
+
+// EDIT BOOK DESKTOP
+
+    .editBook {
+        &__header {
+            text-align: center;
+            margin: 9% 0 5%;
+            font-size: 3rem;
+        }
+        &__form {
+            font-size: 2rem;
+            display: inline-grid;
+            grid-template-columns: 44rem auto;
+            grid-template-rows: 6rem 6rem 16rem 6rem 6rem;
+            margin: 1rem 8rem;
+        }
+        &__titleAuthor {
+            &--text {
+                padding-right: 2rem;
+            }
+        }
+        &__bookImg {
+            &--img {
+                width: 17rem;
+            }
+        }
+    }
 
 @media only screen and (max-width: 1200px) {
     html {
