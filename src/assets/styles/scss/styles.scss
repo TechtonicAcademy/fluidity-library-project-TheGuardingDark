@@ -14,67 +14,12 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     width: 100%;
-    background-color: v.$coffee;
+    background-color: v.$beige;
     margin: 0;
 }
 
 .nav {
-    background-color: v.$coffee;
-    height: 4rem;
-    width: 100%; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 10;
-    &__list {
-        margin-top: .7rem;
-    }
-    &__item  {
-        list-style-type: none;
-        display: inline;
-        margin-right: 2.8rem;
-
-        &--logo {
-            @include m.navObj;
-            font-size: 2rem;
-            color: v.$beige;
-        }
-        
-        &--link {
-            &:hover {
-                color: v.$brown;
-            }
-            &:active {
-                color: v.$beige;
-            }
-            @include m.navObj;           
-            }
-        }
-    &__search {
-        position: relative;
-        right: -13.9rem;
-        top: -.2rem;
-        &--form {
-           height: 2.1rem;
-           width: 17rem;
-           font-size: 1rem;
-           padding-left: .6rem;
-           border-radius: .5rem;
-       }
-       &--btn {
-           height: 2.3rem;
-           width: 5.5rem;
-           border-radius: .7rem;
-           border: 2px solid cyan;
-           color: cyan;
-           font-size: 1rem;
-           background-color: v.$coffee;
-           margin-left: .8rem;
-           
-       }
-    }
-    
+    @include m.navBar;    
 }
 
 .heroImg {
@@ -99,7 +44,6 @@ body {
             padding-top: 6rem;
         }
     }
-
 }
 
 .mainContent {
@@ -131,11 +75,7 @@ body {
 }
 
 .footer {
-    text-align: center;
-    font-size: 1rem;
-    h4 {
-        color: v.$beige;
-    }
+    @include m.footer;
 }
 
 
@@ -158,6 +98,33 @@ body {
         }
     }
 }
+
+// // EDIT BOOK DESKTOP
+
+//     .editBook {
+//         &__header {
+//             text-align: center;
+//             margin: 9% 0 5%;
+//             font-size: 3rem;
+//         }
+//         &__form {
+//             font-size: 2rem;
+//             display: inline-grid;
+//             grid-template-columns: 44rem auto;
+//             grid-template-rows: 6rem 6rem 16rem 6rem 6rem;
+//             margin: 1rem 8rem;
+//         }
+//         &__titleAuthor {
+//             &--text {
+//                 padding-right: 2rem;
+//             }
+//         }
+//         &__bookImg {
+//             &--img {
+//                 width: 17rem;
+//             }
+//         }
+//     }
 
 @media only screen and (max-width: 1200px) {
     html {
