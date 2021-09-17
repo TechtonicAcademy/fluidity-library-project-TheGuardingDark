@@ -9,6 +9,8 @@
     
     html {
         font-size: 14px;
+        overflow: hidden;
+        height: 100%;
     }
     
     
@@ -19,6 +21,15 @@
         min-height: 100vh;
         width: 100%;
         
+    }
+
+    .bodyWrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
     }
     
     .nav {
@@ -142,7 +153,11 @@
         &__buttons {
             grid-column: none;
             position: relative;
-            right: 27rem;
+            right: 28rem;
+            margin-left: 2rem;
+            &--submit {
+                margin-right: 3rem;
+            }
         }
     }
     
@@ -165,14 +180,176 @@
 }
 
 .footer {
-    text-align: center;
-    font-size: 1rem;
-    background-color: v.$beige;
-    h4 {
-        color: v.$coffee;
-        margin: 0;
-        padding: 1rem;
-    }
+   @include m.footer;
 }
 
+// BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
 
+@media only screen and (max-width: 1200px) {
+     html {
+         font-size: 13px;
+     }
+     .card {
+        &__pages {
+            margin-left: 3rem;
+        }
+        &__buttons {
+            right: 23rem;
+            &--submit{
+                margin-right: 3rem;
+            }
+        }
+     }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .nav {
+        &__container {
+            height: 4rem;
+        }
+        &__item {
+            margin-right: 0;
+            display: contents;
+            &--link {
+                align-self: center;
+            }
+        }
+    }
+    .card {
+        &__buttons {
+            right: -8rem;
+            &--submit {
+                right: 2rem;
+            }
+        }
+        &__pages {
+            label {
+                margin-right: 1rem;
+            }
+            &--input {
+                width: 8rem;
+            }
+        }
+    }
+    .wrapper {
+        grid-template-columns: auto;
+        &__bookcover {
+            grid-column: 5/6;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    // body {
+    //     background-color: v.$beige;
+    // }
+
+    html {
+        font-size: 11px;
+    }
+
+    .nav {
+        &__item {
+            &--link {
+                margin-right: 2rem;
+            }
+        }
+        &__container {
+            height: 4rem;
+        }
+    }
+
+    .wrapper {
+        grid-template-columns: auto;
+        margin: 1rem 4rem -3rem -3rem;
+        &__bookcover {
+            grid-column: 6/6;
+            grid-template-rows: repeat(2, max-content)
+        }
+        &__card {
+            grid-column: 2/4 ;
+            grid-template-columns: auto;
+            grid-template-rows: repeat(4, max-content);
+            row-gap: 15px;
+        }
+    }
+
+    .card {
+        &__title {
+            &--input {
+                height: 4rem;
+                align-self: center;
+            }
+        }
+        &__author {
+            &--input {
+                height: 4rem;
+                align-self: center;
+            }
+        }
+        &__synopsis {
+            &--input {
+                height: 15rem;
+            }
+        }
+        &__published {
+            grid-template-rows: 1fr 1fr;
+            label {
+                margin-left: 5rem;
+            }
+            &--input {
+                height: 4rem;
+                align-self: center;
+            }
+        }
+        &__pages {
+            grid-template-rows: 1fr 1fr;
+            margin-left: 5rem;
+            column-gap: 1rem;
+            label {
+                margin-right: 4rem;
+            }
+            &--input {
+                width: 7rem;
+                height: 4rem;
+                align-self: center;
+            }
+        }
+        &__rating {
+            grid-row: 4;
+            grid-template-rows: 1fr 1fr 1fr;
+            &--text {
+                grid-row: 3;
+            }
+            &--stars {
+                grid-row: 3;
+            }
+        }
+        &__buttons {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: max-content;
+            left: 14rem;
+        }
+    }
+
+    .bookCover {
+        &__img {
+            width: 77%;
+            &--btn {
+                margin: 1.4rem;
+                height: 3rem;
+                width: 14rem;
+            }
+        }
+    }
+
+    .footer {
+        margin-top: 6rem;
+        font-size: 1.3rem;
+    }
+}
