@@ -6,39 +6,72 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 14px;
-    overflow: hidden;
-    height: 100%;
-}
-
-
-
-body {
-    margin: 0;
-    overflow-x: hidden;
-    min-height: 100vh;
-    width: 100%;
+// html, body {
+//         height: 100%;
+//         margin: auto;
+//     }
     
-}
+    html {
+        font-size: 14px;
+        overflow: hidden;
+        height: 100%;
+        // margin: auto;
+    }
+    body {
+        margin: 0;
+        overflow-x: hidden;
+        min-height: 100vh;
+        width: 100%;
+    }
+    .bodyWrapper {
+        // display: flex;
+        // min-height: 100vh;
+        // flex-direction: column;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+    }
+    .pageWrapper {
+        // background-color: lighten(v.$coffee, 80%);
+        flex: 1;
+    }
+    
+// body {
+//     margin: 0;
+//     overflow-x: hidden;
+//     min-height: 100vh;
+//     width: 100%;
+    
+// }
 
-.bodyWrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-}
-
+// .bodyWrapper {
+//     position: relative;
+//     min-height: 100%;
+//     margin-bottom: -4rem;
+    // min-height: 100vh;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // overflow: auto;
+// }
+// .contentWrapper {
+    //     padding-bottom: 2.5rem;
+    // }
+    // .clearfooter {
+    //     height: 4rem;
+    //     clear: both;
+    // }
+    
 .nav {
     @include m.navBar;
     
 }
 
-.pageWrapper {
-    background-color: lighten(v.$coffee, 80%);
-}
 
 
 .header {
@@ -180,6 +213,7 @@ body {
 .btn {
 @include m.button;
 }
+
 
 .footer {
 @include m.footer;

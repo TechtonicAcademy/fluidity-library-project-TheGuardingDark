@@ -14,17 +14,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
-    <!-- <script src="assets/js/index.js"></script> -->
+    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
+    <script src="assets/js/index.js"></script>
   </head>
-    <body>
-        <wrapper class="bodyWrapper">
+    <body class="bodyWrapper"> 
 
-            
-            <!--  -->
+            <!-- NAVBAR -->
             
             <nav class="nav">
-                <container class="nav__container">
-                    
+                <container class="nav__container">                    
                     <!-- <ul class="nav__list"> -->
                         <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
                         <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
@@ -42,10 +40,9 @@
                 </nav>
                 
                 
-                <div class="pageWrapper">   
+            <container class="pageWrapper">   
                     <header class="header">Edit Book</header>
                     
-                    <!--  -->
                     <!--  -->
                     <form action="" class="form wrapper grid">
                         
@@ -62,14 +59,14 @@
                                 <label>Author</label>
                                 <input type="text" class="card__author--input" placeholder="Terry Pratchett">
                             </section>
-
+                            
                             <figure class="bookCoverMobile grid">
                                 <!--  -->
                                 <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
                                 <button class="btn bookCoverMobile__btn">Change Image</button>
                                 <!--  -->
                             </figure>
-
+                            
                             
                             <section class="card__synopsis grid">
                                 <label>Synopsis</label>
@@ -118,17 +115,11 @@
                                 <!--  -->
                             </figure>
                             
-                            
-                            
-                            <!-- </container> -->
-                            
                         </form>   
-                        
-                        <footer class="footer">
-                            <h4>Copyright 2020 ya boi</h4>
-                        </footer>
-                        
-                    </div>
-        </wrapper>
+                </container>   
+                <!-- FOOTER -->
+            <footer class="footer">
+                Copyright 2020 ya boi
+            </footer>
     </body>
 </html>
