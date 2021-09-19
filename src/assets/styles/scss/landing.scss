@@ -123,4 +123,61 @@ body {
 }
 
 
-// LANDING PAGE MOBILE
+
+// LANDING PAGE MOBILE 480px 425px 375px
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    .nav {
+        .nav {
+            &__container {
+                grid-template-columns: 2fr 1fr;
+                height: 5rem;
+            }
+            &__item {
+                justify-self: left;
+            }
+            &__search {
+                display: none;
+            }
+        } 
+    }
+    .hamburger {
+        @include m.hamburger;
+        grid-column: 2/3;
+        place-self: center;
+        
+    }
+    .mainContent {
+        &__text {
+            display: block;
+            &--btn {
+                margin: 1rem 8.5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    html {
+        font-size: 13.5px;
+    }
+    .hamburger {
+        margin-right: -5rem;
+    }
+    .mainContent {
+        margin-bottom: -1rem;
+        &__text {
+            margin: 1rem -1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    html {
+        font-size: 11.5px;
+    }
+}
+

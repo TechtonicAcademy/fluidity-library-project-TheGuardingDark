@@ -10,8 +10,12 @@
 
 };
 
+
+
+
 @mixin navBar {
     .nav {
+        height: 20rem;
         overflow: hidden;
         z-index: 10;
         &__container {
@@ -45,8 +49,7 @@
         }
         &__search {
             align-self: center;
-
-            justify-self: right;
+            justify-self: center;
             right: -33.9rem;
             top: -.2rem;
             &--form {
@@ -57,7 +60,7 @@
                 border-radius: .5rem;
             }
             &--btn {
-                justify-self: center;
+                justify-self: left;
                 height: 2.3rem;
                 width: 5.5rem;
                 border-radius: .7rem;
@@ -70,7 +73,6 @@
         }        
     }
 }
-
 
 @mixin mobileNav {
 
@@ -193,10 +195,10 @@
         text-align: center;
         font-size: 1rem;
         background-color: v.$beige;
-
         color: v.$coffee;
         margin: 0;
         padding: 1rem;
         text-align: center;
 
 }
+
