@@ -45,7 +45,8 @@
         }
         &__search {
             align-self: center;
-            justify-self: center;
+
+            justify-self: right;
             right: -33.9rem;
             top: -.2rem;
             &--form {
@@ -155,7 +156,6 @@
         }
 }
 
-
 @mixin editForm {
     grid-column: 1/2;
     justify-self: self-end;
@@ -198,6 +198,5 @@
         margin: 0;
         padding: 1rem;
         text-align: center;
+
 }
-
-
