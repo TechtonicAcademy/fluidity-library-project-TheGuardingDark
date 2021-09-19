@@ -1,0 +1,181 @@
+@use "./mixins" as m;
+@use "./variables" as v;
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    overflow: hidden;
+    height: 100%;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+}
+.bodyWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+.pageWrapper {
+    flex: 1;
+}
+
+.nav {
+    @include m.navBar;    
+}
+.heroImg {
+    background-size: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../../images/reading-room.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 28rem;
+    margin: 0;
+    &__caption {
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        color:v.$beige;
+        font-size: 2.3rem;
+        padding-top: 1.5rem;
+        font-weight: 500;
+        &--lg {
+            font-size: 4.6rem;
+            padding-top: 6rem;
+        }
+    }
+}
+
+.mainContent {
+    background-color: v.$beige;
+    &__header {
+        font-size: 3rem;
+        padding: 2rem 0;
+        text-align: center;
+        grid-row: 1;
+        grid-column: 2/3;
+    }
+    &__text {
+        font-size: 1.3rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        text-align: left;
+        p {
+            margin: 2rem 5rem;
+            grid-column: 1/4;
+        }
+        &--btn {
+            @include m.button;
+            grid-column: 2/3;
+            place-self: center;
+        }
+    }
+}
+
+.footer {
+    @include m.footer;
+    background-color: darken(v.$beige, 50%);
+    }
+    
+// BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
+
+@media only screen and (max-width: 1200px) {
+
+    .nav .nav {
+        &__item {
+           margin-right: 0;
+        }
+    }
+
+    .mainContent {
+        &__text {
+            &--btn {
+                margin: 0 25rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .mainContent {
+        &__text {
+            &--btn {
+                margin: 0 19rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+
+// LANDING PAGE MOBILE 480px 425px 375px
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    .nav {
+        .nav {
+            &__container {
+                grid-template-columns: 2fr 1fr;
+                height: 5rem;
+            }
+            &__item {
+                justify-self: left;
+            }
+            &__search {
+                display: none;
+            }
+        } 
+    }
+    .hamburger {
+        @include m.hamburger;
+        grid-column: 2/3;
+        place-self: center;
+        
+    }
+    .mainContent {
+        &__text {
+            display: block;
+            &--btn {
+                margin: 1rem 8.5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    html {
+        font-size: 13.5px;
+    }
+    .hamburger {
+        margin-right: -5rem;
+    }
+    .mainContent {
+        margin-bottom: -1rem;
+        &__text {
+            margin: 1rem -1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    html {
+        font-size: 11.5px;
+    }
+}

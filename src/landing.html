@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+    <title>The Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/scss/landing.scss" />
+    <script src="assets/js/index.js"></script>
+  </head>
+  <body class="bodyWrapper">
+      
+      <!-- NavBar with title 3 links search form -->
+      <nav class="nav">
+          <container class="nav__container">                    
+                  <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
+                  <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
+                  <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
+                  <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
+                  <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+                  <button class="btn nav__search nav__search--btn">Search</button>
+                  <div class="hamburger" onClick="myFunction(this)">
+                      <div class="hamburger__bar1"></div>
+                      <div class="hamburger__bar2"></div>
+                      <div class="hamburger__bar3"></div>
+                    </div>
+                </container>
+            </nav>
+            
+            
+        <container class="pageWrapper">  
+
+      <!-- Hero Img with main text and subtext -->
+      
+      <figure class="heroImg" alt="The Lobby of a Large Circular Library">
+        <figcaption class="heroImg__caption heroImg__caption--lg">Books.</figcaption>
+        <figcaption class="heroImg__caption">Read em & weep</figcaption>
+      </figure>
+      
+      
+      <!-- section title paragraph button-->
+      <article class="mainContent"> 
+        <header class="mainContent__header">Welcome to the Library</header>
+
+        <section class="mainContent__text">
+
+          <p>Lorem ipsum dolor sit amet. At nobis galisum rem inventore tempore ut omnis asperiores et dicta facilis ut autem eos facilis voluptatem et eligendi neque. Eum nihil reprehenderit aut ullam magnam cum rerum magnam! </p>
+          <button class="btn mainContent__text--btn">See Books</button>
+        
+          <p>Lorem ipsum dolor sit amet. At nobis galisum rem inventore tempore ut omnis asperiores et dicta facilis ut autem eos facilis voluptatem et eligendi neque. Eum nihil reprehenderit aut ullam magnam cum rerum magnam! </p>
+          <button class="btn mainContent__text--btn">Add a Book</button>
+
+        </section>
+      </article>
+      
+    </container>
+
+      <!-- footer copyright -->
+        <footer class="footer">
+            Copyright 2020 ya boi
+        </footer>    
+  </body>
+</html>
