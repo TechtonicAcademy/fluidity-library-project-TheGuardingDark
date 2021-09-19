@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+    <title>The Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://kit.fontawesome.com/2066c41de0.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
+    <link rel="stylesheet" href="./assets/styles/scss/add.scss" />
+
+    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
+    <script src="assets/js/index.js"></script>
+  </head>
+    <body class="bodyWrapper"> 
+        <nav class="nav">
+            <container class="nav__container">                    
+                    <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
+                    <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
+                    <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
+                    <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
+                    <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+                    <button class="btn nav__search nav__search--btn">Search</button>
+                    <div class="hamburger" onClick="myFunction(this)">
+                        <div class="hamburger__bar1"></div>
+                        <div class="hamburger__bar2"></div>
+                        <div class="hamburger__bar3"></div>
+                    </div>
+                </container>
+            </nav>
+
+            <container class="pageWrapper">   
+              <header class="header">Add Book</header>
+              <form action="" class="form wrapper grid">
+                <main class="wrapper__card card grid"> 
+
+                  <section class="card__title grid">
+                    <label>Title</label>
+                    <input type="text" class="card__title--input">
+                  </section>
+                  <section class="card__author grid">
+                    <label>Author</label>
+                    <input type="text" class="card__author--input">
+                  </section>
+
+                  <figure class="bookCoverMobile grid">
+                    <!--  -->
+                    <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
+                    <button class="btn bookCoverMobile__btn">Add Image</button>
+                    <!--  -->
+                  </figure>
+
+                  <section class="card__synopsis grid">
+                    <label>Synopsis</label>
+                    <input type="text" class="card__synopsis--input">
+                  </section>
+                
+                  <section class="card__published grid">
+                    <label>Published</label>
+                    <select class="card__published--input">
+                        <option value="0"></option>
+                    </select>
+                  </section>
+                
+                  <section class="card__pages grid">
+                    <label>Pages</label>
+                    <select class="card__pages--input" name="pages">
+                        <option value=""></option>
+                    </select>
+                  </section>
+                
+                  <section class="card__rating grid">
+                    <label for="card__rating--text" class="card__rating--text">Rating</label>
+                        <container class="card__rating--stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </container>
+                  </section> 
+                </main>
+
+                <section class="card__buttons">
+                  <button class="btn card__buttons--submit">Add Book</button>
+                  <button class="btn card__buttons--cancel">Cancel</button>
+                </section>
+
+                <figure class="bookCover wrapper__bookcover grid">
+                  <!--  -->
+                  <placeholder class="bookCover__img">
+                    <label class="bookCover__img--text">Add Image</label>
+                  </placeholder>
+                  <button class="btn bookCover__img--btn">Add Image</button>
+                  <!--  -->
+                </figure>
+
+              </form>
+            </container>
+
+            <footer class="footer">
+              Copyright 2020 ya boi
+          </footer>
+    </body>
+</html>
