@@ -56,7 +56,7 @@
                 border-radius: .5rem;
             }
             &--btn {
-                justify-self: left;
+                justify-self: center;
                 height: 2.3rem;
                 width: 5.5rem;
                 border-radius: .7rem;
@@ -69,6 +69,7 @@
         }        
     }
 }
+
 
 @mixin mobileNav {
 
@@ -154,6 +155,7 @@
         }
 }
 
+
 @mixin editForm {
     grid-column: 1/2;
     justify-self: self-end;
@@ -191,6 +193,7 @@
         text-align: center;
         font-size: 1rem;
         background-color: v.$beige;
+
         color: v.$coffee;
         margin: 0;
         padding: 1rem;
