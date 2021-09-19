@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett">
+    <title>The Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://kit.fontawesome.com/2066c41de0.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
+    <script src="assets/js/index.js"></script>
+  </head>
+    <body>
+        <wrapper class="bodyWrapper">
+
+            
+            <!--  -->
+            
+            <nav class="nav">
+                <container class="nav__container">
+                    
+                    <!-- <ul class="nav__list"> -->
+                        <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
+                        <li class="nav__item"><a class="nav__item--link" href="#">Home</a></li>
+                        <li class="nav__item"><a class="nav__item--link" href="#">Bookshelf</a></li>
+                        <li class="nav__item"><a class="nav__item--link" href="#">Add Book</a></li>
+                        <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+                        <button class="btn nav__search nav__search--btn">Search</button>
+                        <div class="mobileNav" onClick="myFunction(this)">
+                            <div class="mobileNav__container--bar1"></div>
+                            <div class="mobileNav__container--bar2"></div>
+                            <div class="MobileNav__container--bar3"></div>
+                        </div>
+                        <!-- </ul> -->
+                    </container>
+                </nav>
+                
+                
+                <div class="pageWrapper">   
+                    <header class="header">Edit Book</header>
+                    
+                    <!--  -->
+                    <!--  -->
+                    <form action="" class="form wrapper grid">
+                        
+                        <main class="wrapper__card card grid"> 
+                            <!--  -->
+                            <!--  -->
+                            
+                            <section class="card__title grid">
+                                <label>Name</label>
+                                <input type="text" class="card__title--input" placeholder="Snuff">
+                            </section>
+                            
+                            <section class="card__author grid">
+                                <label>Author</label>
+                                <input type="text" class="card__author--input" placeholder="Terry Pratchett">
+                            </section>
+                            
+                            <section class="card__synopsis grid">
+                                <label>Synopsis</label>
+                                <input type="text" class="card__synopsis--input" placeholder="Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.">
+                            </section>
+                            
+                            <section class="card__published grid">
+                                <label>Published</label>
+                                <select class="card__published--input">
+                                    <option value="0">10/11/2011</option>
+                                </select>
+                            </section>
+                            
+                            <section class="card__pages grid">
+                                <label>Pages</label>
+                                <select class="card__pages--input" name="pages">
+                                    <option value="">378</option>
+                                </select>
+                            </section>
+                            
+                            <section class="card__rating grid">
+                                <label for="card__rating--text" class="card__rating--text">Rating</label>
+                                <!-- <select class="card__rating--stars"> -->
+                                    <container class="card__rating--stars">
+                                        <i class="fas fa-star checked"></i>
+                                        <i class="fas fa-star checked"></i>
+                                        <i class="fas fa-star checked"></i>
+                                        <i class="fas fa-star checked"></i>
+                                        <i class="fas fa-star"></i>
+                                    </container>
+                                    <!-- </select> -->
+                                </section> 
+                                
+                            </main>
+                            <section class="card__buttons">
+                                <button class="btn card__buttons--submit">Submit</button>
+                                <button class="btn card__buttons--cancel">Cancel</button>
+                            </section>
+                            <!--  -->
+                            
+                            
+                            <figure class="bookCover wrapper__bookcover grid">
+                                <!--  -->
+                                <img class="bookCover__img" src="assets/images/snuff.jpg" alt="Book Cover">
+                                <button class="btn bookCover__img--btn">Change Image</button>
+                                <!--  -->
+                            </figure>
+                            
+                            
+                            
+                            <!-- </container> -->
+                            
+                        </form>   
+                        
+                        <footer class="footer">
+                            <h4>Copyright 2020 ya boi</h4>
+                        </footer>
+                        
+                    </div>
+        </wrapper>
+    </body>
+</html>
