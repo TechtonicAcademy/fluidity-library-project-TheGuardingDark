@@ -14,39 +14,37 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
+
+    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
     <script src="assets/js/index.js"></script>
   </head>
-    <body>
-        <wrapper class="bodyWrapper">
+    <body class="bodyWrapper"> 
 
-            
-            <!--  -->
+            <!-- NAVBAR -->
             
             <nav class="nav">
-                <container class="nav__container">
-                    
+                <container class="nav__container">                    
                     <!-- <ul class="nav__list"> -->
                         <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
-                        <li class="nav__item"><a class="nav__item--link" href="#">Home</a></li>
-                        <li class="nav__item"><a class="nav__item--link" href="#">Bookshelf</a></li>
-                        <li class="nav__item"><a class="nav__item--link" href="#">Add Book</a></li>
+                        <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
+                        <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
+                        <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
                         <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
                         <button class="btn nav__search nav__search--btn">Search</button>
-                        <div class="mobileNav" onClick="myFunction(this)">
-                            <div class="mobileNav__container--bar1"></div>
-                            <div class="mobileNav__container--bar2"></div>
-                            <div class="MobileNav__container--bar3"></div>
+                        <div class="hamburger" onClick="myFunction(this)">
+                            <div class="hamburger__bar1"></div>
+                            <div class="hamburger__bar2"></div>
+                            <div class="hamburger__bar3"></div>
                         </div>
                         <!-- </ul> -->
                     </container>
                 </nav>
                 
                 
-                <div class="pageWrapper">   
+
+            <container class="pageWrapper">   
                     <header class="header">Edit Book</header>
                     
-                    <!--  -->
-                    <!--  -->
                     <form action="" class="form wrapper grid">
                         
                         <main class="wrapper__card card grid"> 
@@ -54,7 +52,9 @@
                             <!--  -->
                             
                             <section class="card__title grid">
-                                <label>Name</label>
+
+                                <label>Title</label>
+
                                 <input type="text" class="card__title--input" placeholder="Snuff">
                             </section>
                             
@@ -62,6 +62,15 @@
                                 <label>Author</label>
                                 <input type="text" class="card__author--input" placeholder="Terry Pratchett">
                             </section>
+                            
+
+                            <figure class="bookCoverMobile grid">
+                                <!--  -->
+                                <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
+                                <button class="btn bookCoverMobile__btn">Change Image</button>
+                                <!--  -->
+                            </figure>
+                            
                             
                             <section class="card__synopsis grid">
                                 <label>Synopsis</label>
@@ -110,17 +119,13 @@
                                 <!--  -->
                             </figure>
                             
-                            
-                            
-                            <!-- </container> -->
-                            
+
                         </form>   
-                        
-                        <footer class="footer">
-                            <h4>Copyright 2020 ya boi</h4>
-                        </footer>
-                        
-                    </div>
-        </wrapper>
+                </container>   
+                <!-- FOOTER -->
+            <footer class="footer">
+                Copyright 2020 ya boi
+            </footer>
+
     </body>
 </html>
