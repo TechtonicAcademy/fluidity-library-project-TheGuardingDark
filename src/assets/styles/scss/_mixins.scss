@@ -1,6 +1,7 @@
 
 @use "./variables" as v;
 
+
 @mixin navObj {
     font-family: Arial, Helvetica, sans-serif;
     color: lighten(v.$coffee, 20%);
@@ -11,10 +12,10 @@
 
 
 
+
 @mixin navBar {
     .nav {
         height: 20rem;
-
         overflow: hidden;
         z-index: 10;
         &__container {
@@ -78,7 +79,7 @@
     .nav {
 
         overflow: hidden;
-        background-color: gold;
+        background-color: v.$coffee;
         height: 10rem;
         position: relative;
         &__container {
@@ -198,6 +199,6 @@
         margin: 0;
         padding: 1rem;
         text-align: center;
-}
 
+}
 

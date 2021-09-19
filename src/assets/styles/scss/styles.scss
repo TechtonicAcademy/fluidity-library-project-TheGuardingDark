@@ -14,67 +14,12 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     width: 100%;
-    background-color: v.$coffee;
+    background-color: v.$beige;
     margin: 0;
 }
 
 .nav {
-    background-color: v.$coffee;
-    height: 4rem;
-    width: 100%; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 10;
-    &__list {
-        margin-top: .7rem;
-    }
-    &__item  {
-        list-style-type: none;
-        display: inline;
-        margin-right: 2.8rem;
-
-        &--logo {
-            @include m.navObj;
-            font-size: 2rem;
-            color: v.$beige;
-        }
-        
-        &--link {
-            &:hover {
-                color: v.$brown;
-            }
-            &:active {
-                color: v.$beige;
-            }
-            @include m.navObj;           
-            }
-        }
-    &__search {
-        position: relative;
-        right: -13.9rem;
-        top: -.2rem;
-        &--form {
-           height: 2.1rem;
-           width: 17rem;
-           font-size: 1rem;
-           padding-left: .6rem;
-           border-radius: .5rem;
-       }
-       &--btn {
-           height: 2.3rem;
-           width: 5.5rem;
-           border-radius: .7rem;
-           border: 2px solid cyan;
-           color: cyan;
-           font-size: 1rem;
-           background-color: v.$coffee;
-           margin-left: .8rem;
-           
-       }
-    }
-    
+    @include m.navBar;    
 }
 
 .heroImg {
@@ -99,7 +44,6 @@ body {
             padding-top: 6rem;
         }
     }
-
 }
 
 .mainContent {
@@ -131,11 +75,7 @@ body {
 }
 
 .footer {
-    text-align: center;
-    font-size: 1rem;
-    h4 {
-        color: v.$beige;
-    }
+    @include m.footer;
 }
 
 
@@ -158,6 +98,33 @@ body {
         }
     }
 }
+
+// // EDIT BOOK DESKTOP
+
+//     .editBook {
+//         &__header {
+//             text-align: center;
+//             margin: 9% 0 5%;
+//             font-size: 3rem;
+//         }
+//         &__form {
+//             font-size: 2rem;
+//             display: inline-grid;
+//             grid-template-columns: 44rem auto;
+//             grid-template-rows: 6rem 6rem 16rem 6rem 6rem;
+//             margin: 1rem 8rem;
+//         }
+//         &__titleAuthor {
+//             &--text {
+//                 padding-right: 2rem;
+//             }
+//         }
+//         &__bookImg {
+//             &--img {
+//                 width: 17rem;
+//             }
+//         }
+//     }
 
 @media only screen and (max-width: 1200px) {
     html {
@@ -188,6 +155,9 @@ body {
     html {
         font-size: 9.5px;
     }
+    .nav {
+        height: 4rem;
+    }
     .mainContent {
         &__text {
             &--btn {
@@ -206,16 +176,17 @@ body {
         overflow: hidden;
         background-color: v.$coffee;
         height: 8rem;
+        position: relative;
         &__item {
             display: block;
-            padding: 1rem;
+            padding: 1rem 0 1rem 6rem;
             &--logo {
                 font-size: 3.7rem;
-                margin-left: -3rem;
+                margin-left: -8rem;
             }
             &--link {
                 font-size: 4.3rem;
-                margin-left: 11rem;
+                margin-left: 5rem;
                 display: none;
             }
         }
@@ -223,9 +194,9 @@ body {
             display: none;
         }
         &__container {
-            position: fixed;
-            right: 4rem;
-            top: 2rem;
+            position: absolute;
+            top: 1.8rem;
+            left: 42rem;
             &--bar1,
             &--bar2,
             &--bar3 {
@@ -249,8 +220,135 @@ body {
         }
     }
 
+// EDIT BOOK PAGE
+
+
+    // .editContain {
+    //     margin: 1rem 0rem;
+    // }
+    .editBook {
+        display: block;
+        background-color: v.$beige;
+        text-align: center;
+        font-size: 3rem;
+        &__header {
+            font-size: 5rem;
+            padding-top: 4rem;
+        }
+        &__titleAuthor {
+            display: grid;
+            margin: 2rem;
+            // font-size: 3rem;
+            &--text {
+                margin: 1rem;
+            }
+            &--input {
+                height: 4rem;
+                border-radius: 7px;
+                padding-left: 1rem;
+                font-size: 2rem;
+            }
+        }
+        &__bookImg {
+            margin-top: 5rem;
+            &--img {
+                width: 80%;
+            }
+            &--btn {
+                margin: 2rem;
+                height: 5rem;
+                width: 21rem;
+                border-radius: .7rem;
+                color: v.$beige;
+                font-size: 2.1rem;
+                background-color: lighten(v.$coffee, 20%);     
+            }
+        }
+        &__synopsis {
+            display: grid;
+            margin: 1rem 3rem;
+            &--title {
+                margin-bottom: 1rem;
+            }
+            &--textBox {
+                height: 24rem;
+                font-size: 2rem;
+                padding: 2rem;
+            }
+        }
+        &__details {
+            display: grid;
+            &--title {
+                font-size: 3rem;
+                padding: 2rem;
+            }
+            &--menu {
+                height: 4rem;
+                border-radius: 7px;
+                padding-left: 1rem;
+                font-size: 2rem;
+                margin: 0 14rem;
+            }
+            &--pages {
+                height: 4rem;
+                border-radius: 7px;
+                padding: 1rem;
+                font-size: 3rem;
+                margin: 1rem 16rem;
+            }
+            &--pageNo {
+                margin: 1rem 16rem;
+                padding: .7rem;
+                font-size: 2rem;
+                border-radius: 7px;
+            }
+        }
+        &__rating {
+            display: grid;
+            padding: 1rem;
+            &--stars {
+                display: block;
+                margin-top: 2rem;
+                color: lighten(grey, 25%);
+                text-shadow: 0 0 3px black;
+                .checked {
+                    color: yellow;
+                }
+            }
+        }
+        &__btns {
+            display: grid;
+            padding: 3rem;
+            margin: 0 12rem;
+            &--submit {
+                padding: 1rem;
+                margin-top: 6rem;
+                font-size: 2rem;
+                color: v.$beige;
+                background-color: v.$coffee;
+                border-radius: 8px;
+            }
+            &--cancel {
+                padding: 1rem;
+                margin-top: 3rem;
+                font-size: 2rem;
+                color: black;
+                border-radius: 8px;
+                background-color: lighten(grey, 75%);
+                margin-bottom: 4rem;
+            }
+        }
+    }
+
+    .footer h4 {
+        margin: 1rem 0;
+    }
+    
+
+// LANDING PAGE
     .heroImg {
         height: 30rem;
+        top: 0rem;
         &__caption {
             font-size: 3.3rem;
             &--lg {
@@ -262,10 +360,10 @@ body {
     
     .mainContent {
         height: 55rem;
+        margin-top: 0;
         p {
             margin-bottom: 3rem;
         }
-        margin-top: 4rem;
         &__header {
             font-size: 4.5rem;
         }
@@ -288,10 +386,28 @@ body {
 
 @media only screen and (max-width: 425px) {
 
+    .nav {
+        &__container {
+            left: 38rem;
+        }
+        &__item {
+            &--link {
+                margin-left: 1rem;
+            }
+        }
+    }
     .container {
         position: relative;
         right: -8rem;
     }
+    .editBook {
+        &__btns {
+            padding: 0;
+        }
+    }
+    // .editContain {
+    //     margin: 1rem;
+    // }
 
     .heroImg {
         height: 31rem;
@@ -317,14 +433,18 @@ body {
 
 @media only screen and (max-width: 375px) {
 
+
     .nav {
         &__item {
             &--logo {
                 top: -1rem;
             }
             &--link {
-                margin-left: 6rem;
+                margin-left: 0rem;
             }
+        }
+        &__container {
+            left: 34rem;
         }
     }
 
@@ -332,6 +452,9 @@ body {
         right: -3rem;
     }
 
+    .editContain {
+        width: fit-content;
+    }
 
     .heroImg {
         background-size: 257%;
@@ -360,4 +483,3 @@ body {
         }
     }
 }
-
