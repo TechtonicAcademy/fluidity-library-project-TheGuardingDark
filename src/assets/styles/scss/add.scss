@@ -1,0 +1,126 @@
+@use "./variables" as v;
+
+.card {
+    &__buttons {
+        grid-column: 1/6;
+        justify-self: center;
+        margin-right: -5rem;
+        &--cancel {
+            background-color: lighten(v.$coffee, 75%);
+            color: black;
+            border: 0;
+        }
+    }
+}
+.bookCover {
+    &__img {
+        background-color: lighten(v.$coffee, 75%);
+        justify-self: center;
+        margin-bottom: 2rem;
+        position: relative;
+        &--text {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &--btn {
+            background-color: lighten(v.$coffee, 25%);
+            height: 2.5rem;
+        }
+    }
+}
+
+// BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
+
+@media only screen and (max-width: 1025px) {
+    html {
+        font-size: 14px;
+    }
+    .nav .nav {
+        &__item {
+            margin-right: 0;
+            &--logo {
+                font-size: 3rem;
+            }
+            &--link {
+                font-size: 1.5rem;
+            }       
+        }
+        &__search {
+            &--form {
+                height: 2.5rem;
+            }
+        }
+    }
+    .wrapper {
+        grid-template-rows: 2fr .5fr;
+        margin: -2rem 5rem -4rem 0;
+    }
+    .header {
+        padding-top: 2rem;
+    }
+    .card {
+        &__buttons {
+            padding-bottom: 6rem;
+            margin-top: -4rem;
+            align-self: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .wrapper {
+            margin-bottom: -3rem;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    html {
+        font-size: 12px;
+    }
+    .nav {
+        .nav{
+            &__container {
+                grid-template-columns: 2fr .5fr 1fr 1fr 2fr 1fr;
+            }
+            &__item {
+                &--logo {
+                    margin-right: 1rem;
+                }
+                &--addBook {
+                    justify-self: baseline;
+                }
+            }
+            &__search {
+                &--form {
+                    width: 15rem;
+                }
+                &--btn {
+                    justify-self: center;
+                }
+            }
+        }
+    }
+    .wrapper {
+        margin-left: 1rem;
+        &__card {
+            row-gap: 3rem;
+        }
+    }
+    .card {
+        &__published {
+            &--input {
+                margin-right: 0;
+            }
+        }
+        &__pages {
+            margin-left: 0;
+        }
+    }
+}
+
+
+// MOBILE BREAKPOINTS 480px - 375px

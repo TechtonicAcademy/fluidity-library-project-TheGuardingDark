@@ -17,4 +17,4 @@ function myFunction(x) {
             // nav[0].style.height = "30rem";
             // img[0].style.margin = "25rem 0 0 0";
         }    
-}
+    }}

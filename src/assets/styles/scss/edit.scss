@@ -8,7 +8,7 @@
 
     
     html {
-        font-size: 14px;
+        font-size: 15px;
         overflow: hidden;
         height: 100%;
 
@@ -153,10 +153,10 @@
             }
         }
         &__buttons {
-            grid-column: none;
-            position: relative;
-            right: 28rem;
-            margin-left: 2rem;
+            grid-column: 2/4;
+            justify-self: end;
+            // right: 28rem;
+            // margin-left: 2rem;
             &--submit {
                 margin-right: 3rem;
             }
