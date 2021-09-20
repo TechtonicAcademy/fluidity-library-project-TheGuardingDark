@@ -54,6 +54,9 @@
             }
         }
     }
+    .pageWrapper {
+        padding-bottom: 4rem;
+    }
     .wrapper {
         grid-template-rows: 2fr .5fr;
         margin: -2rem 5rem -4rem 0;
@@ -123,4 +126,172 @@
 }
 
 
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 11px;
+    }
+    .wrapper {
+        margin-right: 3rem;
+        &__bookcover {
+            grid-column: 4/6;
+        }
+    }
+    .bookCover {
+        grid-template-rows: 1.5fr .5fr;
+        &__img {
+            width: 100%;
+            &--btn {
+                height: 3.5rem;
+                margin-top: 2.3rem;
+            }
+        }
+    }
+    .card {
+        &__pages {
+            label {
+                margin-right: 1rem;
+            }
+        }
+        &__buttons {
+            padding-bottom: 0;
+        }
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+}
 // MOBILE BREAKPOINTS 480px - 375px
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+    .nav {
+        .nav{
+            &__item {
+                &--logo {
+                    margin-right: -10rem;
+                }
+            }
+        }
+    }
+    .hamburger {
+        grid-column: 6;
+        justify-self: left;
+    }
+    .pageWrapper {
+        padding-bottom: 9rem;
+    }
+    .wrapper {
+        margin: 0 4rem 0 4rem;
+        .card {
+            label {
+                font-size: 2rem;
+            }
+            &__published {
+                &--input {
+                    margin-left: 2rem;
+                }
+            }
+            &__buttons {
+                margin-top: 34rem;
+            }
+            &__pages {
+                padding: 0;
+                grid-template-columns: none;
+                &--input {
+                    width: 11rem;
+                }
+            }
+            &__rating {
+                margin-left: 4.5rem;
+                &--stars {
+                    padding-left: 1rem;
+                }
+            }
+        }
+    }
+    .mobileCoverCard {
+        max-width: 70%;
+        height: 35%;
+        display: grid;
+        grid-template-rows: 2fr .5fr;
+        margin: 4rem auto;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        position: relative;
+        background-color: lighten(v.$coffee, 75%);
+        &__text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &--innerText {
+                font-size: 2rem;
+            }
+        }
+        &__btn {
+            grid-row: 2;
+            display: inline-block;
+            justify-self: center;
+            background-color: lighten(v.$coffee, 25%);
+        }
+    }
+    .card {
+        &__published {
+            &--input {
+                margin-right: 6;
+            }
+        }
+        &__pages {
+            &--input {
+                width: 12rem;
+            }
+        }
+        &__buttons {
+            padding-bottom: 2rem;
+        }
+    }
+
+    .footer {
+        font-size: 2rem;
+        height: 6rem;
+        padding-top: 2rem;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+.wrapper .card {
+        &__pages {
+            column-gap: 0;
+        }
+        &__rating {
+            margin-left: 2.5rem;
+        }
+        &__buttons {
+            margin-top: 32rem;
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    html {
+        font-size: 14px;
+    }
+    .nav .nav {
+        &__container {
+            padding: 0 1rem 0 2rem;
+        }
+    }
+    .wrapper {
+        margin: 0;
+        .card {
+            &__pages {
+                &--input {
+                    width: 8rem;
+                }
+            }
+        }
+    }
+}

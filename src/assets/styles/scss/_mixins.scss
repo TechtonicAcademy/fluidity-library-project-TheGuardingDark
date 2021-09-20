@@ -87,7 +87,9 @@
             height: 8rem;
             align-items: center;
             grid-template-columns: 2fr 1.5fr 2fr;
+            padding: 0 4rem;            
         }
+
         &__mobile {
             &--home {
                 grid-row: 2;
@@ -197,8 +199,11 @@
         font-size: 2rem;
         background-color: v.$beige;
         color: v.$coffee;
-        margin: 0;
-        padding: 1rem;
-        text-align: center;
+        bottom: 0;
+        width: 100%;
+        height: 3rem;
+        grid-row: 3;
+        margin-top: 0;
+        position: absolute;
 }
 
