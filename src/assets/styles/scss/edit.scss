@@ -9,7 +9,6 @@
     
     html {
         font-size: 15px;
-        overflow: hidden;
         height: 100%;
 
     }
@@ -19,20 +18,16 @@
         overflow-x: hidden;
         min-height: 100vh;
         width: 100%;
-    }
-     
-
-    .bodyWrapper {
-        position: absolute;
+        position: relative;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        overflow: auto;
+        display: grid;
     }
 
     .pageWrapper {
-        flex: 1;
+        padding-bottom: 3rem;
     }
     
 
@@ -48,14 +43,17 @@
         text-align: center;
         height: 9rem;
         margin-top: 0rem;
-        padding-top: 4rem;
+        padding-top: 2rem;
     }
 
     .grid {
         display: grid;
     }
-    .bookCoverMobile {
+    .mobileCoverCard {
         display: none;
+        &__btn {
+            display: none;
+        }
     }
 
     .wrapper {
@@ -63,7 +61,7 @@
         grid-template-rows: 2fr .5fr;
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
-        margin: 1rem 5rem -3rem 0;
+        margin: 1rem 6rem -3rem 0;
         &__card {
             grid-column: 1/4;
             grid-row: 1/2;
