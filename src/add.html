@@ -20,6 +20,9 @@
     <script src="assets/js/index.js"></script>
   </head>
     <body class="bodyWrapper"> 
+
+      <!-- NAVBAR -->
+
         <nav class="nav">
             <container class="nav__container">                    
                     <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
@@ -33,12 +36,15 @@
                         <div class="hamburger__bar2"></div>
                         <div class="hamburger__bar3"></div>
                     </div>
-                </container>
-            </nav>
+            </container>
+          </nav>
 
-            <container class="pageWrapper">   
-              <header class="header">Add Book</header>
-              <form action="" class="form wrapper grid">
+      <!-- BODY CONTENT -->
+          <container class="pageWrapper"> 
+
+            <header class="header">Add Book</header>
+
+            <form action="" class="form wrapper grid">
                 <main class="wrapper__card card grid"> 
 
                   <section class="card__title grid">
@@ -50,12 +56,12 @@
                     <input type="text" class="card__author--input">
                   </section>
 
+      <!-- BOOK IMAGE MOBILE -->
                   <figure class="bookCoverMobile grid">
-                    <!--  -->
                     <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
                     <button class="btn bookCoverMobile__btn">Add Image</button>
-                    <!--  -->
                   </figure>
+      <!--                   -->
 
                   <section class="card__synopsis grid">
                     <label>Synopsis</label>
@@ -88,25 +94,30 @@
                   </section> 
                 </main>
 
+      <!--  BUTTONS  -->
+
                 <section class="card__buttons">
                   <button class="btn card__buttons--submit">Add Book</button>
                   <button class="btn card__buttons--cancel">Cancel</button>
                 </section>
 
+      <!-- BOOK IMAGE DESKTOP-->
+
                 <figure class="bookCover wrapper__bookcover grid">
-                  <!--  -->
                   <placeholder class="bookCover__img">
                     <label class="bookCover__img--text">Add Image</label>
                   </placeholder>
                   <button class="btn bookCover__img--btn">Add Image</button>
-                  <!--  -->
                 </figure>
 
-              </form>
-            </container>
+            </form>
+          </container>
 
-            <footer class="footer">
-              Copyright 2020 ya boi
+        <!-- FOOTER -->
+
+          <footer class="footer">
+            Copyright 2020 ya boi
           </footer>
+
     </body>
 </html>

@@ -20,7 +20,7 @@
         z-index: 10;
         &__container {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 2fr 1fr;
             background-color: v.$coffee;
             text-align: center;
         }
@@ -49,7 +49,7 @@
         }
         &__search {
             align-self: center;
-            justify-self: center;
+            // justify-self: center;
             right: -33.9rem;
             top: -.2rem;
             &--form {
@@ -58,9 +58,10 @@
                 font-size: 1rem;
                 padding-left: .6rem;
                 border-radius: .5rem;
+                justify-self: end;
             }
             &--btn {
-                justify-self: left;
+                justify-self: center;
                 height: 2.3rem;
                 width: 5.5rem;
                 border-radius: .7rem;
