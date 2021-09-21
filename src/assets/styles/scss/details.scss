@@ -30,6 +30,9 @@ html {
         }
     }
 }
+.mobileStars {
+    display: none;
+}
 .card {
     &__rating {
         grid-column: 1/2;
@@ -80,6 +83,14 @@ html {
         &--synopsis {
             font-size: 1.5rem;
         }
+        &--rating {
+            display: none;
+        }
+    }
+}
+.bookCoverMobile {
+    &__img {
+        display: none;
     }
 }
 .footer {
@@ -195,5 +206,101 @@ html {
                 }
             }
         }
+    }
+}
+
+// MOBILE BREAKPOINTS 480px - 375px
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+    .nav {
+        .nav {
+            &__container {
+                column-gap: 3rem;
+            }
+            &__item {
+                &--logo {
+                    font-size: 4rem;
+                    margin-right: -15rem;
+                }
+            }
+        }
+    }
+    .pageWrapper {
+        grid-template-columns: 1fr;
+        padding: 3rem 3rem 1rem 2rem;
+    }
+    .book {
+        justify-items: center;
+        grid-template-rows: .5fr 3fr auto;
+        &__text {
+            &--author {
+                font-size: 3rem;
+            }
+            &--synopsis {
+                text-align: center;
+            }
+            &--pages,
+            &--published {
+                font-size: 2rem;
+            }
+            &--rating {
+                font-size: 2.5rem;
+            }
+        }
+    }
+    .bookCoverMobile {
+        &__img {
+            display: block;
+            max-width: 100%;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+    }
+
+    .card {
+        &__buttons {
+            grid-template-columns: auto;
+            justify-items: center;
+            row-gap: 3rem;
+            &--cancel {
+                grid-row: 2;
+                height: 4.5rem;
+            }
+            &--submit {
+                margin-right: 0;
+                height: 4.5rem;
+            }
+        }
+    }
+    .mobileStars {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        @include m.stars;
+    }
+    .footer {
+        height: 6rem;
+    }
+}
+@media only screen and (max-width: 425px) {
+    html {
+        font-size: 11px;
+    }
+    .card {
+        &__buttons {
+            margin-top: -3rem;
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    html {
+        font-size: 9px;
+    }
+    .hamburger {
+        grid-column: 5;
+        justify-self: center;
     }
 }
