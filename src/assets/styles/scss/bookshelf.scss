@@ -1,0 +1,28 @@
+@use "./mixins" as m;
+@use "./variables" as v;
+
+.pageWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5rem;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 3rem;
+    margin: 3rem 0 3rem 0;
+}
+.bookCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    margin: auto;
+    text-align: center;
+    &__img {
+        max-width: 55%;
+        padding: 2rem 0 2rem 0;
+    }
+    &__container {
+        &--title {
+            font-size: 3rem;
+        }
+        &--author {
+            font-size: 2rem;
+        }
+    }
+}
