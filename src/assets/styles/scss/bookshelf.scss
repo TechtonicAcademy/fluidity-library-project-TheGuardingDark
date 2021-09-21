@@ -26,3 +26,36 @@
         }
     }
 }
+
+// BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
+
+@media only screen and (max-width: 1200px) {
+    .pageWrapper {
+        margin-top: 0;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .nav {
+        &__container {
+            padding: 0 1rem;
+        }
+    }
+    .pageWrapper {
+        column-gap: 8rem;
+        row-gap: 4rem;
+    }
+    .bookCard {
+        &__container {
+            &--title {
+            margin-top: -1.5rem;
+            font-size: 2.5rem;
+            } 
+            &--author {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+
+// MOBILE BREAKPOINTS 480px - 375px
