@@ -12,62 +12,35 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/scss/styles.scss" />
+    <link rel="stylesheet" href="./assets/styles/scss/index.scss" />
     <script src="assets/js/index.js"></script>
   </head>
-  <body class="page">
-    <!-- NavBar with title 3 links search form -->
-    
+  <body class="bodyWrapper">
+
     <nav class="nav">
-      <container class="nav__container">
-
-          <!-- <ul class="nav__list"> -->
-              <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
-              <li class="nav__item"><a class="nav__item nav__item--link" href="#">Home</a></li>
-              <li class="nav__item"><a class="nav__item--link" href="#">Bookshelf</a></li>
-              <li class="nav__item"><a class="nav__item--link" href="#">Add Book</a></li>
-              <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
-              <button class="btn nav__search nav__search--btn">Search</button>
-              <div class="nav__container" onClick="myFunction(this)">
-                  <div class="nav__container--bar1"></div>
-                  <div class="nav__container--bar2"></div>
-                  <div class="nav__container--bar3"></div>
-              </div>
-          <!-- </ul> -->
+      <container class="nav__container">                    
+          <li class="nav__item nav__item--logo"><a class="nav__item--logo" href="#">The Library</a></li>
+          <li class="nav__item nav__item--home"><a class="nav__item--link" href="#">Home</a></li>
+          <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
+          <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
+          <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+          <button class="btn nav__search nav__search--btn">Search</button>
+          <div class="hamburger" onClick="myFunction(this)">
+              <div class="hamburger__bar1"></div>
+              <div class="hamburger__bar2"></div>
+              <div class="hamburger__bar3"></div>
+          </div>
       </container>
-  </nav>
+    </nav>
 
-  <div class="wrapper">
+    <container class="pageWrapper grid">
 
-  
-      <!-- Hero Img with main text and subtext -->
-      
-      <figure class="heroImg">
-        <!-- <img src="" class="heroImg__img" alt="The inside of a library"> -->
-        <figcaption class="heroImg__caption heroImg__caption--lg">Books.</figcaption>
-        <figcaption class="heroImg__caption">Read em & weep</figcaption>
-      </figure>
-      
-      
-      <!-- section title paragraph button paragraph button -->
-      <article class="mainContent"> 
-        <header class="mainContent__header">Welcome to the Library</header>
-        <section class="mainContent__text">
-          <p>Lorem ipsum dolor sit amet. At nobis galisum rem inventore tempore ut omnis asperiores et dicta facilis ut autem eos facilis voluptatem et eligendi neque. Eum nihil reprehenderit aut ullam magnam cum rerum magnam! </p>
-          <button class="btn mainContent__text--btn">See Books</button>
-        </section>
-        
-        <section class="mainContent__text">
-          <p>Lorem ipsum dolor sit amet. At nobis galisum rem inventore tempore ut omnis asperiores et dicta facilis ut autem eos facilis voluptatem et eligendi neque. Eum nihil reprehenderit aut ullam magnam cum rerum magnam! </p>
-          <button class="btn mainContent__text--btn">Add a Book</button>
-        </section>
-      </article>
-      
-      <!-- footer copyright -->
-      <footer class="footer">
-        <h4>Copyright 2020 ya boi</h4>
-      </footer>
-      
-    </div>
+
+    </container>
+    
+    <footer class="footer">
+      Copyright 2020 ya boi
+    </footer>
+
   </body>
 </html>
