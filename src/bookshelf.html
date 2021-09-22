@@ -39,15 +39,17 @@
             </container>
         </nav>
 
+        <container class="searchBar">
+            <input class="searchBar__form" type="text" placeholder="Search by Title/Author">
+            <button class="searchBar__btn" type="submit">
+                <i class="searchBar__btn--icon fas fa-search"></i>
+            </button> 
+        </container>
+
+        <header class="bookCard__header">Release the Kraken of Knowledge!</header>
+        
         <container class="pageWrapper grid">
 
-            <card class="bookCard">
-                <img class="bookCard__img" src="assets/images/snuff.jpg" alt="Book Cover">
-                <container class="bookCard__container">
-                    <header class="bookCard__container--title">Snuff</header>
-                    <p class="bookCard__container--author">Terry Pratchett</p>
-                </container>
-            </card>
 
             <card class="bookCard">
                 <img class="bookCard__img" src="assets/images/snuff.jpg" alt="Book Cover">
@@ -81,7 +83,15 @@
                 </container>
             </card>
 
-            <card class="bookCard">
+            <card class="bookCard bookCard__mobile">
+                <img class="bookCard__img" src="assets/images/snuff.jpg" alt="Book Cover">
+                <container class="bookCard__container">
+                    <header class="bookCard__container--title">Snuff</header>
+                    <p class="bookCard__container--author">Terry Pratchett</p>
+                </container>
+            </card>
+
+            <card class="bookCard bookCard__mobile">
                 <img class="bookCard__img" src="assets/images/snuff.jpg" alt="Book Cover">
                 <container class="bookCard__container">
                     <header class="bookCard__container--title">Snuff</header>
