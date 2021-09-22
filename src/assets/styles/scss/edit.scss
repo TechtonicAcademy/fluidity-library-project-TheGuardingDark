@@ -31,9 +31,9 @@
     
 
 
-    .nav {
-        @include m.navBar;    
-    }
+    // .nav {
+    //     @include m.navBar;    
+    // }
 
     .header {
         grid-column: 1/3;
@@ -178,9 +178,9 @@
     @include m.button;
     }
 
-    .footer {
-    @include m.footer;
-    }
+    // .footer {
+    // @include m.footer;
+    // }
     
 // BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
 
@@ -364,15 +364,15 @@ html {
 
 @media only screen and (max-width: 480px) {
 
-    html {
-        font-size: 10px;
-    }
-    .nav {
-        @include m.mobileNav;
-    }
-    .hamburger {
-        @include m.hamburger;
-    }
+    // html {
+    //     font-size: 10px;
+    // }
+    // .nav {
+    //     @include m.mobileNav;
+    // }
+    // .hamburger {
+    //     @include m.hamburger;
+    // }
     .header {
         font-size: 4rem;
     }
