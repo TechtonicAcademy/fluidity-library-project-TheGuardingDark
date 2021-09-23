@@ -2,16 +2,6 @@
 @use "./variables" as v;
 
 
-// EDIT FORM
-
-@mixin editForm {
-    grid-column: 1/2;
-    justify-self: self-end;
-    align-self: center;
-    font-size: 1.7rem;
-    font-family: initial;
-    margin-right: 3rem;
-};
 
 // STARS
 
@@ -36,7 +26,7 @@
 @mixin button {
     width: 17rem;
     height: 3.5rem;
-    border-radius: 10px;
+    border-radius: 18px;
     font-size: 1.5rem;
     background-color: v.$coffee;
     color: white;

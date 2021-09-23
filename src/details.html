@@ -13,8 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
-    <link rel="stylesheet" href="./assets/styles/scss/add.scss" />
+    <link rel="stylesheet" href="./assets/styles/scss/index.scss">
     <link rel="stylesheet" href="./assets/styles/scss/details.scss" />
 
     <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
@@ -25,8 +24,8 @@
 
         <nav class="nav">
             <container class="nav__container">                    
-                <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
-                <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
+                <li class="nav__item nav__item--logo"><a class="nav__item--logo" href="#">The Library</a></li>
+                <li class="nav__item nav__item--home"><a class="nav__item--link" href="#">Home</a></li>
                 <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
                 <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
                 <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
@@ -38,32 +37,27 @@
                 </div>
             </container>
         </nav>
-
+    
         <container class="pageWrapper grid">
             
-            <figure class="bookCover wrapper__bookcover">
+            <figure class="bookCover wrapper__bookcover grid">
                 <!--  -->
                 <img class="bookCover__img" src="assets/images/snuff.jpg" alt="Book Cover">
 
-                <section class="card__rating">
-                    <!-- <select class="card__rating--stars"> -->
-                        <container class="card__rating--stars">
-                            <i class="fas fa-star checked"></i>
-                            <i class="fas fa-star checked"></i>
-                            <i class="fas fa-star checked"></i>
-                            <i class="fas fa-star checked"></i>
-                            <i class="fas fa-star"></i>
-                        </container>
-                        <!-- </select> -->
-                    </section> 
-                <!--  -->
+                <container class="card__rating">
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star"></i>
+                </container>
             </figure>
             
             <main class="book grid"> 
 
                 <header class="header">Snuff</header>
 
-                <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
+                <img class="mobileImg" src="assets/images/snuff.jpg" alt="Book Cover">
 
                 <p class="book__text book__text--author">Terry Pratchett</p>
                 
