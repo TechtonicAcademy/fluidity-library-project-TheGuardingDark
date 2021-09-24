@@ -13,113 +13,91 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
-    <link rel="stylesheet" href="./assets/styles/scss/add.scss" />
 
-    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
+    <link rel="stylesheet" href="assets/styles/scss/index.scss">
+    <link rel="stylesheet" href="assets/styles/scss/edit.scss">
+    <link rel="stylesheet" href="assets/styles/scss/add.scss">
+
+
     <script src="assets/js/index.js"></script>
   </head>
-    <body class="bodyWrapper"> 
-
-      <!-- NAVBAR -->
+    <body class="bodyWrapper">
 
         <nav class="nav">
             <container class="nav__container">                    
-                    <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
-                    <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
-                    <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
-                    <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
-                    <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
-                    <button class="btn nav__search nav__search--btn">Search</button>
-                    <div class="hamburger" onClick="myFunction(this)">
-                        <div class="hamburger__bar1"></div>
-                        <div class="hamburger__bar2"></div>
-                        <div class="hamburger__bar3"></div>
-                    </div>
+                <li class="nav__item nav__item--logo"><a class="nav__item--logo" href="#">The Library</a></li>
+                <li class="nav__item nav__item--home"><a class="nav__item--link" href="#">Home</a></li>
+                <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
+                <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
+                <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
+                <button class="btn nav__search nav__search--btn">Search</button>
+                <div class="hamburger" onClick="myFunction(this)">
+                    <div class="hamburger__bar1"></div>
+                    <div class="hamburger__bar2"></div>
+                    <div class="hamburger__bar3"></div>
+                </div>
             </container>
-          </nav>
+        </nav>
 
-      <!-- BODY CONTENT -->
-          <container class="pageWrapper"> 
-
-            <header class="header">Add Book</header>
-
-            <form action="" class="form wrapper grid">
-                <main class="wrapper__card card grid"> 
-
-                  <section class="card__title grid">
-                    <label>Title</label>
-                    <input type="text" class="card__title--input">
-                  </section>
-                  <section class="card__author grid">
-                    <label>Author</label>
-                    <input type="text" class="card__author--input">
-                  </section>
-
-      <!-- BOOK IMAGE MOBILE -->                  
-                  <figure class="mobileCoverCard">
-                    <placeholder class="mobileCoverCard__text">
-                      <label class="mobileCoverCard__text--innerText">Add Image</label>
-                    </placeholder>
-                  </figure>
-                  <button class="btn mobileCoverCard__btn">Add Image</button>                    
-      <!--                   -->
-
-                  <section class="card__synopsis grid">
-                    <label>Synopsis</label>
-                    <input type="text" class="card__synopsis--input">
-                  </section>
+        
+        <container class="pageWrapper">
+            <form action="" class="form grid">
                 
-                  <section class="card__published grid">
-                    <label>Published</label>
-                    <select class="card__published--input">
-                        <option value="0"></option>
-                    </select>
-                  </section>
-                
-                  <section class="card__pages grid">
-                    <label>Pages</label>
-                    <select class="card__pages--input" name="pages">
+                <header class="header">Add Book</header>
+
+                <label class="text form__title mobile">Title</label>
+                <input type="text" class="input form__title--input mobile">
+
+                <label class="text form__author mobile">Author</label>
+                <input type="text" class="input form__author--input mobile">
+
+                <label class="text form__synopsis mobile">Synopsis</label>
+                <input type="text" class="input form__synopsis--input mobile">
+
+                <label class="text form__published mobile">Published</label>
+                <select class="form__published--input mobile">
+                    <option value="0"></option>
+                </select>
+
+                <container class="form__pages grid mobile">
+                    <label class="form__pages--text mobile">Pages</label>
+                    <select class="form__pages--input mobile" name="pages">
                         <option value=""></option>
                     </select>
-                  </section>
+                </container>
+
+                <label class="text form__rating mobile">Rating</label>
+
+                <container class="form__rating--stars mobile">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </container>
+
                 
-                  <section class="card__rating grid">
-                    <label for="card__rating--text" class="card__rating--text">Rating</label>
-                        <container class="card__rating--stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </container>
-                  </section> 
-                </main>
-
-      <!--  BUTTONS  -->
-
-                <section class="card__buttons">
-                  <button class="btn card__buttons--submit">Add Book</button>
-                  <button class="btn card__buttons--cancel">Cancel</button>
-                </section>
-
-      <!-- BOOK IMAGE DESKTOP-->
-
-                <figure class="bookCover wrapper__bookcover grid">
-                  <placeholder class="bookCover__img">
-                    <label class="bookCover__img--text">Add Image</label>
-                  </placeholder>
-                  <button class="btn bookCover__img--btn">Add Image</button>
-                </figure>
-
+                
+                <img class="form__img mobile" src="assets/images/snuff.jpg" alt="Book Cover">
+                        <text class="placeholder">Add Image</text>
+                <button class="btn form__img--btn mobile">Add Image</button>
+                
+                
+                
             </form>
-          </container>
 
-        <!-- FOOTER -->
+            <section class="form__btn grid mobile">
+                <button class="btn form__btn--submit mobile">Submit</button>
+                <button class="btn form__btn--cancel mobile">Cancel</button>
+            </section>
 
-          <footer class="footer">
+
+        </container>
+
+        <footer class="footer">
             Copyright 2020 ya boi
-          </footer>
+        </footer>
 
+  
     </body>
 </html>

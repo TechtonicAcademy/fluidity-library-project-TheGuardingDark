@@ -20,7 +20,8 @@
     }
     .input {
         grid-column: 2/4;
-        width: 80%;
+        width: 88%;
+        height: 2rem;
         place-self: center;
         border-radius: 10px;
         font-size: 2.5rem;
@@ -49,10 +50,10 @@
                 @include m.button;
                 justify-self: center;
                 width: 25rem;
-                height: 4.5rem;
+                height: 4rem;
                 font-size: 2rem;
                 background-color: lighten(v.$coffee, 25%);
-                margin-top: 4rem;
+                margin-top: 5rem;
             }
         }
         &__author {
@@ -96,13 +97,16 @@
                 grid-row: 5;
                 grid-column: 2/3;
                 width: 75%;
-                justify-self: end;
+                place-self: end;
                 border-radius: 10px;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 font-family: auto;
                 font-style: italic;
-                padding: 1rem;
-                margin-top: 4rem;
+                padding-left: 1rem;
+                margin-top: 0;
+                margin-bottom:.8rem;
+                height: 3rem;
+                
             } 
         }
         &__rating {
@@ -131,10 +135,11 @@
                 grid-column: 2/3;
                 width: 93%;
                 border-radius: 10px;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 font-family: auto;
                 padding: 0 2rem;
-                height: 5rem;
+                height: 3rem;
+                margin-top: .5rem;
             }
             &--text {
                 grid-row: 1;
@@ -249,12 +254,28 @@
             max-width: 86%;
             &--btn {
                 width: 15rem;
+                height: 3rem;
+            }
+        }
+        &__synopsis {
+            &--input {
+                padding-top: 5rem;
+            }
+        }
+        &__published {
+            &--input {
+                margin: 0;
+                place-self: center end;
             }
         }
         &__pages {
             font-size: 1.5rem;
             padding: 0 2rem;
             column-gap: 0;
+            &--input {
+                height: 3rem;
+                margin-top: 0;
+            }
         }
         &__rating {
             &--stars {
@@ -464,6 +485,7 @@
             &--btn {
                 width: 15rem;
                 height: 3rem;
+                border-radius: 10px;
             }
         }
         &__synopsis {

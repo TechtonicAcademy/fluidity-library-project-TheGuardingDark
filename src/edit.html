@@ -13,14 +13,13 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/scss/index.scss">
-    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
 
-    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
+    <link rel="stylesheet" href="assets/styles/scss/index.scss">
+    <link rel="stylesheet" href="assets/styles/scss/edit.scss">
+
     <script src="assets/js/index.js"></script>
   </head>
     <body class="bodyWrapper">
-              <!-- NAVBAR -->
 
         <nav class="nav">
             <container class="nav__container">                    
@@ -37,87 +36,66 @@
                 </div>
             </container>
         </nav>
-    
-        <container class="pageWrapper grid">
 
-            <header class="header">Edit Book</header>
+        
+        <container class="pageWrapper">
             
-            <form action="" class="form grid"> 
-                        
-                            
-                            <section class="card__title grid">
+            
+            <form action="" class="form grid">
+                
+                <header class="header">Edit Book</header>
 
-                                <label>Title</label>
+                <label class="text form__title mobile">Title</label>
+                <input type="text" class="input form__title--input mobile" placeholder="Snuff">
 
-                                <input type="text" class="card__title--input" placeholder="Snuff">
-                            </section>
-                            
-                            <section class="card__author grid">
-                                <label>Author</label>
-                                <input type="text" class="card__author--input" placeholder="Terry Pratchett">
-                            </section>
-                            
+                <label class="text form__author mobile">Author</label>
+                <input type="text" class="input form__author--input mobile" placeholder="Terry Pratchett">
 
-                            <figure class="bookCoverMobile grid">
-                                <img class="bookCoverMobile__img" src="assets/images/snuff.jpg" alt="Book Cover">
-                                <button class="btn bookCoverMobile__btn">Change Image</button>
-                            </figure>
-                            
-                            
-                            <section class="card__synopsis grid">
-                                <label>Synopsis</label>
-                                <input type="text" class="card__synopsis--input" placeholder="Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.">
-                            </section>
-                            
-                            <section class="card__published grid">
-                                <label>Published</label>
-                                <select class="card__published--input">
-                                    <option value="0">10/11/2011</option>
-                                </select>
-                            </section>
-                            
-                            <section class="card__pages grid">
-                                <label>Pages</label>
-                                <select class="card__pages--input" name="pages">
-                                    <option value="">378</option>
-                                </select>
-                            </section>
-                            
-                            <section class="card__rating grid">
-                                <label for="card__rating--text" class="card__rating--text">Rating</label>
-                                <select class="card__rating--stars">
-                                    <container class="card__rating--stars">
-                                        <i class="fas fa-star checked"></i>
-                                        <i class="fas fa-star checked"></i>
-                                        <i class="fas fa-star checked"></i>
-                                        <i class="fas fa-star checked"></i>
-                                        <i class="fas fa-star"></i>
-                                    </container>
-                                    </select>
-                                <!-- </section>  -->
-                               
-                            </main>
-                            <section class="card__buttons">
-                                <button class="btn card__buttons--submit">Submit</button>
-                                <button class="btn card__buttons--cancel">Cancel</button>
-                            </section>
-                            
-                            
-                            
-                            <figure class="bookCover wrapper__bookcover grid">
-                                
-                                <img class="bookCover__img" src="assets/images/snuff.jpg" alt="Book Cover">
-                                <button class="btn bookCover__img--btn">Change Image</button>
-                                
-                            </figure> 
-                            
+                <label class="text form__synopsis mobile">Synopsis</label>
+                <input type="text" class="input form__synopsis--input mobile" placeholder="Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.">
 
-        </form> 
-        </container>   
-                <!-- FOOTER -->
+                <label class="text form__published mobile">Published</label>
+                <select class="form__published--input mobile">
+                    <option value="0">10/11/2011</option>
+                </select>
+
+                <container class="form__pages grid mobile">
+                    <label class="form__pages--text mobile">Pages</label>
+                    <select class="form__pages--input mobile" name="pages">
+                        <option value="">378</option>
+                    </select>
+                </container>
+
+                <label class="text form__rating mobile">Rating</label>
+
+                <container class="form__rating--stars mobile">
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star checked"></i>
+                    <i class="fas fa-star"></i>
+                </container>
+
+                
+                
+                <img class="form__img mobile" src="assets/images/snuff.jpg" alt="Book Cover">
+                <button class="btn form__img--btn mobile">Change Image</button>
+                
+                
+                
+            </form>
+
+            <section class="form__btn grid mobile">
+                <button class="btn form__btn--submit mobile">Submit</button>
+                <button class="btn form__btn--cancel mobile">Cancel</button>
+            </section>
+
+        </container>
+
         <footer class="footer">
             Copyright 2020 ya boi
         </footer>
 
+  
     </body>
 </html>
