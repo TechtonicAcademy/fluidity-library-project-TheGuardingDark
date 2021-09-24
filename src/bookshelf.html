@@ -13,20 +13,18 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/scss/edit.scss" />
-    <link rel="stylesheet" href="./assets/styles/scss/add.scss" />
-    <link rel="stylesheet" href="./assets/styles/scss/details.scss" />
-    <link rel="stylesheet" href="./assets/styles/scss/bookshelf.scss" />
 
-    <!-- <link rel="stylesheet" href="assets/styles/scss/reset.scss"> -->
+    <link rel="stylesheet" href="./assets/styles/scss/bookshelf.scss" />
+    <link rel="stylesheet" href="assets/styles/scss/index.scss">
+
     <script src="assets/js/index.js"></script>
   </head>
     <body class="bodyWrapper">
 
         <nav class="nav">
             <container class="nav__container">                    
-                <li class="nav__item"><a class="nav__item--logo" href="#">The Library</a></li>
-                <li class="nav__item"><a class="nav__item--link nav__item--home" href="#">Home</a></li>
+                <li class="nav__item nav__item--logo"><a class="nav__item--logo" href="#">The Library</a></li>
+                <li class="nav__item nav__item--home"><a class="nav__item--link" href="#">Home</a></li>
                 <li class="nav__item"><a class="nav__item--link nav__item--bookshelf" href="#">Bookshelf</a></li>
                 <li class="nav__item"><a class="nav__item--link nav__item--addBook" href="#">Add Book</a></li>
                 <input class="nav__search nav__search--form" type="text" placeholder="Search by Title/Author">
@@ -37,8 +35,8 @@
                     <div class="hamburger__bar3"></div>
                 </div>
             </container>
-        </nav>
-
+          </nav>
+      
         <container class="searchBar">
             <input class="searchBar__form" type="text" placeholder="Search by Title/Author">
             <button class="searchBar__btn" type="submit">

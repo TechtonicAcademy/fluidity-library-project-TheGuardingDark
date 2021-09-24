@@ -1,73 +1,59 @@
 
 @use "./mixins" as m;
 @use "./variables" as v;
+@use "./nav" as n;
 
-html {
-    font-size: 16px;
-}
-.bodyWrapper {
-    min-width: fit-content;
-}
 .pageWrapper {
-    grid-template-columns: 1fr .5fr 1fr;
-    grid-template-rows: 2fr .5fr;
-    padding: 2rem 6rem 4rem 5rem;
+    padding: 4rem;
 }
 .nav {
-    .nav {
-        &__container {
-            grid-template-columns: 2fr repeat(3, .5fr) 1.5fr 1fr;
-        }
-        &__item {
-            margin-right: 6rem;
-            min-width: max-content;
-        }
-        &__search {
-            &--btn {
-                justify-self: auto;
-                margin-left: 1rem;
-            }
-        }
-    }
+    @include n.nav;
 }
 .mobileStars {
     display: none;
 }
+.mobileImg {
+    display: none;
+}
 .card {
     &__rating {
-        grid-column: 1/2;
-        grid-row: 2;
-        &--stars {
-            font-size: 2rem;
-            padding-left: 1rem;
-        }
+            font-size: 2.5rem;
+            @include m.stars;
     }
     &__buttons {
         margin: 3rem 0 2rem 0;
+        text-align: center;
+        grid-column: 1/4;
+        &--submit,
+        &--cancel {
+            @include m.button;
+            margin: 0 1rem;
+        }
+        &--cancel {
+            color: black;
+            background-color: lighten(v.$coffee, 75%);
+            border: none;
+        }
     }
 }
 .wrapper {
     &__bookcover {
-        grid-column: 1/3;
-        justify-self: center;
+        grid-column: 1/2;
+        text-align: center;
     }
 }
 .bookCover {
     &__img {
-        justify-self: auto;
-        padding-bottom: 0;
+        justify-self: center;
+        padding-bottom: 2rem;
+        max-width: 84%;
     }
 }
 .header {
-    grid-column: 1/2;
-    text-align: left;
-    height: 0;
-    padding-top: 0;
+    font-size: 4rem;
 }
 .book {
     grid-column: 2/4;
-    grid-row: 1;
-    text-align: left;
     padding: 1rem 8rem 0 4rem;
     grid-template-rows: repeat(4, .5fr) 2fr;
     &__text {
@@ -88,219 +74,147 @@ html {
         }
     }
 }
-.bookCoverMobile {
-    &__img {
-        display: none;
-    }
-}
+
 .footer {
-    height: 4rem;
-    padding-top: 1rem;
+  @include m.footer;
 }
+
+
 
 // BREAKPOINTS LG 1200px - 1025px  MD 1024px - 769px
 
 @media only screen and (max-width: 1200px) {
-    html {
-        font-size: 14px;
-    }
-    .nav {
-        .nav {
-            &__item {
-                margin-right: 4rem;
-            }
-        }
-    }
-    .pageWrapper {
-        padding-top: 5rem;
-    }
-    .bookCover {
-        &__img {
-            width: 70%;
-        }
-    }
     .card {
         &__rating {
-            &--stars {
-                font-size: 3.5rem;
-                padding-left: 1rem;
-            }
-        }
-        &__buttons {
-            margin-top: 5rem;
-        }
-    }
-    .header {
-        padding-top: 0;
-        font-size: 4rem;
-    }
-    .book {
-        grid-template-rows: repeat(4, .5fr) 3fr;
-        padding-right: 3rem;
-        &__text {
-            &--author {
-                font-size: 2.5rem;
-            }
-            &--synopsis {
-                font-size: 2rem;
-            }
-            &--published,
-            &--pages {
-                font-size: 1.8rem;
-            }
+            font-size: 2rem;
         }
     }
 }
 
 @media only screen and (max-width: 1025px) {
-    html {
-        font-size: 12px;
+    .pageWrapper {
+        padding: 5rem 0 6rem 0;
+        grid-template-columns: 2fr 1fr 1fr;
     }
-    .nav {
-        .nav {
-            &__search {
-                &--btn {
-                    justify-self: center;
-                }
-            }
+    .card {
+        &__rating {
+            font-size: 3rem;
         }
     }
-}
-
-@media only screen and (max-width: 1024px) {
-    .nav {
-        .nav {
-            &__container {
-                column-gap: 1rem;
-                grid-template-columns: 2fr repeat(4, 1fr) .5fr;
+    .book {
+        padding: 2rem 5rem 4rem 0;
+        &__text {
+            &--author {
+                font-size: 2rem;
             }
-            &__item {
-                &--logo {
-                    padding-right: 6rem;
-                }
-                &--link {
-                    justify-self: left;
-                }
-                &--home {
-                    padding-left: 1rem;
-                }
-            }
-            &__search {
-                &--btn {
-                    margin: 0 1rem;
-                }
+            &--published,
+            &--synopsis,
+            &--pages {
+                font-size: 1.6rem;
             }
         }
     }
 }
 
 @media only screen and (max-width: 769px) {
-    html {
-        font-size: 9px;
+    .pageWrapper {
+        padding: 2rem 0 5rem 0;
     }
-    .nav {
-        .nav {
-            &__item {
-                &--logo {
-                    padding-right: 5rem;
-                }
+    .card {
+        &__rating {
+            font-size: 2rem;
+        }
+        &__buttons {
+            &--submit,
+            &--cancel {
+                width: 15rem;
+                font-size: 1.2rem;
             }
         }
     }
+    .book {
+        padding: 1rem 4rem 0 0;
+        &__text {
+            &--published,
+            &--synopsis,
+            &--pages {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .bookCover {
+        grid-template-rows: min-content;
+    }
 }
+
+
 
 // MOBILE BREAKPOINTS 480px - 375px
 
 @media only screen and (max-width: 480px) {
-    html {
-        font-size: 12px;
-    }
     .nav {
-        .nav {
-            &__container {
-                column-gap: 3rem;
-            }
-            &__item {
-                &--logo {
-                    font-size: 4rem;
-                    margin-right: -15rem;
-                }
-            }
-        }
+        @include n.mobileNav;
     }
     .pageWrapper {
         grid-template-columns: 1fr;
-        padding: 3rem 3rem 1rem 2rem;
+        padding: 4rem 3rem;
+    }
+    .bookCover {
+        display: none;
+    }
+    .mobileImg {
+        display: block;
+        max-width: 75%;
+        justify-self: center;
     }
     .book {
+        padding: 0;
+        grid-column: 1/2;
+        grid-template-rows: auto;
         justify-items: center;
-        grid-template-rows: .5fr 3fr auto;
+        row-gap: 2rem;
         &__text {
+            font-size: 2.5rem;
             &--author {
                 font-size: 3rem;
             }
-            &--synopsis {
-                text-align: center;
+            &--rating {
+                display: contents;
             }
-            &--pages,
-            &--published {
+            &--published,
+            &--pages {
                 font-size: 2rem;
             }
-            &--rating {
-                font-size: 2.5rem;
-            }
-        }
-    }
-    .bookCoverMobile {
-        &__img {
-            display: block;
-            max-width: 100%;
-            padding: 2rem;
-            margin-top: 1rem;
-        }
-    }
-
-    .card {
-        &__buttons {
-            grid-template-columns: auto;
-            justify-items: center;
-            row-gap: 3rem;
-            &--cancel {
-                grid-row: 2;
-                height: 4.5rem;
-            }
-            &--submit {
-                margin-right: 0;
-                height: 4.5rem;
+            &--synopsis {
+                font-size: 1.5rem;
+                text-align: center;
             }
         }
     }
     .mobileStars {
-        display: block;
-        font-size: 2rem;
-        margin-bottom: 1rem;
         @include m.stars;
-    }
-    .footer {
-        height: 6rem;
-    }
-}
-@media only screen and (max-width: 425px) {
-    html {
-        font-size: 11px;
+        font-size: 3rem;
     }
     .card {
         &__buttons {
-            margin-top: -3rem;
+            &--cancel,
+            &--submit {
+                margin: 1rem;
+            }
         }
     }
+
 }
-@media only screen and (max-width: 375px) {
-    html {
-        font-size: 9px;
+
+@media only screen and (max-width: 425px) {
+    .mobileStars {
+        font-size: 2rem;
     }
-    .hamburger {
-        grid-column: 5;
-        justify-self: center;
+    .book {
+        &__text {
+            &--published {
+                font-size: 1.5rem;
+            }
+        }
     }
 }
