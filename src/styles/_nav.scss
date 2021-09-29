@@ -1,0 +1,104 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+@use "./hamburger" as h;
+
+@mixin nav {
+    .hamburger {
+        display: none;
+    }
+    grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+    align-items: center;
+    background-color: v.$coffee;
+    padding: 0 2rem;
+    &__item {
+        text-decoration: none;
+        color: v.$beige;
+        font-size: 1.4rem;
+        justify-self: center;
+    }
+    &__links {
+        display: contents;
+    }
+    &__search {
+        width: 17rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        padding-left: 1rem;
+        justify-self: center;
+    }
+    .btn {
+        @include m.button;
+        width: 8rem;
+        height: 2.4rem;
+        color: v.$blue;
+        border-color: v.$blue;
+        justify-self: center;
+        font-size: 1rem;
+        &:hover {
+            color: lighten(v.$blue, 50%);
+        }
+        &:active {
+            color: v.$beige;
+            border-color: v.$beige;
+            
+        }
+    }
+
+    @media only screen and (max-width: 1025px) {
+        &__item {
+            font-size: 1.2rem;
+        }
+        &__search {
+            width: 15rem;
+            height: 2.3rem;
+        }
+        .btn {
+            width: 7rem;
+            height: 2.3rem;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        padding: 0 1rem;
+        &__item {
+            font-size: .9rem;
+        }
+        &__search {
+            width: 12rem;
+            height: 1.8rem;
+            font-size: .7rem;
+        }
+        .btn {
+            width: 5rem;
+            height: 2rem;
+            font-size: .8rem;
+        }
+    }
+}
+
+@mixin mobileNav {
+    grid-template-columns: auto;
+    padding: 0 1rem;
+    .hamburger {
+        display: block;
+        @include h.hamburger;
+    }
+    &__item,
+    &__search,
+    .btn {
+        display: none;
+    }
+    &__mobile {
+        display: contents;
+        font-size: 1rem;
+    }
+    @media only screen and (max-width: 425px) {
+        &__mobile {
+            font-size: 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        &__mobile {
+            font-size: 1.2rem;
+        }
+    }
+}
