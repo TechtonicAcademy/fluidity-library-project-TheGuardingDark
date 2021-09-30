@@ -1,9 +1,13 @@
-const Button = ({ text }) => {
+const Button = ({ text, type }) => {
   return (
-    <button type="button" className="btn">
+    <button type={type} className="btn">
       {text}
     </button>
   );
+};
+
+Button.defaultProps = {
+  type: 'button',
 };
 
 export default Button;

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import AddBook from './pages/AddBook';
 import Bookshelf from './pages/Bookshelf';
 import Details from './pages/Details';
@@ -10,32 +10,24 @@ import NotFound from './pages/NotFound';
 
 const App = () => {
   return (
-    <Router>
-      <div className="appContainer">
-        <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <Landing />
-          </Route>
-          <Route path="/bookshelf">
-            <Bookshelf />
-          </Route>
-          <Route path={['/addbook', '/add-book', '/addBook']}>
-            <AddBook />
-          </Route>
-          <Route path="/details">
-            <Details />
-          </Route>
-          <Route path={['/editbook', '/edit-book', '/editBook']}>
-            <EditBook />
-          </Route>
-          <Route>
-            <NotFound />
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/bookshelf" component={Bookshelf} />
+        <Route
+          path={['/addbook', '/add-book', '/addBook']}
+          component={AddBook}
+        />
+        <Route path="/details" component={Details} />
+        <Route
+          path={['/editbook', '/edit-book', '/editBook']}
+          component={EditBook}
+        />
+        <Route component={NotFound} />
+      </Switch>
+      <Footer />
+    </div>
   );
 };
 
