@@ -23,7 +23,7 @@ const NavBar = () => {
         </NavLink>
       </nav>
       <Search />
-      <Button />
+      <Button text="Search" />
       <Hamburger />
     </header>
   );

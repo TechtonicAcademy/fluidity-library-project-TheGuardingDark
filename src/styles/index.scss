@@ -34,6 +34,11 @@ body {
 .nav {
   @include n.nav;    
 }
+.btn {
+  @include m.button;
+}
+
+
 @media only screen and (max-width: 545px) {
   .nav {
       @include n.mobileNav;
@@ -43,5 +48,113 @@ body {
   @include f.footer;
 }
 
+// LANDING PAGE
+
+.heroImg {
+  background-image: linear-gradient(rgba(0,0,0,0.3), 
+  rgba(0,0,0,0.5)), 
+    url('../styles/images/books.jpg');
+  height: 21rem;
+  padding-top: 5%;
+  border-bottom: solid 4px black;
+  margin-bottom: 4rem;
+  &__caption {
+    color: v.$beige;
+    font-size: 6rem;
+    text-align: center;
+    text-shadow: 5px 1px black;
+    &--sm {
+      font-size: 3rem;
+    }
+  }
+}
+.landing {
+  text-align: center;
+  padding-bottom: 8rem;
+  &__header {
+    font-size: 3rem;
+    font-style: italic;
+    padding-bottom: 2rem;
+  }
+  &__text {
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 2rem 10rem;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .heroImg {
+    padding-top: 7%;
+  }
+  .landing {
+    &__text {
+      padding: 2rem 6rem;
+    }
+  }
+}
+@media only screen and (max-width: 769px) {
+  .heroImg {
+    height: 17rem;
+    &__caption {
+      font-size: 4rem;
+      &--sm {
+        font-size: 3rem;
+      }
+    }
+  }
+  .landing {
+    &__text {
+      padding: 2rem 3rem;
+    }
+    &__header {
+      padding-bottom: 1rem;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .heroImg {
+    height: 19rem;
+    padding-top: 15%;
+    &__caption {
+      &--sm {
+        font-size: 3rem;
+      }
+    }
+  }
+  .landing {
+    &__header {
+      padding-bottom: 0;
+    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  .heroImg {
+    height: 21rem;
+    padding-top: 18%;
+  }
+  .landing {
+    &__header {
+      font-size: 2.5rem;
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+  .heroImg {
+    padding-top: 22%;
+    &__caption {
+      &--sm {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  .landing {
+    &__header {
+      font-size: 2rem;
+    }
+    &__text {
+      padding: 2rem;
+    }
+  }
+}
 
   

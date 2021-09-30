@@ -1,7 +1,7 @@
-const Button = () => {
+const Button = ({ text }) => {
   return (
     <button type="button" className="btn">
-      Search
+      {text}
     </button>
   );
 };
