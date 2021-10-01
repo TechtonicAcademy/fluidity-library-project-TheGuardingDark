@@ -1,0 +1,16 @@
+@use "./variables" as v;
+
+@mixin hamburger {
+    grid-column: 2/3;
+    justify-self: end;
+    z-index: 10;
+    &__bar1,
+    &__bar2,
+    &__bar3 {
+        width: 43px;
+        height: 6px;
+        background-color: v.$beige;
+        margin: 6px 0;
+        transition: 0.4s;                   
+    }
+}

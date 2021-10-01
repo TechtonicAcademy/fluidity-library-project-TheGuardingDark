@@ -1,0 +1,29 @@
+@use "./variables" as v;
+
+
+
+// STARS
+
+@mixin stars {
+    display: block;
+    color: lighten(grey, 25%);
+    text-shadow: 0 0 3px black;
+    :checked {
+        color: yellow;
+    }
+    i {
+        margin: 2px;
+    }
+    .checked {
+        color: yellow;
+    }
+}
+
+@mixin button {
+    width: 16rem;
+    height: 3rem;
+    border-radius: 18px;
+    font-size: 1.5rem;
+    background-color: v.$coffee;
+    color: white;   
+}

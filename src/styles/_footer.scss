@@ -1,0 +1,16 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+
+@mixin footer {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: v.$beige;
+    color: v.$coffee;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    position: absolute;
+    padding-top: 1rem;
+    border-top: solid 2px black;
+}
+

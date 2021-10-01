@@ -2,6 +2,9 @@
 
 
 @mixin nav {
+    &__sideNav {
+        display: none;
+    }
     &__container {
         display: grid;
         grid-template-columns: 2fr repeat(3, 1fr) 2fr 1fr;
@@ -135,6 +138,40 @@
     }
     &__search {
         display: none;
+    }
+    &__sideNav {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+        list-style-type: none;
+        padding: .5rem;
+        display: block;
+        &--link {
+            text-decoration: none;
+            color: v.$beige;
+            font-size: 2rem;
+            &:hover {
+                color: v.$coffee;
+            }
+            &:active {
+                color: white;
+            }
+        }
+    }
+    &__overlay {
+        height: 100%;
+        width: 0;
+        left: 0;
+        top: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        position: fixed;
+        z-index: 1;
+        overflow-x: hidden;
+        transition: 0.5s
+
     }
     @media only screen and (max-width: 375px) {
         &__item {
