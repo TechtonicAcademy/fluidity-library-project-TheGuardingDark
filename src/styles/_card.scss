@@ -1,0 +1,40 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+
+
+@mixin card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 20rem;
+    padding-bottom: .5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background-color: lighten(v.$brown, 30%);
+    &__img {
+        width: 60%;
+        margin-top: 2rem;
+        box-shadow: 19px 10px 16px 0 rgba(0, 0, 0, 0.2);    
+    }
+    &__container {
+        text-decoration: none;
+        cursor: pointer;
+        &--title {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        width: 14rem;
+        &__container {
+            &--title {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        width: 22rem;
+    }
+    @media only screen and (max-width: 375px) {
+        width: 19rem;
+    }
+}

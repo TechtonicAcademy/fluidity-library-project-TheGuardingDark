@@ -3,6 +3,8 @@
 @use "./nav" as n;
 @use "./hamburger" as h;
 @use "./footer" as f;
+@use "./card" as c;
+@use "./mobileSearch" as ms;
 
 
 * {
@@ -154,6 +156,48 @@ body {
     &__text {
       padding: 2rem;
     }
+  }
+}
+
+// BOOKSHELF PAGE
+
+.card {
+  @include c.card;
+}
+.mobileSearch {
+  display: none;
+}
+
+
+.bookshelf {
+  grid-template-columns: repeat(3, auto);
+  row-gap: 1rem;
+  margin: 4rem;
+  justify-items: center;
+  &__header {
+    font-size: 2.5rem;
+    font-style: italic;
+    grid-column: 1/4;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .bookshelf {
+    margin: 1rem 2rem 3rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .bookshelf {
+    grid-template-columns: 1fr;
+    margin: 0 1.5rem 5rem;
+    &__header {
+      grid-column: auto;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+  .mobileSearch {
+    @include ms.mobileSearch;
   }
 }
 
