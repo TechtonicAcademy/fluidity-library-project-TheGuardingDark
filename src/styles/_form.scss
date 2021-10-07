@@ -1,0 +1,103 @@
+
+@use './mixins' as m;
+
+@mixin form {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: .5fr .5fr 2fr .5fr .5fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    &__text {
+        grid-column: 1/2;
+        font-size: 2rem;
+        place-self: center;
+        &--pages {
+            align-self: center;
+        }
+    }
+    &__input {
+        grid-column: 2/5;
+        width: 38rem;
+        border-radius: 10px;
+        &--sm {
+            appearance: none;
+            height: 3rem;
+            width: 11rem;
+        }
+    }
+    &__synopsis {
+        height: 14rem;
+    }
+    &__pages {
+        grid-column: 3/5;
+        grid-row: 4;
+        display: flex;
+        align-items: center;
+        justify-self: end;
+    }
+    &__rating {
+        font-size: 2rem;
+        align-self: center;
+        &--star {
+            @include m.stars;
+        }
+    }
+    &__selectPub {
+        @include m.CustomPub;
+    }
+    &__selectPage {
+        @include m.CustomPage;
+    }
+    @media only screen and (max-width: 1025px) {
+        margin-left: 2rem;
+    }
+    @media only screen and (max-width: 1024px) {
+        &__input {
+            width: 35rem;
+            &--sm {
+                width: 10rem;
+            }
+        }
+        &__text {
+            font-size: 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        margin: 1rem 0 1rem 2rem;
+        grid-template-columns: 1fr 1.5fr 1fr 1fr;
+        &__input {
+            height: 2.5rem;
+            width: 23.5rem;
+            &--lg {
+                height: 11rem;
+            }
+            &--sm {
+                width: 9rem;
+            }
+        }
+        &__text {
+            font-size: 1rem;
+        }
+        &__pages {
+            justify-self: auto;
+            margin-left: 1rem;
+        }
+        &__rating {
+            font-size: 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        .form {
+            display: block;
+            &__desktop {
+                display: none;
+            }
+            &__selectPage {
+                margin: 1rem 4rem auto;
+            }
+            &__rating {
+                font-size: 2.5rem;
+                margin-top: 2rem;
+            }
+        }
+    }
+}

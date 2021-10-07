@@ -1,7 +1,6 @@
 @use "./variables" as v;
 @use "./mixins" as m;
 
-
 @mixin card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -23,6 +22,12 @@
             margin-bottom: .5rem;
         }
     }
+    &__desktop {
+        display: block;
+    }
+    &__mobile {
+        display: none;
+    }
     @media only screen and (max-width: 769px) {
         width: 14rem;
         &__container {
@@ -33,6 +38,12 @@
     }
     @media only screen and (max-width: 480px) {
         width: 22rem;
+        &__desktop {
+            display: none;
+        }
+        &__mobile {
+            display: inline-block;
+        }
     }
     @media only screen and (max-width: 375px) {
         width: 19rem;

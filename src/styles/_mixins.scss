@@ -1,18 +1,15 @@
 @use "./variables" as v;
 
-
-
 // STARS
 
 @mixin stars {
-    display: block;
+    display: inline-block;
     color: lighten(grey, 25%);
-    text-shadow: 0 0 3px black;
+    stroke: black;
+    stroke-width: 1rem;
+    margin-right: .4rem;
     :checked {
         color: yellow;
-    }
-    i {
-        margin: 2px;
     }
     .checked {
         color: yellow;
@@ -25,5 +22,93 @@
     border-radius: 18px;
     font-size: 1.5rem;
     background-color: v.$coffee;
-    color: white;   
+    color: white;
+    &__light {
+        background-color: lighten(v.$coffee, 75%);
+        color: black;
+    }
+    &__mdDark {
+        background-color: lighten(v.$coffee, 25%);
+    }
+    @media only screen and (max-width: 769px) {
+        width: 14rem;
+    }
+}
+
+@mixin CustomPub {
+    grid-column: 2/3;
+    align-self: center;
+    position: relative;
+    right: 5rem;
+    margin-right: -7rem;
+    &--arrow {
+        font-size: 2.5rem;
+        border-left: 1px solid black;
+        position: absolute;
+        top: 25%;
+        left: 60%;
+        opacity: .5;
+    }
+    @media only screen and (max-width: 1025px) {
+        margin-right: 1rem;
+        right: 2rem;
+    }
+    @media only screen and (max-width: 1024px) {
+        &--arrow {
+            font-size: 2rem;
+            top: 30%;
+            left: 58%;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        right: 2rem;
+        margin-right: 0;
+        &--arrow {
+            font-size: 1.5rem;
+            top: 33%;
+            left: 81%;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        width: 11rem;
+        margin: auto;
+        &--arrow {
+            font-size: 2rem;
+            top: 20%;
+            left: 105%;
+        }
+    }
+}
+
+@mixin CustomPage {
+    position: relative;
+    margin: 0 0 0 2rem;
+    &--arrow {
+        position: absolute;
+        left: 71%;
+        top: 13%;
+        opacity: .5;
+    }
+    input {
+        width: 7.5rem;
+    }
+    @media only screen and (max-width: 1024px) {
+        &--arrow {
+            top: 21%;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        input {
+            width: 6.5rem;
+        }
+        margin: 0 0 0 1.5rem;
+        &--arrow {
+            top: 28%;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        input {
+            width: 10.5rem;
+        }
+    }
 }

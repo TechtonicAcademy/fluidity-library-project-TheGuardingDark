@@ -5,7 +5,7 @@
 @use "./footer" as f;
 @use "./card" as c;
 @use "./mobileSearch" as ms;
-
+@use "./form" as frm;
 
 * {
   box-sizing: border-box;
@@ -39,7 +39,6 @@ body {
 .btn {
   @include m.button;
 }
-
 
 @media only screen and (max-width: 545px) {
   .nav {
@@ -168,7 +167,6 @@ body {
   display: none;
 }
 
-
 .bookshelf {
   grid-template-columns: repeat(3, auto);
   row-gap: 1rem;
@@ -201,4 +199,178 @@ body {
   }
 }
 
-  
+// ADD BOOK PAGE
+
+.addBook {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  row-gap: 1rem;
+  margin-bottom: 5rem;
+  &__header {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 4rem 0 2rem;
+    grid-column: 1/3;
+    grid-row: 1;
+  }
+  &__btns {
+    grid-column: 1/3;
+    justify-self: center;
+    margin-top: 2rem;
+  }
+}
+.form {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 1rem 2rem 1rem 5rem;
+  @include frm.form;
+}
+.addImg {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  margin-bottom: 9rem;
+  &__mobile {
+    display: none;
+  }
+  &__desktop {
+    display: block;
+  }
+}
+.blank {
+  height: 23rem;
+  width: 16rem;
+  margin-top: 1rem;
+  grid-row: 2;
+  grid-column: 2;
+  &__caption {
+    font-size: 1.5rem;
+    padding: 9rem 4rem;
+  }
+  &__mobile {
+    display: none;
+  }
+}
+.cancel {
+  margin-left: 3.5rem;
+}
+@media only screen and (max-width: 1024px) {
+  .addImg {
+    margin-bottom: 7.5rem;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .blank {
+    height: 61%;
+    width: 80%;
+    &__caption {
+      font-size: 1rem;
+      padding: 8rem 4rem;
+    }
+  }
+  .addBook {
+    &__header {
+      font-size: 2rem;
+      margin: 3rem 0 1rem;
+    }
+  }
+  .addImg {
+    margin-bottom: 6.1rem;
+    width: 13.5rem;
+    font-size: 1rem;
+    height: 2.5rem;
+  }
+
+  // MOBILE BREAKPOINTS
+
+  @media only screen and (max-width: 480px) {
+    .addBook {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        text-align: center;
+        &__header {
+          font-size: 3rem;
+        }
+        &__btns {
+          display: inherit;
+          margin-top: 4rem;
+        }
+    }
+    .form {
+      margin: auto;
+      &__mobile {
+        display: block;
+      }
+      &__text {
+        font-size: 2rem;
+        margin: 2rem auto 1rem;
+        &--pages {
+          width: fit-content;
+        }
+      }
+      &__input {
+        width: 28rem;
+        height: 3rem;
+        &--lg {
+          height: 22rem;
+        }
+        &--sm {
+          width: 14rem;
+        }
+      }
+    }
+    .addImg {
+      font-size: 1.5rem;
+      grid-column: 1;
+      &__mobile {
+        display: block;
+        width: 17rem;
+        height: 3rem;
+        margin: 1rem auto 4rem;
+      }
+      &__desktop {
+        display: none;
+      }
+    }
+    .blank {
+      width: 60%;
+      margin-top: 4rem;
+      &__caption {
+        font-size: 1.5rem;
+        padding: 11rem 4rem;
+      }
+    }
+    .cancel {
+      margin: 1.5rem auto auto 0;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .form {
+      &__input {
+        width: 25rem;
+        &--lg {
+          height: 18rem;
+        }
+        &--sm {
+          width: 14rem;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .blank {
+      width: 70%;
+    }
+    .form {
+      &__input {
+        width: 23rem;
+        &--lg {
+          height: 16rem;
+        }
+        &--sm {
+          width: 14rem;
+        }
+      }
+    }
+  }
+}
