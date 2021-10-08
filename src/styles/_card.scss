@@ -30,6 +30,9 @@
     }
     @media only screen and (max-width: 769px) {
         width: 14rem;
+        &__img {
+            width: 85%;
+        }
         &__container {
             &--title {
                 font-size: 1.5rem;

@@ -1,5 +1,4 @@
 import Button from '../components/Button';
-// import BookCard from '../components/BookCard';
 import EmptyCard from '../components/EmptyCard';
 import BookForm from '../components/BookForm';
 
@@ -21,7 +20,7 @@ const AddBook = () => {
           form="addBookForm"
           className="add"
         />
-        <Button text="Cancel" type="reset" className="light cancel" />
+        <Button text="Cancel" type="reset" className="light leftBtn" />
       </div>
     </div>
   );
