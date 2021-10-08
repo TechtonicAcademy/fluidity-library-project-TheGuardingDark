@@ -3,13 +3,17 @@
 
 @mixin footer {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background-color: v.$beige;
     color: v.$coffee;
     bottom: 0;
-    width: 100%;
+    width: 102%;
     height: 3rem;
     position: absolute;
-    padding-top: 1rem;
+    padding: 1rem 2rem 2rem 0;
     border-top: solid 2px black;
+    @media only screen and (max-width: 900px) {
+        width: 105%;
+        padding-right: 7%;
+    }
 }

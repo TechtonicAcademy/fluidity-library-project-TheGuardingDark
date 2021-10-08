@@ -25,7 +25,7 @@ const BookForm = () => {
       <label className="form__text form__mobile" htmlFor="synopsis">
         Synopsis
       </label>
-      <input
+      <textarea
         type="text"
         className="form__input form__input--lg form__mobile form__synopsis"
         id="synopsis"

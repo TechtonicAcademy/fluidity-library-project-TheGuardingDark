@@ -11,8 +11,14 @@ const CustomPub = () => {
         className="form 
           form__input 
           form__input--sm 
-          form__mobile"
-      />
+          form__mobile
+          form__selectPub--input"
+      >
+        <option value="0" />
+        <option value="1">02/14/1975</option>
+        <option value="2">10/31/2020</option>
+        <option value="3">07/08/1990</option>
+      </select>
     </div>
   );
 };
