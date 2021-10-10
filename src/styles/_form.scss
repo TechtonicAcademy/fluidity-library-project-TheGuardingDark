@@ -48,6 +48,11 @@
         &--star {
             @include m.stars;
         }
+        &--unchecked {
+            color: lighten(grey, 25%);
+            stroke: black; 
+            stroke-width: 1rem;       
+        }  
     }
     &__selectPub {
         @include m.CustomPub;

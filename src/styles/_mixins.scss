@@ -26,6 +26,7 @@
     }
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
+        width: 16rem;
     }
     @media only screen and (max-width: 1024px) {
         width: 14rem;
@@ -33,6 +34,9 @@
     }
     @media only screen and (max-width: 769px) {
         width: 13rem;
+        &__mdDark {
+            width: 13rem;
+        }
     }
 }
 

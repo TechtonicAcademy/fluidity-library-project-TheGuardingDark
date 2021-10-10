@@ -403,6 +403,12 @@ body {
     margin-bottom: 2rem;
     &__img {
       text-align: center;
+      &--desktop {
+        display: inline-block;
+      }
+      &--mobile {
+        display: none;
+      }
     }
     &__text {
       padding-top: 2rem;
@@ -456,6 +462,66 @@ body {
           margin-top: 1rem;
           font-size: 1.8rem;
         }
+      }
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .details {
+      padding: 1rem 3rem 5rem;
+      grid-template-columns: 1fr;
+      row-gap: 0;
+      &__text {
+        text-align: center;
+        &--title {
+          font-size: 3rem;
+          margin-bottom: 0;
+        }
+        &--author {
+          font-size: 2rem;
+          margin-top: 3rem;
+        }
+        &--rating {
+          margin-bottom: 0
+        }
+        &--published {
+          margin: 3rem 0 2rem;
+        }
+        &--synopsis {
+          margin: 2rem 0;
+        }
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      &__img {
+        &--mobile {
+          display: inline-block;
+          width: 70%;
+        }
+        &--desktop {
+          display: none;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .details {
+      padding: 1rem 1rem 5rem;
+      &__text {
+        &--author {
+          margin: 2rem 0 1rem;
+        }
+        &--published {
+          margin-top: 2rem;
+        }
+      }
+      &__img {
+        &--mobile {
+          width: 65%;
+        }
+      }
+      &__btns {
+        margin-top: 1rem;
       }
     }
   }
