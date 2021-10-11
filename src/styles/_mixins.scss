@@ -16,7 +16,7 @@
 @mixin button {
     width: 16rem;
     height: 3rem;
-    border-radius: 18px;
+    border-radius: 10px;
     font-size: 1.5rem;
     background-color: v.$coffee;
     color: white;
@@ -26,9 +26,36 @@
     }
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
+        width: 16rem;
+    }
+    @media only screen and (max-width: 1024px) {
+        width: 14rem;
+        font-size: 1rem;
     }
     @media only screen and (max-width: 769px) {
-        width: 14rem;
+        width: 13rem;
+        &__mdDark {
+            width: 13rem;
+        }
+    }
+}
+
+@mixin lowerPageBtns {
+    grid-column: 1/3;
+    justify-self: center;
+    margin-top: 2rem;
+    .leftBtn {
+        margin-left: 3.5rem;
+    }
+    @media only screen and (max-width: 769px) {
+        margin-top: 0;
+    }
+    @media only screen and (max-width: 480px) {
+        display: inherit;
+        margin-top: 4rem;
+        .leftBtn {
+            margin: 1.5rem auto auto 0;
+        }
     }
 }
 
@@ -90,7 +117,6 @@
             left: 70%;
             top: 13%;
             font-size: 1.5rem;
-            // top: 23%;
         }
     }
     @media only screen and (max-width: 769px) {

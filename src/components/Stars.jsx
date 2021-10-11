@@ -7,7 +7,11 @@ const Stars = () => {
       <FaStar type="button" key="2" className="form__rating--star" />
       <FaStar type="button" key="3" className="form__rating--star" />
       <FaStar type="button" key="4" className="form__rating--star" />
-      <FaStar type="button" key="5" className="form__rating--star" />
+      <FaStar
+        type="button"
+        key="5"
+        className="form__rating form__rating--unchecked"
+      />
     </div>
   );
 };
