@@ -4,7 +4,7 @@
 
 @mixin stars {
     display: inline-block;
-    color: lighten(grey, 25%);
+    color: yellow;
     stroke: black;
     stroke-width: 1rem;
     margin-right: .4rem;
@@ -26,7 +26,6 @@
     }
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
-        width: 16rem;
     }
     @media only screen and (max-width: 1024px) {
         width: 14rem;
@@ -79,14 +78,18 @@
         top: -32%;
         right: -18%;
     }
-    @media only screen and (max-width: 1024px) {
-        width: 10rem;
+    @media only screen and (max-width: 1025px) {
+        // width: 11rem;
+        &--arrow {
+            top: 12%;
+        }
     }
     @media only screen and (max-width: 769px) {
         width: 7.5rem;
         &--arrow {
             font-size: 2rem;
             right: -12%;
+            top: 18%;
         }
     }
     @media only screen and (max-width: 480px) {
@@ -112,11 +115,14 @@
         width: 7.5rem;
         height: 3rem;
     }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1025px) {
         &--arrow {
-            left: 70%;
-            top: 13%;
-            font-size: 1.5rem;
+            left: 68%;
+            top: 23%;
+            font-size: 1.7rem;
+        }
+        input {
+            height: 3.2rem;
         }
     }
     @media only screen and (max-width: 769px) {

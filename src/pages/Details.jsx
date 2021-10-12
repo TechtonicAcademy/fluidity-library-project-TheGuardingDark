@@ -20,7 +20,7 @@ const Details = () => {
         />
         <h2 className="details__text--author">Terry Pratchett</h2>
         {/* Mobile Img and Rating */}
-        <h3 className="details__text--rating mobile">Rating</h3>
+        <h3 className="details__text--rating mobile mobile__text">Rating</h3>
         <Stars className="details__img--stars mobile" />
 
         <h3 className="details__text--published">

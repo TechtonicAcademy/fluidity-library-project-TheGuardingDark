@@ -19,6 +19,7 @@
         width: 38rem;
         border-radius: 10px;
         padding: 0 1rem;
+        font-size: 1.2rem;
         &--sm {
             appearance: none;
             -webkit-appearance: none;
@@ -40,7 +41,6 @@
         grid-row: 4;
         display: flex;
         align-items: center;
-        justify-self: end;
     }
     &__rating {
         font-size: 2rem;
@@ -60,7 +60,34 @@
     &__selectPage {
         @include m.CustomPage;
     }
+    @media only screen and (max-width: 1200px) {
+        &__pages {
+            justify-self: end;
+        }
+    }
     @media only screen and (max-width: 1025px) {
+        &__text {
+            font-size: 1.5rem;
+            &--title {
+                align-self: end;
+                margin-bottom: 1rem;
+            }
+        }
+        &__input {
+            height: 3.5rem;
+            width: 36rem;
+            &--title {
+                align-self: end;
+            }
+            &--lg {
+                width: 36rem;
+                height: 16rem;
+            }
+            &--sm {
+                width: 11rem;
+                height: 3rem;
+            }
+        }
         margin-left: 2rem;
     }
     @media only screen and (max-width: 1024px) {
@@ -78,11 +105,13 @@
         }
     }
     @media only screen and (max-width: 769px) {
-        margin: 1rem 0 1rem 2rem;
+        margin: 1rem 0 1rem 1rem;
         grid-template-columns: 1fr 1.5fr 1fr 1fr;
+        height: 80%;
         &__input {
-            height: 2.5rem;
-            width: 23.5rem;
+            height: 3rem;
+            width: 24.5rem;
+            font-size: 1rem;
             &--lg {
                 height: 11rem;
                 font-size: 1rem;
@@ -92,7 +121,7 @@
             }
         }
         &__text {
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
         &__pages {
             justify-self: auto;
