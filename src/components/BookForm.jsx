@@ -20,20 +20,23 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
         id="title"
         placeholder={title}
       />
-      <label className="form__text form__mobile" htmlFor="author">
+      <label
+        className="form__text form__text--author form__mobile"
+        htmlFor="author"
+      >
         Author
       </label>
       <input
         type="text"
-        className="form__input form__mobile"
+        className="form__input form__input--author form__mobile"
         id="author"
         placeholder={author}
       />
-      <EmptyCard className="mobile" />
+      <EmptyCard src={src} className="form blank" />
       <Button
-        text="Add Image"
+        text={`${src ? 'Change Image' : 'Add Image'}`}
         type="submit"
-        className="mdDark addImg addImg__mobile"
+        className="mdDark addChangeImg"
       />
       <label className="form__text form__mobile" htmlFor="synopsis">
         Synopsis

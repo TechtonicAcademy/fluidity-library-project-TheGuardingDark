@@ -34,7 +34,7 @@
     @media only screen and (max-width: 769px) {
         width: 13rem;
         &__mdDark {
-            width: 13rem;
+            width: 10rem;
         }
     }
 }
@@ -43,11 +43,12 @@
     grid-column: 1/3;
     justify-self: center;
     margin-top: 2rem;
+    margin: 2rem 0 7rem;
     .leftBtn {
         margin-left: 3.5rem;
     }
     @media only screen and (max-width: 769px) {
-        margin-top: 0;
+        // margin-top: 0;
     }
     @media only screen and (max-width: 480px) {
         display: inherit;
@@ -88,8 +89,11 @@
         width: 7.5rem;
         &--arrow {
             font-size: 2rem;
-            right: -12%;
-            top: 18%;
+            right: -3%;
+            top: 19%;
+        }
+        &--input {
+            padding: 0 .5rem;
         }
     }
     @media only screen and (max-width: 480px) {
@@ -103,7 +107,7 @@
 
 @mixin CustomPage {
     position: relative;
-    margin: 0 0 0 2rem;
+    margin: 0 0 0 4rem;
     &--arrow {
         position: absolute;
         font-size: 2rem;
@@ -112,10 +116,14 @@
         opacity: .5;
     }
     input {
-        width: 7.5rem;
+        width: 10rem;
         height: 3rem;
     }
+    @media only screen and (max-width: 1200px) {
+        margin-left: 3rem;
+    }
     @media only screen and (max-width: 1025px) {
+        margin-left: 4rem;
         &--arrow {
             left: 68%;
             top: 23%;
@@ -126,18 +134,22 @@
         }
     }
     @media only screen and (max-width: 769px) {
+        margin: 0 0 0 1.5rem;
         input {
             width: 8rem;
-            height: 2.8rem;
-        }
-        margin: 0 0 0 1.5rem;
-    }
-    @media only screen and (max-width: 480px) {
-        input {
-            width: 10rem;
+            height: 3rem;
         }
         &--arrow {
-            left: 77%;
+            font-size: 1.5rem;
+            top: 35%;
         }
     }
+    // @media only screen and (max-width: 480px) {
+    //     input {
+    //         width: 10rem;
+    //     }
+    //     &--arrow {
+    //         left: 77%;
+    //     }
+    // }
 }

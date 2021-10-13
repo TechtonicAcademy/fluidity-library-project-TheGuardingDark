@@ -1,8 +1,9 @@
-import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-const Stars = () => {
+const Stars = ({ className }) => {
   return (
-    <div className="form__rating" id="rating">
+    <div className={`form__rating form__rating--${className}`} id="rating">
       <FaStar type="button" key="1" className="form__rating--star" />
       <FaStar type="button" key="2" className="form__rating--star" />
       <FaStar type="button" key="3" className="form__rating--star" />
@@ -14,6 +15,13 @@ const Stars = () => {
       />
     </div>
   );
+};
+
+Stars.defaultProps = {
+  className: ' ',
+};
+Stars.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Stars;

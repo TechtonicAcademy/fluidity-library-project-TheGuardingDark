@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import BookForm from '../components/BookForm';
 import Jacket from '../styles/images/snuff.jpg';
-import Stars from '../components/Stars';
 
 const EditBook = ({ src, title, author, synopsis, published, pages }) => {
   return (
@@ -15,14 +14,6 @@ const EditBook = ({ src, title, author, synopsis, published, pages }) => {
         synopsis={synopsis}
         published={published}
         pages={pages}
-      />
-      <div className="editImg">
-        <img className="card__img editImg__img" alt="Book Cover" src={Jacket} />
-      </div>
-      <Button
-        text="Change Image"
-        type="submit"
-        className="mdDark editImg editImg__btn"
       />
       <div className="editBook__btns">
         <Button

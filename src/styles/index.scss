@@ -166,8 +166,8 @@ body {
 }
 .bookshelf {
   grid-template-columns: repeat(3, auto);
-  row-gap: 1rem;
-  margin: 4rem;
+  row-gap: 3rem;
+  margin: 4rem 4rem 9rem;
   justify-items: center;
   &__header {
     font-size: 2.5rem;
@@ -177,7 +177,12 @@ body {
 }
 @media only screen and (max-width: 1025px) {
   .bookshelf {
-    margin: 1rem 2rem 3rem;
+    margin: 1rem 2rem 7rem;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .bookshelf {
+    margin: 1rem auto 6rem;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -195,14 +200,10 @@ body {
   }
 }
 
-// ADD BOOK PAGE
+// ADD/EDIT BOOK PAGE
 
 .addBook,
 .editBook {
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(4, auto);
-  row-gap: 1rem;
-  margin-bottom: 5rem;
   &__header {
     font-size: 2.5rem;
     text-align: center;
@@ -215,76 +216,48 @@ body {
   }
 }
 .form {
-  grid-column: 1;
-  grid-row: 2;
-  margin: 1rem 2rem 1rem 5rem;
   @include frm.form;
 }
-.addImg,
-.editImg {
-  grid-column: 2;
-  grid-row: 2;
-  align-self: end;
-  margin-bottom: 8.5rem;
-  &__mobile {
-    display: none;
-  }
-  &__desktop {
-    display: block;
-  }
-}
-.blank {
-  height: 23rem;
-  width: 16rem;
-  margin-top: 1rem;
-  grid-row: 2;
-  grid-column: 2;
-  &__caption {
-    font-size: 1.5rem;
-    padding: 9rem 4rem;
-  }
-  &__mobile {
-    display: none;
-  }
+.addChangeImg {
+  grid-column: 4;
+  grid-row: 4;
+  place-self: center;
 }
 @media only screen and (max-width: 1025px) {
   .addBook,
   .editBook {
     row-gap: 0;
     &__header {
-      margin-bottom: 0;
+      margin-bottom: 3rem;
     }
   }
   .addImg {
     margin-bottom: 7rem;
     width: 16rem;
   }
-  .blank {
-    margin-top: 3rem;
-  }
 }
-@media only screen and (max-width: 930px) {
-  html {
-    font-size: 14px;
-  }
-}
-@media only screen and (max-width: 850px) {
-  html {
-      font-size: 13px;
-  }
-}
-@media only screen and (max-width: 770px) {
-  html {
-    font-size: 12px;
-  }
-}
+// @media only screen and (max-width: 930px) {
+//   html {
+//     font-size: 14px;
+//   }
+// }
+// @media only screen and (max-width: 850px) {
+//   html {
+//       font-size: 13px;
+//   }
+// }
+// @media only screen and (max-width: 770px) {
+//   html {
+//     font-size: 12px;
+//   }
+// }
 @media only screen and (max-width: 769px) {
   html {
     font-size: 15px;
   }
   .blank {
-    height: 63%;
-    width: 77%;
+    height: 98%;
+    width: 81%;
     margin-top: 1rem;
     &__caption {
       font-size: 1rem;
@@ -321,7 +294,8 @@ body {
     html {
       font-size: 15px;
     }
-    .addBook {
+    .addBook,
+    .editBook {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         text-align: center;
@@ -352,7 +326,8 @@ body {
         }
       }
     }
-    .addImg {
+    .addImg,
+    .editImg {
       font-size: 1.5rem;
       grid-column: 1;
       &__mobile {
@@ -408,30 +383,40 @@ body {
 
   .details {
     grid-template-columns: 1fr 2fr;
-    padding: 5rem 10rem 3rem;
-    row-gap: 4rem;
+    grid-template-rows: .5fr .5fr 1fr .5fr .5fr;
+    padding: 11rem 10rem 0;
     margin-bottom: 2rem;
     &__img {
-      text-align: center;
-      &--desktop {
-        display: inline-block;
-      }
-      &--mobile {
-        display: none;
-      }
+      grid-column: 1;
     }
     &__text {
-      padding-top: 2rem;
+      grid-column: 2;
+      &--title {
+        grid-row: 1;
+        align-self: center;
+      }
+      &--author {
+        grid-row: 1;
+        align-self: end;
+        padding-top: 6rem;
+      }
+      &--published,
+      &--pages {
+        grid-row: 2;
+        font-style: italic;
+      }
+      &--pages {
+        align-self: center;
+        padding-top: 3rem;
+      }
       &--synopsis {
         font-size: 1.4rem;
+        grid-row: 3;
       }
-    }
-    h3 {
-      font-style: italic;
     }
     .form {
       &__rating {
-        margin-top: 2rem;
+        // margin-top: 2rem;
         // Temporary till add functionality
         &--star {
           margin-right: .7rem;
@@ -448,24 +433,32 @@ body {
   
     &__btns {
       @include m.lowerPageBtns;
+      // margin: 5rem 0;
     }
   }
   @media only screen and (max-width: 1200px) {
     .details {
-      padding: 5rem 6rem 3rem;
+      padding: 10rem 4rem 0;
     }
   }
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1025px) {
     .details {
-      padding: 5rem 3rem;
+      column-gap: 2rem;
+      &__img {
+        width: 15rem;
+        align-self: center;
+      }
     }
   }
   @media only screen and (max-width: 769px) {
     .details {
-      padding: 1rem 1rem 0 2rem;
+      padding: 3rem 1rem 0 2rem;
       margin-bottom: 0;
+      &__img {
+        width: 13rem;
+      }
       &__text {
-        padding: 1rem;
+        // padding: 1rem;
         &--synopsis {
           font-size: 1.3rem;
         }
@@ -474,6 +467,9 @@ body {
         &__rating {
           margin-top: 1rem;
           font-size: 1.8rem;
+          &--details {
+            margin-top: 0;
+          }
         }
       }
     }
