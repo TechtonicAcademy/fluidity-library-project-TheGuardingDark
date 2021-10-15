@@ -9,8 +9,15 @@ const Details = () => {
     <div className="details grid">
       <h1 className=" details__text details__text--title">Snuff</h1>
       <EmptyCard src={Jacket} className="form details__img" />
-      <Stars className="details" />
-      <h2 className="details__text details__text--author">Terry Pratchett</h2>
+      <h2 className="details__text details__text--author mobile">
+        Terry Pratchett
+      </h2>
+      <h3 className="details__text details__text--rating mobile">Rating</h3>
+
+      <Stars className="details" type="checked" />
+      <h2 className="details__text details__text--author desktop">
+        Terry Pratchett
+      </h2>
 
       <h3 className=" details__text details__text--published">
         Published: October 11th, 1975

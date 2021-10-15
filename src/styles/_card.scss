@@ -75,16 +75,14 @@
             }
         }
     }
-    // @media only screen and (max-width: 480px) {
-    //     width: 22rem;
-    //     &__mobile {
-    //         display: inline-block;
-    //     }
-    //     &__desktop {
-    //         display: none;
-    //     }
-    // }
-    // @media only screen and (max-width: 375px) {
-    //     width: 19rem;
-    // }
+    @media only screen and (max-width: 480px) {
+        width: 17rem;
+        &__noImg {
+            height: 25rem;
+            padding: 0 30%;
+            &--caption {
+                font-size: 1.5rem;
+            }
+        }
+    }
 }

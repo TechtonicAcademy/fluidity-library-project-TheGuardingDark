@@ -36,7 +36,7 @@ EditBook.defaultProps = {
   synopsis:
     'Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.',
   published: '10/11/2011',
-  pages: '378',
+  pages: 378,
 };
 EditBook.propTypes = {
   src: PropTypes.string,
@@ -44,7 +44,7 @@ EditBook.propTypes = {
   author: PropTypes.string,
   synopsis: PropTypes.string,
   published: PropTypes.string,
-  pages: PropTypes.string,
+  pages: PropTypes.number,
 };
 
 export default EditBook;

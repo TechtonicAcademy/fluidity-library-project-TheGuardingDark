@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import PropTypes from 'prop-types';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
@@ -59,9 +60,27 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
         <CustomPage pages={pages} />
       </label>
       <p className="form__text">Rating</p>
-      <Stars />
+      <Stars type={`${src ? 'checked' : 'unchecked'}`} />
     </form>
   );
+};
+
+BookForm.defaultProps = {
+  src: '',
+  title: '',
+  author: '',
+  synopsis: '',
+  published: '',
+  pages: null,
+};
+
+BookForm.propTypes = {
+  src: PropTypes.string,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  synopsis: PropTypes.string,
+  published: PropTypes.string,
+  pages: PropTypes.number,
 };
 
 export default BookForm;
