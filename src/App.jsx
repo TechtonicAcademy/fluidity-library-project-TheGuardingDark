@@ -19,9 +19,10 @@ const App = () => {
           path={['/addbook', '/add-book', '/addBook']}
           component={AddBook}
         />
-        <Route path="/details" component={Details} />
+        <Route path="/details/:id" component={Details} />
+        {/* Add route by id */}
         <Route
-          path={['/editbook', '/edit-book', '/editBook']}
+          path={['/editbook/:id', '/edit-book/:id', '/editBook/:id']}
           component={EditBook}
         />
         <Route component={NotFound} />

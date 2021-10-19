@@ -1,0 +1,55 @@
+{ "books":
+    [{
+        "id": 1,
+        "src": "",
+        "title": "Pet Sematary",
+        "author": "Stephen King",
+        "synopsis": "The Creed family suffers a series of tragic events after relocating to a house near a busy highway. When his daughter’s beloved cat, Church, is killed by a speeding truck, Louis Creed follows his neighbor to a hidden burial ground said to bring the dead back to life. When the cat shows up alive, Louis is elated, but soon discovers that everything comes with a price.",
+        "published": "Nov 14, 1983",
+        "pages": 373
+    },
+    {
+        "id": 2,
+        "title": "The Haunting of Hill House",
+        "author": "Shirley Jackson",
+        "synopsis": "An occult scholar invites a troubled young woman to join himself and two others at an old manor to search for evidence of psychic phenomena. Their sanity is put to the test when Hill House seems intent to keep them within its walls.",
+        "published": "Oct 16, 1959",
+        "pages": 246
+    },
+    {
+        "id": 3,
+        "title": "Survivor",
+        "author": "Chuck Palahniuk",
+        "synopsis": "Tender Branson, the last surviving member of a death cult, recounts his life story, from childhood to fitness addict and media messiah, while he waits for his plane to crash into the Australian outback.",
+        "published": "Feb 17, 1999",
+        "pages": 304
+ 
+    },
+    {
+        "id": 4,
+        "title": "Crash",
+        "author": "J.G. Ballard",
+        "synopsis": "After an horrific car accident, James is drawn into a world full of fellow crash survivors, obsessed with re-creating famous car accidents for sexual thrills.",
+        "published": "June 28th, 1973",
+        "pages": 224
+ 
+    },
+    {
+        "id": 5,
+        "title": "Spook",
+        "author": "Mary Roach",
+        "synopsis": "A scientific look through the ages at those who have dedicated their lives to finding some evidence of life after death.",
+        "published": "Oct 2005",
+        "pages": 311
+
+    },
+    {
+        "id": 6,
+        "title": "Snuff",
+        "author": "Terry Pratchett",
+        "synopsis": "Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.",
+        "published": "10/11/2011",
+        "pages": 378
+
+    }
+]}
