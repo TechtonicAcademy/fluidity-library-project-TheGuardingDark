@@ -20,12 +20,10 @@ const BookCard = ({ book: { id, src, title, author } }) => {
   );
 };
 
-// replace in next sprint to loop through books and render one card for each
-
 BookCard.defaultProps = {
   src: Jacket,
-  title: 'Snuff',
-  author: 'Terry Pratchett',
+  title: '',
+  author: '',
 };
 BookCard.propTypes = {
   src: PropTypes.string,

@@ -1,16 +1,26 @@
 import { useState, useEffect } from 'react';
-import { getBooks } from '../utils/API';
+import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { getBooks, searchBooks } from '../utils/API';
 import BookCard from '../components/BookCard';
 import MobileSearch from '../components/MobileSearch';
 
-const Bookshelf = () => {
+const Bookshelf = ({ searchTerm }) => {
   const [books, setBooks] = useState([]);
+  // console.log(searchTerm);
+  const term = searchTerm;
 
   useEffect(() => {
-    getBooks()
-      .then(({ data: books }) => setBooks(books))
-      .catch((err) => console.log(err));
-  }, []);
+    if (term === '') {
+      getBooks()
+        .then(({ data: books }) => setBooks(books))
+        .catch((err) => console.log(err));
+    } else {
+      searchBooks(term)
+        .then(({ data: books }) => setBooks(books))
+        .catch((err) => console.log(err));
+    }
+  }, [term]);
 
   return (
     <div className="bookshelf grid">
@@ -21,6 +31,13 @@ const Bookshelf = () => {
       ))}
     </div>
   );
+};
+
+Bookshelf.defaultProps = {
+  searchTerm: '',
+};
+Bookshelf.propTypes = {
+  searchTerm: PropTypes.string,
 };
 
 export default Bookshelf;
