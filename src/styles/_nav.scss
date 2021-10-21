@@ -24,7 +24,12 @@
         height: 2.5rem;
         border-radius: 10px;
         padding-left: 1rem;
+        margin-right: 4rem;
         justify-self: center;
+    }
+    &__form {
+        margin-left: 3rem;
+        grid-column: 5/7;
     }
     .btn {
         @include m.button;
@@ -43,6 +48,34 @@
             
         }
     }
+    @media only screen and (max-width: 1259px) {
+        &__form {
+            margin-left: 2rem;
+        }
+    }
+    @media only screen and (max-width: 1222px) {
+        &__form {
+            margin-left: 1rem;
+        }
+    }
+    @media only screen and (max-width: 1184px) {
+        &__search {
+            margin-right: 3rem;
+        }
+        &__form {
+            margin-left: 0;
+        }
+    }
+    @media only screen and (max-width: 1109px) {
+        &__search {
+            margin-right: 2rem;
+        }
+    }
+    @media only screen and (max-width: 1072px) {
+        &__search {
+            margin-right: 1rem;
+        }
+    }
 
     @media only screen and (max-width: 1025px) {
         &__item {
@@ -51,6 +84,7 @@
         &__search {
             width: 15rem;
             height: 2.3rem;
+            margin-right: 3rem;
         }
         .btn {
             width: 7rem;
@@ -66,6 +100,7 @@
             width: 12rem;
             height: 1.8rem;
             font-size: .7rem;
+            margin-right: 1rem;
         }
         .btn {
             width: 5rem;

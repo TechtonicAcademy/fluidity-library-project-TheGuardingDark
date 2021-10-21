@@ -1,6 +1,5 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-// import { searchBooks } from '../utils/API';
 import Button from './Button';
 
 const Search = ({ searchTerm, setSearchTerm }) => {
@@ -18,7 +17,7 @@ const Search = ({ searchTerm, setSearchTerm }) => {
   };
 
   return (
-    <form className="search" onSubmit={handleSearch}>
+    <form className="nav__form" onSubmit={handleSearch}>
       <input
         type="text"
         className="nav__search"

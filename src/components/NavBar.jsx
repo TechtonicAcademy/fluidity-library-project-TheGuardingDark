@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-// import Button from './Button';
+import PropTypes from 'prop-types';
 import Search from './Search';
 import Hamburger from './Hamburger';
 
@@ -48,5 +48,14 @@ const NavBar = ({ searchTerm, setSearchTerm }) => {
     </header>
   );
 };
+
+// NavBar.defaultProps = {
+//   searchTerm: '',
+//   setSearchTerm: '',
+// };
+// NavBar.propTypes = {
+//   searchTerm: PropTypes.string,
+//   setSearchTerm: PropTypes.string,
+// };
 
 export default NavBar;

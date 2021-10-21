@@ -16,9 +16,8 @@ const App = () => {
       <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <Switch>
         <Route exact path="/" component={Landing} />
-        {/* <Route path="/bookshelf" component={Bookshelf} /> */}
         <Route path="/bookshelf">
-          <Bookshelf searchTerm={searchTerm} />
+          <Bookshelf searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </Route>
         <Route
           path={['/addbook', '/add-book', '/addBook']}
