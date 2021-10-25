@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import { useRef } from 'react';
 import { TiArrowSortedDown } from 'react-icons/ti';
 
 const CustomPub = ({ date }) => {
+  const publishedInputRef = useRef();
+  const addPublished = publishedInputRef.current.value.trim();
+
   return (
     <div className="form__selectPub">
       <TiArrowSortedDown className="form__selectPub--arrow" />
@@ -13,6 +17,8 @@ const CustomPub = ({ date }) => {
           form__input--sm 
           form__mobile
           form__selectPub--input"
+        ref={publishedInputRef}
+        addPublished={addPublished}
       >
         <option value="0">{date}</option>
         <option value="1">02/14/1975</option>

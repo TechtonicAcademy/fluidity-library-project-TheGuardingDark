@@ -1,5 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { addBook } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
@@ -7,6 +10,28 @@ import Button from './Button';
 import Stars from './Stars';
 
 const BookForm = ({ src, title, author, synopsis, published, pages }) => {
+  // const history = useHistory();
+  // const titleInputRef = useRef();
+  // const authorInputRef = useRef();
+  // const synopsisInputRef = useRef();
+
+  // const handleBookSubmit = (e) => {
+  //   e.preventDefault();
+  //   const title = titleInputRef.current.value.trim();
+  //   const author = authorInputRef.current.value.trim();
+  //   const synopsis = synopsisInputRef.current.value.trim();
+  //   // const published = publishedInputRef.current.value.trim();
+  //   // const pages = pagesInputRef.current.value.trim();
+
+  //   if (!title || !author) {
+  //     // do something;
+  //   }
+
+  //   addBook({ title, author, synopsis, published, pages })
+  //     .then(() => history.push('/bookshelf'))
+  //     .catch((err) => console.log(err));
+  // };
+
   return (
     <form className="form grid form__mobile" id="addBookForm">
       <label
@@ -17,9 +42,10 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
       </label>
       <input
         type="text"
-        className="form__input form__input--title form__mobile"
         id="title"
+        className="form__input form__input--title form__mobile"
         placeholder={title}
+        ref={titleInputRef}
       />
       <label
         className="form__text form__text--author form__mobile"
@@ -29,9 +55,10 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
       </label>
       <input
         type="text"
-        className="form__input form__input--author form__mobile"
         id="author"
+        className="form__input form__input--author form__mobile"
         placeholder={author}
+        ref={authorInputRef}
       />
       <EmptyCard src={src} className="form blank" />
       <Button
@@ -44,9 +71,10 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
       </label>
       <textarea
         type="text"
-        className="form__input form__input--lg form__mobile form__synopsis"
         id="synopsis"
+        className="form__input form__input--lg form__mobile form__synopsis"
         placeholder={synopsis}
+        ref={synopsisInputRef}
       />
       <label className="form__text form__mobile" htmlFor="published">
         Published
