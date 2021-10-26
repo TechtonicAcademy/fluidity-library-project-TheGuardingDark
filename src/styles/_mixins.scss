@@ -4,7 +4,7 @@
 
 @mixin stars {
     display: inline-block;
-    color: lighten(grey, 25%);
+    color: yellow;
     stroke: black;
     stroke-width: 1rem;
     margin-right: .4rem;
@@ -26,7 +26,6 @@
     }
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
-        width: 16rem;
     }
     @media only screen and (max-width: 1024px) {
         width: 14rem;
@@ -35,7 +34,15 @@
     @media only screen and (max-width: 769px) {
         width: 13rem;
         &__mdDark {
-            width: 13rem;
+            width: 10rem;
+            margin-bottom: 1rem;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        width: 14rem;
+        font-size: 1.5rem;
+        &__mdDark {
+            width: 17rem;
         }
     }
 }
@@ -43,12 +50,11 @@
 @mixin lowerPageBtns {
     grid-column: 1/3;
     justify-self: center;
-    margin-top: 2rem;
+    margin: 2rem 0 7rem;
     .leftBtn {
         margin-left: 3.5rem;
     }
     @media only screen and (max-width: 769px) {
-        margin-top: 0;
     }
     @media only screen and (max-width: 480px) {
         display: inherit;
@@ -79,28 +85,39 @@
         top: -32%;
         right: -18%;
     }
-    @media only screen and (max-width: 1024px) {
-        width: 10rem;
+    @media only screen and (max-width: 1025px) {
+        &--arrow {
+            top: 12%;
+        }
     }
     @media only screen and (max-width: 769px) {
         width: 7.5rem;
         &--arrow {
             font-size: 2rem;
-            right: -12%;
+            right: -3%;
+            top: 19%;
+        }
+        &--input {
+            padding: 0 .5rem;
         }
     }
     @media only screen and (max-width: 480px) {
-        width: 9rem;
+        width: 13rem;
         margin: 2rem auto;
         &--arrow {
-            top: -14%;
+            top: 17%;
+            right: 0;
         }
+    }
+    @media only screen and (max-width: 375px) {
+        width: 10rem;
     }
 }
 
 @mixin CustomPage {
     position: relative;
-    margin: 0 0 0 2rem;
+    margin: 0 0 0 4rem;
+    align-self: center;
     &--arrow {
         position: absolute;
         font-size: 2rem;
@@ -109,29 +126,42 @@
         opacity: .5;
     }
     input {
-        width: 7.5rem;
+        width: 10rem;
         height: 3rem;
     }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1200px) {
+        margin-left: 3rem;
+    }
+    @media only screen and (max-width: 1025px) {
+        margin-left: 4rem;
         &--arrow {
-            left: 70%;
-            top: 13%;
-            font-size: 1.5rem;
+            left: 68%;
+            top: 23%;
+            font-size: 1.7rem;
+        }
+        input {
+            height: 3.2rem;
         }
     }
     @media only screen and (max-width: 769px) {
+        margin: 0 0 0 1.5rem;
         input {
             width: 8rem;
-            height: 2.8rem;
+            height: 3rem;
         }
-        margin: 0 0 0 1.5rem;
+        &--arrow {
+            font-size: 1.5rem;
+            top: 35%;
+        }
     }
     @media only screen and (max-width: 480px) {
+        margin-right: 1.5rem;
         input {
             width: 10rem;
         }
         &--arrow {
-            left: 77%;
+            left: 70%;
+            top: 26%;
         }
     }
 }

@@ -4,9 +4,13 @@ import Jacket from '../styles/images/snuff.jpg';
 
 const BookCard = ({ src, title, author }) => {
   return (
-    <div className="card">
+    <div className="card card__withImg">
       <Link to="/details">
-        <img className="card__img" alt={title} src={src} />
+        <img
+          className="card__img card__withImg--bookshelf"
+          alt={title}
+          src={src}
+        />
       </Link>
       <div className="card__container">
         <h2 className="card__container--title">{title}</h2>

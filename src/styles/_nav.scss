@@ -78,6 +78,7 @@
 @mixin mobileNav {
     grid-template-columns: auto;
     padding: 0 1rem;
+    height: 6rem;
     .hamburger {
         display: block;
         @include h.hamburger;
@@ -86,6 +87,11 @@
     &__search,
     .btn {
         display: none;
+    }
+    &__item {
+        &--header {
+            margin-top: 1.5rem;
+        }
     }
     &__mobile {
         display: contents;

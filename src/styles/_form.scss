@@ -2,10 +2,11 @@
 @use './mixins' as m;
 
 @mixin form {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: .5fr 1fr 1fr 1.5fr;
     grid-template-rows: .5fr .5fr 2fr .5fr .5fr;
     row-gap: 1rem;
     column-gap: 1rem;
+    margin: 1rem 2rem 3rem;
     &__text {
         grid-column: 1/2;
         font-size: 2rem;
@@ -14,44 +15,55 @@
             align-self: center;
         }
     }
+    &__label {
+        display: contents;
+        &--pages {
+            display: inline-flex;
+        }
+    }
     &__input {
-        grid-column: 2/5;
-        width: 38rem;
+        grid-column: 2/4;
+        width: 40rem;
         border-radius: 10px;
         padding: 0 1rem;
+        font-size: 1.2rem;
+        height: 4rem;
+        align-self: center;
         &--sm {
             appearance: none;
             -webkit-appearance: none;
             height: 3rem;
             width: 11rem;
         }
-        &--lg {
-            width: 38rem;
-        }
     }
     &__synopsis {
-        height: 14rem;
-        padding-top: 1rem;
+        padding-top: 1.5rem;
         font-family: inherit;
         resize: vertical;
+        height: 14rem;
     }
     &__pages {
-        grid-column: 3/5;
+        grid-column: 3/4;
         grid-row: 4;
         display: flex;
         align-items: center;
-        justify-self: end;
+        justify-self: auto;
     }
     &__rating {
         font-size: 2rem;
         align-self: center;
-        &--star {
+        &--details {
+            justify-self: center;
+            margin-top: 0;
+        }
+        &--checked {
             @include m.stars;
         }
         &--unchecked {
             color: lighten(grey, 25%);
             stroke: black; 
-            stroke-width: 1rem;       
+            stroke-width: 1rem;
+            margin-right: .5rem;       
         }  
     }
     &__selectPub {
@@ -60,69 +72,121 @@
     &__selectPage {
         @include m.CustomPage;
     }
-    @media only screen and (max-width: 1025px) {
-        margin-left: 2rem;
-    }
-    @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1200px) {
         &__input {
-            width: 35rem;
+            width: 37rem;
+            height: 3rem;
             &--sm {
-                width: 10rem;
+                width: 11rem;
             }
             &--lg {
-                width: 35rem;
+                height: 15rem;
+            }
+            &--title {
+                align-self: end;
+            }
+            &--author {
+                align-self: center;
             }
         }
         &__text {
+            &--title {
+                margin: 0;
+                padding-top: 1rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 1025px) {
+        margin: 1rem 2rem 4rem 2rem;
+        &__text {
             font-size: 1.5rem;
+            &--title {
+                align-self: center;
+                padding-bottom: 0;
+            }
+        }
+        &__input {
+            height: 3.5rem;
+            width: 33rem;
+            &--title {
+                align-self: end;
+            }
+            &--sm {
+                width: 11rem;
+                height: 3rem;
+            }
+        }
+        &__synopsis {
+            height: 15rem;
         }
     }
     @media only screen and (max-width: 769px) {
-        margin: 1rem 0 1rem 2rem;
-        grid-template-columns: 1fr 1.5fr 1fr 1fr;
+        margin: 1rem 2rem 1rem 1rem;
+        grid-template-columns: .5fr 1fr 1fr 1.5fr;
+        height: 93%;
         &__input {
-            height: 2.5rem;
-            width: 23.5rem;
+            height: 3rem;
+            width: 24.5rem;
+            font-size: .8rem;
             &--lg {
-                height: 11rem;
+                height: 12rem;
                 font-size: 1rem;
             }
             &--sm {
-                width: 9rem;
+                width: 8rem;
+                margin: 1rem;
             }
         }
         &__text {
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
         &__pages {
-            justify-self: auto;
-            margin-left: 1rem;
+            justify-self: end;
         }
         &__rating {
             font-size: 1.5rem;
+            &--details {
+                align-self: start;
+            }
         }
     }
     @media only screen and (max-width: 480px) {
-        .form {
-            display: block;
-            &__input {
-                &--lg {
-                    font-size: 1.5rem;
-                    padding: 1.5rem;
-                }
-                &--sm {
-                    width: 12rem;
-                }
+        margin: 1rem 2rem;
+        &__label {
+            &--pages {
+                display: inline-block;
             }
-            &__desktop {
-                display: none;
+        }
+        &__input {
+            font-size: 1.2rem;
+            &--sm {
+                padding: 0 1rem;
             }
-            &__selectPage {
-                margin: 1rem 4rem auto;
+        }
+        &__rating {
+            &--details {
+                margin: 0 6rem 0 7rem;
             }
-            &__rating {
-                font-size: 2.5rem;
-                margin-top: 2rem;
+        }
+    }
+    @media only screen and (max-width: 425px) {
+        &__rating {
+            font-size: 1.5rem;
+            &--details {
+                margin: 0 3rem 0 6rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        margin: 1rem;
+        &__input {
+            &--sm {
+                width: 12rem;
+            }
+        }
+        &__rating {
+            &--details {
+                margin: 0 4rem;
             }
         }
     }

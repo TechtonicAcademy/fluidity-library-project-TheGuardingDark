@@ -1,50 +1,70 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+import PropTypes from 'prop-types';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
-const BookForm = () => {
+const BookForm = ({ src, title, author, synopsis, published, pages }) => {
   return (
     <form className="form grid form__mobile" id="addBookForm">
-      <label className="form__text form__mobile" htmlFor="title">
-        Title
+      <label htmlFor="title" className="form__label">
+        <p className="form__text form__text--title form__mobile">Title</p>
+        <input
+          type="text"
+          className="form__input form__input--title form__mobile"
+          id="title"
+          placeholder={title}
+        />
       </label>
-      <input type="text" className="form__input form__mobile" id="title" />
-      <label className="form__text form__mobile" htmlFor="author">
-        Author
+      <label htmlFor="author" className="form__label">
+        <p className="form__text form__text--author form__mobile">Author </p>
+        <input
+          type="text"
+          className="form__input form__input--author form__mobile"
+          id="author"
+          placeholder={author}
+        />
       </label>
-      <input type="text" className="form__input form__mobile" id="author" />
-      <EmptyCard className="mobile" />
+      <EmptyCard src={src} className="form blank" />
       <Button
-        text="Add Image"
+        text={`${src ? 'Change Image' : 'Add Image'}`}
         type="submit"
-        className="mdDark addImg addImg__mobile"
+        className="mdDark addChangeImg"
       />
-      <label className="form__text form__mobile" htmlFor="synopsis">
-        Synopsis
+      <label htmlFor="synopsis" className="form__label">
+        <p className="form__text form__mobile">Synopsis</p>
+        <textarea
+          type="text"
+          className="form__input form__input--lg form__mobile form__synopsis"
+          id="synopsis"
+          placeholder={synopsis}
+        />
       </label>
-      <textarea
-        type="text"
-        className="form__input form__input--lg form__mobile form__synopsis"
-        id="synopsis"
-      />
-      <label className="form__text form__mobile" htmlFor="published">
-        Published
-      </label>
-      <CustomPub />
-      <label
-        className="form__text form__pages form__mobile form__text--pages"
-        htmlFor="pages"
-      >
-        Pages
-        <CustomPage />
-      </label>
+      <CustomPub date={published} />
+      <CustomPage pages={pages} />
       <p className="form__text">Rating</p>
-      <Stars />
+      <Stars type={`${src ? 'checked' : 'unchecked'}`} />
     </form>
   );
+};
+
+BookForm.defaultProps = {
+  src: '',
+  title: '',
+  author: '',
+  synopsis: '',
+  published: '',
+  pages: null,
+};
+
+BookForm.propTypes = {
+  src: PropTypes.string,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  synopsis: PropTypes.string,
+  published: PropTypes.string,
+  pages: PropTypes.number,
 };
 
 export default BookForm;
