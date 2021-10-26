@@ -16,12 +16,11 @@ const CustomPage = ({ pages, ref }) => {
           min="0"
           className="
         form__input form__input--sm form__mobile"
-        name="pages"
-        placeholder={pages}
-        ref={ref}
-      />
-    </div>
-
+          name="pages"
+          placeholder={pages}
+        />
+      </div>
+    </label>
   );
 };
 
