@@ -7,12 +7,14 @@ const CustomPub = ({ date }) => {
   const addPublished = publishedInputRef.current.value.trim();
 
   return (
-    <div className="form__selectPub">
-      <TiArrowSortedDown className="form__selectPub--arrow" />
-      <select
-        type="select"
-        id="published"
-        className="form 
+    <label htmlFor="published" className="form__label">
+      <p className="form__text form__mobile">Published</p>
+      <div className="form__selectPub">
+        <TiArrowSortedDown className="form__selectPub--arrow" />
+        <select
+          type="select"
+          id="published"
+          className="form 
           form__input 
           form__input--sm 
           form__mobile

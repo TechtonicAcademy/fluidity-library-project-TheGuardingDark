@@ -117,6 +117,7 @@
 @mixin CustomPage {
     position: relative;
     margin: 0 0 0 4rem;
+    align-self: center;
     &--arrow {
         position: absolute;
         font-size: 2rem;

@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import { useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import { addBook } from '../utils/API';
 import CustomPage from './CustomPage';
@@ -34,11 +32,14 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
 
   return (
     <form className="form grid form__mobile" id="addBookForm">
-      <label
-        className="form__text form__text--title form__mobile"
-        htmlFor="title"
-      >
-        Title
+      <label htmlFor="title" className="form__label">
+        <p className="form__text form__text--title form__mobile">Title</p>
+        <input
+          type="text"
+          className="form__input form__input--title form__mobile"
+          id="title"
+          placeholder={title}
+        />
       </label>
       <input
         type="text"
@@ -78,15 +79,10 @@ const BookForm = ({ src, title, author, synopsis, published, pages }) => {
       />
       <label className="form__text form__mobile" htmlFor="published">
         Published
+
       </label>
       <CustomPub date={published} />
-      <label
-        className="form__text form__pages form__mobile form__text--pages"
-        htmlFor="pages"
-      >
-        Pages
-        <CustomPage pages={pages} />
-      </label>
+      <CustomPage pages={pages} />
       <p className="form__text">Rating</p>
       <Stars type={`${src ? 'checked' : 'unchecked'}`} />
     </form>
