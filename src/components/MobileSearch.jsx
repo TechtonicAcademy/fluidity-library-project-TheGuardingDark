@@ -1,7 +1,8 @@
 import { FaSistrix } from 'react-icons/fa';
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
 
-const MobileSearch = ({ searchTerm, setSearchTerm }) => {
+const MobileSearch = ({ setSearchTerm }) => {
   const inputRef = useRef();
 
   const handleSearch = (e) => {
@@ -22,6 +23,13 @@ const MobileSearch = ({ searchTerm, setSearchTerm }) => {
       <FaSistrix className="mobileSearch__icon" onClick={handleSearch} />
     </form>
   );
+};
+
+MobileSearch.defaultProps = {
+  setSearchTerm: {},
+};
+MobileSearch.propTypes = {
+  setSearchTerm: PropTypes.func,
 };
 
 export default MobileSearch;
