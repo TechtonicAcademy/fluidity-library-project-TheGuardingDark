@@ -26,7 +26,7 @@ const MobileSearch = ({ setSearchTerm }) => {
 };
 
 MobileSearch.defaultProps = {
-  setSearchTerm: {},
+  setSearchTerm: () => {},
 };
 MobileSearch.propTypes = {
   setSearchTerm: PropTypes.func,

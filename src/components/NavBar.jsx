@@ -50,8 +50,8 @@ const NavBar = ({ searchTerm, setSearchTerm }) => {
 };
 
 NavBar.defaultProps = {
-  searchTerm: {},
-  setSearchTerm: {},
+  searchTerm: '',
+  setSearchTerm: () => {},
 };
 NavBar.propTypes = {
   searchTerm: PropTypes.string,

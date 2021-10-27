@@ -31,7 +31,7 @@ const Search = ({ setSearchTerm }) => {
 };
 
 Search.defaultProps = {
-  setSearchTerm: {},
+  setSearchTerm: () => {},
 };
 Search.propTypes = {
   setSearchTerm: PropTypes.func,

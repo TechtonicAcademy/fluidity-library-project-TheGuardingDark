@@ -33,8 +33,8 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
 };
 
 Bookshelf.defaultProps = {
-  searchTerm: {},
-  setSearchTerm: {},
+  searchTerm: '',
+  setSearchTerm: () => {},
 };
 Bookshelf.propTypes = {
   searchTerm: PropTypes.string,
