@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
-const Search = ({ searchTerm, setSearchTerm }) => {
+const Search = ({ setSearchTerm }) => {
   const inputRef = useRef();
   const history = useHistory();
 
@@ -27,6 +28,13 @@ const Search = ({ searchTerm, setSearchTerm }) => {
       <Button text="Search" type="submit" />
     </form>
   );
+};
+
+Search.defaultProps = {
+  setSearchTerm: () => {},
+};
+Search.propTypes = {
+  setSearchTerm: PropTypes.func,
 };
 
 export default Search;

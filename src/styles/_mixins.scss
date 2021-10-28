@@ -8,9 +8,7 @@
     stroke: black;
     stroke-width: 1rem;
     margin-right: .4rem;
-    :checked {
-        color: yellow;
-    }
+    cursor: pointer;
 }
 
 @mixin button {

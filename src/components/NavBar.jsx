@@ -49,13 +49,13 @@ const NavBar = ({ searchTerm, setSearchTerm }) => {
   );
 };
 
-// NavBar.defaultProps = {
-//   searchTerm: '',
-//   setSearchTerm: '',
-// };
-// NavBar.propTypes = {
-//   searchTerm: PropTypes.string,
-//   setSearchTerm: PropTypes.string,
-// };
+NavBar.defaultProps = {
+  searchTerm: '',
+  setSearchTerm: () => {},
+};
+NavBar.propTypes = {
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
+};
 
 export default NavBar;

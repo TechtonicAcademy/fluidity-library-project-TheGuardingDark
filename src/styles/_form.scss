@@ -42,7 +42,14 @@
     }
     &__rating {
         font-size: 2rem;
-        align-self: center;
+        // align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        &--radio {
+            // display: none;
+        }
         &--details {
             justify-self: center;
             margin-top: 0;
@@ -54,7 +61,8 @@
             color: lighten(grey, 25%);
             stroke: black; 
             stroke-width: 1rem;
-            margin-right: .5rem;       
+            margin-right: .5rem;
+            cursor: pointer;       
         }  
     }
     &__selectPub {

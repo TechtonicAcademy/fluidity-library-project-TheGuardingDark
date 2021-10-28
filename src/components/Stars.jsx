@@ -1,27 +1,32 @@
+// import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 
-const Stars = ({ type, className }) => {
+const Stars = ({ handleRatingChange }) => {
   return (
-    // Placeholder until rating is hooked up
-
-    <div className={`form__rating form__rating--${className}`} id="rating">
-      <FaStar type="button" key="1" className={`form__rating--${type}`} />
-      <FaStar type="button" key="2" className={`form__rating--${type}`} />
-      <FaStar type="button" key="3" className={`form__rating--${type}`} />
-      <FaStar type="button" key="4" className={`form__rating--${type}`} />
-      <FaStar type="button" key="5" className="form__rating--unchecked" />
+    <div className="form__rating">
+      {[...Array(5)].map((_star, index) => {
+        const givenRating = index + 1;
+        return (
+          <div className="form__rating--stars" key={givenRating}>
+            <FaStar
+              type="radio"
+              role="button"
+              name="rating"
+              value={givenRating}
+              className="form__rating--unchecked"
+              // givenRating > { rating } || givenRating === { rating }
+              //   ? 'form__rating--checked'
+              //   : 'form__rating--unchecked'
+              onClick={() => {
+                console.log('clicked', givenRating);
+                handleRatingChange(givenRating);
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
-};
-
-Stars.defaultProps = {
-  className: ' ',
-  type: 'unchecked',
-};
-Stars.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
 };
 
 export default Stars;

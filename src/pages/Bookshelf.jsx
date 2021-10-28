@@ -33,9 +33,11 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
 
 Bookshelf.defaultProps = {
   searchTerm: '',
+  setSearchTerm: () => {},
 };
 Bookshelf.propTypes = {
   searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
 };
 
 export default Bookshelf;
