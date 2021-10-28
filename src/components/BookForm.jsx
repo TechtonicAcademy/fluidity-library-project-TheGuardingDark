@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import shortid from 'shortid';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
@@ -97,11 +97,7 @@ const BookForm = ({ createBook }) => {
       <CustomPub value={published} onChange={handleInputChange} />
       <CustomPage value={pages} onChange={handleInputChange} />
       <p className="form__text">Rating</p>
-      <Stars
-        onChangeValue={handleInputChange}
-        handleRatingChange={handleRatingChange}
-        rating={rating}
-      />
+      <Stars handleRatingChange={handleRatingChange} rating={rating} />
       <Button
         text="Add Book"
         type="submit"

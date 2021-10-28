@@ -1,7 +1,9 @@
-// import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
 const Stars = ({ handleRatingChange }) => {
+  const [currentRating, setCurrentRating] = useState(0);
   return (
     <div className="form__rating">
       {[...Array(5)].map((_star, index) => {
@@ -13,13 +15,15 @@ const Stars = ({ handleRatingChange }) => {
               role="button"
               name="rating"
               value={givenRating}
-              className="form__rating--unchecked"
-              // givenRating > { rating } || givenRating === { rating }
-              //   ? 'form__rating--checked'
-              //   : 'form__rating--unchecked'
+              className={
+                givenRating <= currentRating || givenRating === currentRating
+                  ? 'form__rating--checked'
+                  : 'form__rating--unchecked'
+              }
               onClick={() => {
                 console.log('clicked', givenRating);
                 handleRatingChange(givenRating);
+                setCurrentRating(givenRating);
               }}
             />
           </div>
@@ -27,6 +31,13 @@ const Stars = ({ handleRatingChange }) => {
       })}
     </div>
   );
+};
+
+Stars.defaultProps = {
+  handleRatingChange: () => {},
+};
+Stars.propTypes = {
+  handleRatingChange: PropTypes.func,
 };
 
 export default Stars;
