@@ -3,26 +3,27 @@ import DatePicker from 'react-widgets/DatePicker';
 import 'react-widgets/scss/styles.scss';
 import { useState } from 'react';
 
-const CustomPub = () => {
-  const date = new Date();
-  const [month, day, year] = [
-    date.getMonth(),
-    date.getDate(),
-    date.getFullYear(),
-  ];
+const CustomPub = ({ handleDateChange, initialValue }) => {
+  const [date, setDate] = useState(initialValue);
 
   return (
-    <label htmlFor="published" className="form__label">
+    <div htmlFor="published" className="form__label">
       <p className="form__text form__mobile">Published</p>
       <div className="form__selectPub">
         <DatePicker
-          placeholder="m/dd/yy"
           defaultValue={new Date()}
+          max={new Date()}
+          name="published"
+          value={date}
           valueEditFormat={{ dateStyle: 'medium' }}
           valueDisplayFormat={{ dateStyle: 'medium' }}
+          onChange={(date) => {
+            setDate(date);
+            handleDateChange(date);
+          }}
         />
       </div>
-    </label>
+    </div>
   );
 };
 

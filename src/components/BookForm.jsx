@@ -21,7 +21,7 @@ const BookForm = ({ createBook }) => {
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    console.log('book added');
+    // console.log('book added');
     const book = { ...formObj, id: shortid.generate() };
     createBook(book);
     setFormObj({
@@ -43,6 +43,11 @@ const BookForm = ({ createBook }) => {
 
   const handleRatingChange = (givenRating) => {
     setFormObj({ ...formObj, rating: givenRating });
+    // console.log(formObj);
+  };
+
+  const handleDateChange = (date) => {
+    setFormObj({ ...formObj, published: date });
     console.log(formObj);
   };
 
@@ -94,8 +99,11 @@ const BookForm = ({ createBook }) => {
           onChange={handleInputChange}
         />
       </label>
-      <CustomPub value={published} onChange={handleInputChange} />
-      <CustomPage value={pages} onChange={handleInputChange} />
+      <CustomPub
+        initialValue={new Date()}
+        handleDateChange={handleDateChange}
+      />
+      <CustomPage value={pages} />
       <p className="form__text">Rating</p>
       <Stars handleRatingChange={handleRatingChange} rating={rating} />
       <Button
