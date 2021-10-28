@@ -1,7 +1,7 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import { TiArrowSortedDown } from 'react-icons/ti';
 
 const CustomPub = ({ date }) => {
+
   return (
     <label htmlFor="published" className="form__label">
       <p className="form__text form__mobile">Published</p>

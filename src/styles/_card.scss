@@ -7,6 +7,9 @@
     height: fit-content;
     text-align: center;
     background-color: lighten(v.$brown, 30%);
+    &__link {
+        text-decoration: none;
+    }
     &__img {
         width:100%;
         margin: 0;
@@ -25,13 +28,15 @@
     }
     &__withImg {
         width: 20rem;
+        height: auto;
         padding-top: 1rem;
         &--bookshelf {
             width: 80%;
         }
     }
     &__container {
-        text-decoration: none;
+        // text-decoration: none;
+        color: black;
         cursor: pointer;
         &--title {
             font-size: 2rem;

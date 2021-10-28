@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-// import Jacket from '../styles/images/StephenKingPetSematary.jpg';
 import Jacket from '../styles/images/snuff.jpg';
 
 const EmptyCard = ({ className, src }) => {
   return (
     <div className={`card card__${className}`}>
       {src ? (
-        <img className="card__img" alt="Book Jacket" src={Jacket} />
+        <img className="card__img" alt="Book Jacket" src={src} />
       ) : (
         <div className="card__noImg">
           <p className="card__noImg--caption">Add Image</p>
@@ -18,7 +17,7 @@ const EmptyCard = ({ className, src }) => {
 
 EmptyCard.defaultProps = {
   className: 'card',
-  src: '',
+  src: Jacket,
 };
 EmptyCard.propTypes = {
   className: PropTypes.string,

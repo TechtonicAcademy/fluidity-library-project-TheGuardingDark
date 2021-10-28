@@ -1,6 +1,6 @@
 import { TiArrowUnsorted } from 'react-icons/ti';
 
-const CustomPage = ({ pages }) => {
+const CustomPage = ({ pages, ref }) => {
   return (
     <label htmlFor="pages" className="form__label--pages">
       <p className="form__text form__pages form__mobile form__text--pages">
