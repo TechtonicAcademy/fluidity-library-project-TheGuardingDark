@@ -1,3 +1,4 @@
+
 @use "./mixins" as m;
 @use "./variables" as v;
 @use "./nav" as n;
@@ -201,7 +202,14 @@ body {
 }
 
 // ADD/EDIT BOOK PAGE
-
+.rw-widget {
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-radius: 7px;
+}
+.rw-widget-picker {
+  height: 4rem;
+}
 .addBook,
 .editBook {
   &__header {
