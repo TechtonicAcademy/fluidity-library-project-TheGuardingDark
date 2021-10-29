@@ -1,5 +1,5 @@
-// import { TiArrowSortedDown } from 'react-icons/ti';
 import DatePicker from 'react-widgets/DatePicker';
+import PropTypes from 'prop-types';
 import 'react-widgets/scss/styles.scss';
 import { useState } from 'react';
 
@@ -25,6 +25,16 @@ const CustomPub = ({ handleDateChange, initialValue }) => {
       </div>
     </div>
   );
+};
+
+CustomPub.defaultProps = {
+  handleDateChange: () => {},
+  initialValue: new Date(),
+};
+
+CustomPub.propTypes = {
+  handleDateChange: PropTypes.func,
+  initialValue: PropTypes.instanceOf(Date),
 };
 
 export default CustomPub;

@@ -68,7 +68,6 @@
     align-self: center;
     position: relative;
     height: 3rem;
-    // width: 11rem;
     padding-right: 16rem;
     &--arrow {
         font-size: 2.5rem;
@@ -124,8 +123,8 @@
         opacity: .5;
     }
     input {
-        width: 10rem;
-        height: 3rem;
+        width: 8rem;
+        padding-left: 1.5rem;
     }
     @media only screen and (max-width: 1200px) {
         margin-left: 3rem;

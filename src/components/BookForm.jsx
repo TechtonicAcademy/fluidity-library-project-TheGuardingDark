@@ -17,7 +17,7 @@ const BookForm = ({ createBook }) => {
     pages: '',
     rating: 0,
   });
-  const { src, title, author, synopsis, published, pages, rating } = formObj;
+  const { src, title, author, synopsis, rating } = formObj;
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
@@ -48,6 +48,11 @@ const BookForm = ({ createBook }) => {
 
   const handleDateChange = (date) => {
     setFormObj({ ...formObj, published: date });
+    // console.log(formObj);
+  };
+
+  const handlePagesChange = (pages) => {
+    setFormObj({ ...formObj, pages });
     console.log(formObj);
   };
 
@@ -103,7 +108,7 @@ const BookForm = ({ createBook }) => {
         initialValue={new Date()}
         handleDateChange={handleDateChange}
       />
-      <CustomPage value={pages} />
+      <CustomPage handlePagesChange={handlePagesChange} />
       <p className="form__text">Rating</p>
       <Stars handleRatingChange={handleRatingChange} rating={rating} />
       <Button
