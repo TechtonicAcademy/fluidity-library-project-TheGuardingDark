@@ -78,59 +78,33 @@
     }
     @media only screen and (max-width: 1200px) {
         &__input {
-            width: 37rem;
-            height: 3rem;
             &--sm {
                 width: 11rem;
-            }
-            &--lg {
-                height: auto;
-            }
-            &--title {
-                align-self: end;
             }
             &--author {
                 align-self: center;
             }
         }
-        &__text {
-            &--title {
-                align-self: end;
-                padding-bottom: .5rem;
-            }
-        }
     }
     @media only screen and (max-width: 1025px) {
-        margin: 1rem 2rem 4rem 2rem;
         &__text {
             font-size: 1.5rem;
-            &--title {
-                align-self: center;
-                padding-bottom: 0;
-            }
         }
         &__input {
-            height: 3.5rem;
             width: 33rem;
-            &--title {
-                align-self: end;
-            }
-            &--sm {
-                width: 11rem;
-                height: 3rem;
-            }
         }
-        &__synopsis {
-            height: auto;
+        &__rating {
+            font-size: 2rem;
         }
     }
     @media only screen and (max-width: 769px) {
         margin: 1rem 2rem 1rem 1rem;
         grid-template-columns: .5fr 1fr 1fr 1.5fr;
+        column-gap: .5rem;
         height: 93%;
         &__input {
             height: 3rem;
-            width: 24.5rem;
+            width: 25rem;
             font-size: .8rem;
             &--lg {
                 height: 12rem;

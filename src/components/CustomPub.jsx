@@ -17,6 +17,7 @@ const CustomPub = ({ handleDateChange, initialValue, reset, setReset }) => {
         <DatePicker
           defaultValue={new Date()}
           max={new Date()}
+          dropUp
           name="published"
           value={date}
           valueEditFormat={{ dateStyle: 'medium' }}

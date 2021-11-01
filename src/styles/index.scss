@@ -212,8 +212,12 @@ body {
   border: 1px solid black;
   border-radius: 7px;
 }
+
 .rw-widget-picker {
   height: 4rem;
+}
+.rw-widget-input {
+  width: 16rem;
 }
 .rw-number-picker {
   width: 14rem;
@@ -244,7 +248,34 @@ body {
   width: 18rem;
   margin-top: .5rem;
 }
+@media only screen and (max-width: 1200px) {
+  .rw-number-picker {
+    width: 13rem;
+  }
+}
 @media only screen and (max-width: 1025px) {
+  .rw {
+    &-widget {
+    font-size: 1.3rem;
+      &-picker {
+        width: 14rem;
+      } 
+    }
+    &-btn {
+    position: relative;
+    right: 5rem;
+    width: 2.7rem;
+    }
+    &-number {
+      &-picker {
+        width: 12rem;
+        &-spinners {
+          position: relative;
+          right: -4rem;
+        }
+      }
+    }
+  }
   .addBook,
   .editBook {
     row-gap: 0;
@@ -256,15 +287,46 @@ body {
     margin-bottom: 7rem;
     width: 16rem;
   }
+  .addChangeImg {
+    width: 15rem;
+  }
 }
 @media only screen and (max-width: 769px) {
-  html {
-    font-size: 15px;
+  // html {
+  //   font-size: 15px;
+  // }
+  .rw {
+    &-calendar {
+      &-header {
+        padding-top: 1rem;
+      }
+      &-btn {
+        right: 0;
+        width: 2rem;
+      }
+    }
+    &-number {
+      &-picker {
+        width: 8rem;
+      }
+    }
+    &-widget {
+      font-size: 1rem;
+      // height: 3rem;
+      &-input {
+        width: 13rem;
+      }
+      &-picker {
+        width: 11rem;
+        border-right: 1px solid black;
+        height: 3rem;
+      }
+    }
   }
   .blank {
-    height: 98%;
-    width: 81%;
-    margin-top: 1rem;
+    height: 86%;
+    width: 74%;
+    // margin-top: 1rem;
     &__caption {
       font-size: 1rem;
       padding: 8rem 4rem;
@@ -277,11 +339,24 @@ body {
       font-size: 2rem;
       margin: 3rem 0 1rem;
     }
+    &__btns {
+      justify-self: auto;
+      margin: 0;
+    }
   }
   .addImg {
     margin-bottom: 5.9rem;
     width: 13.5rem;
     font-size: 1rem;
+    height: 3rem;
+  }
+  .addChangeImg {
+    width: 13rem;
+    height: 3rem;
+    margin: 0;
+  }
+  .rightBtn,
+  .leftBtn {
     height: 3rem;
   }
 }
