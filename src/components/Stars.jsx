@@ -1,9 +1,15 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const Stars = ({ handleRatingChange }) => {
+const Stars = ({ handleRatingChange, reset, setReset }) => {
   const [currentRating, setCurrentRating] = useState(0);
+
+  useEffect(() => {
+    setCurrentRating(0);
+    setReset(false);
+  }, [reset]);
+
   return (
     <div className="form__rating">
       {[...Array(5)].map((_star, index) => {
@@ -21,7 +27,6 @@ const Stars = ({ handleRatingChange }) => {
                   : 'form__rating--unchecked'
               }
               onClick={() => {
-                console.log('clicked', givenRating);
                 handleRatingChange(givenRating);
                 setCurrentRating(givenRating);
               }}
@@ -35,9 +40,13 @@ const Stars = ({ handleRatingChange }) => {
 
 Stars.defaultProps = {
   handleRatingChange: () => {},
+  setReset: () => {},
+  reset: false,
 };
 Stars.propTypes = {
   handleRatingChange: PropTypes.func,
+  setReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
 
 export default Stars;

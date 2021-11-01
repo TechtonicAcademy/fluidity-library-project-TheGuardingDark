@@ -1,8 +1,14 @@
 import NumberPicker from 'react-widgets/NumberPicker';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
-const CustomPage = ({ handlePagesChange }) => {
+const CustomPage = ({ handlePagesChange, reset, setReset }) => {
   const [pages, setPages] = useState(300);
+  useEffect(() => {
+    setPages(300);
+    setReset(false);
+  }, [reset]);
+
   return (
     <div htmlFor="pages" className="form__label--pages">
       <p className="form__text form__pages form__mobile form__text--pages">
@@ -14,10 +20,6 @@ const CustomPage = ({ handlePagesChange }) => {
           min={0}
           value={pages}
           name="pages"
-          // className="
-          // form__input 
-          // form__input--sm 
-          // form__mobile"
           onChange={(pages) => {
             setPages(pages);
             handlePagesChange(pages);
@@ -26,6 +28,18 @@ const CustomPage = ({ handlePagesChange }) => {
       </div>
     </div>
   );
+};
+
+CustomPage.defaultProps = {
+  handlePagesChange: () => {},
+  setReset: () => {},
+  reset: false,
+};
+
+CustomPage.propTypes = {
+  handlePagesChange: PropTypes.func,
+  setReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
 
 export default CustomPage;

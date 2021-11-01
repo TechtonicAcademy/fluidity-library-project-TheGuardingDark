@@ -10,6 +10,7 @@
     align-items: center;
     background-color: v.$coffee;
     padding: 0 2rem;
+    width: 105%;
     &__item {
         text-decoration: none;
         color: v.$beige;
@@ -36,7 +37,7 @@
         height: 2.4rem;
         color: v.$blue;
         border-color: v.$blue;
-        justify-self: center;
+        justify-self: left;
         font-size: 1rem;
         &:hover {
             color: lighten(v.$blue, 50%);
@@ -57,12 +58,30 @@
             margin-left: 1rem;
         }
     }
-    @media only screen and (max-width: 1184px) {
-        &__search {
-            margin-right: 3rem;
+    @media only screen and (max-width: 1200px) {
+        .btn {
+            margin-right: 5rem;
         }
-        &__form {
-            margin-left: 0;
+    }
+    @media only screen and (max-width: 1176px) {
+        .btn {
+            margin-right: 7rem;
+        }
+    }
+    @media only screen and (max-width: 1147px) {
+        .btn {
+            margin-right: 9rem;
+        }
+    }
+    @media only screen and (max-width: 1118px) {
+        padding-left: 0;
+        .btn {
+            margin-right: 12rem;
+        }
+        &__item {
+            &--header {
+                font-size: 2rem;
+            }
         }
     }
     @media only screen and (max-width: 1109px) {
@@ -70,16 +89,13 @@
             margin-right: 2rem;
         }
     }
-    @media only screen and (max-width: 1072px) {
-        &__search {
-            margin-right: 1rem;
+    @media only screen and (max-width: 1069px) {
+        .btn {
+            margin-right: 17rem;
         }
     }
-
     @media only screen and (max-width: 1025px) {
-        &__item {
-            font-size: 1.2rem;
-        }
+        width: 100%;
         &__search {
             width: 15rem;
             height: 2.3rem;
@@ -87,7 +103,78 @@
         }
         .btn {
             width: 7rem;
-            height: 2.3rem;
+            height: 2rem;
+            margin-right: 11rem;
+        }
+    }
+    @media only screen and (max-width: 990px) {
+        .btn {
+            margin-right: 14rem;
+        }
+    }
+    @media only screen and (max-width: 950px) {
+        .btn {
+            margin-right: 17rem;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .btn {
+            margin-right: 19rem;
+        }
+        &__search {
+            width: 13rem;
+        }
+    }
+    @media only screen and (max-width: 870px) {
+        grid-template-columns: 2fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 21rem;
+        }
+        &__item {
+            font-size: 1rem;
+        }
+    }
+    @media only screen and (max-width: 840px) {
+        grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 22rem;
+        }
+        &__search {
+            width: 12rem;
+            height: 2rem;
+        }
+
+    }
+    @media only screen and (max-width: 827px) {
+        padding: 1rem;
+        grid-template-columns: repeat(4, 1fr) 2fr 1fr;
+        &__item {
+            &--header {
+                font-size: 1.4rem;
+            }
+        }
+        .btn {
+            margin-right: 24rem;
+        }
+
+    }
+    @media only screen and (max-width: 800px) {
+        grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 26rem;
+        }
+    }
+    @media only screen and (max-width: 786px) {
+        padding: .5rem 1rem;
+        &__item {
+            font-size: 1.3rem;
+            &--header {
+                font-size: 2rem;
+                width: 11rem;
+            }
+        }
+        &__search {
+            width: 12rem;
         }
     }
     @media only screen and (max-width: 769px) {
@@ -105,6 +192,7 @@
             width: 5rem;
             height: 2rem;
             font-size: .8rem;
+            margin-right: 8rem;
         }
     }
 }
@@ -125,6 +213,8 @@
     &__item {
         &--header {
             margin-top: 1.5rem;
+            font-size: 3rem;
+            width: 16rem;
         }
     }
     &__mobile {

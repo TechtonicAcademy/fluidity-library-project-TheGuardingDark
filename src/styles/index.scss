@@ -29,6 +29,11 @@ body {
   right: 0;
   display: grid;
 }
+// @media only screen and (max-width: 480px) {
+//   body {
+//     width: 107%;
+//   }
+// };
 
 .grid {
   display: grid;
@@ -212,7 +217,8 @@ body {
 }
 .rw-number-picker {
   width: 14rem;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  margin-top: .2rem;
 }
 .addBook,
 .editBook {
@@ -234,6 +240,9 @@ body {
   grid-column: 4;
   grid-row: 4;
   place-self: center;
+  height: 3.5rem;
+  width: 18rem;
+  margin-top: .5rem;
 }
 @media only screen and (max-width: 1025px) {
   .addBook,
@@ -410,18 +419,6 @@ body {
       &--synopsis {
         font-size: 1.4rem;
         grid-row: 3;
-      }
-    }
-    .form {
-      &__rating {
-        // Temporary till add functionality
-        &--checked {
-          margin-right: .7rem;
-          color: yellow;
-        }
-        &--unchecked {
-          color: gray;
-        }
       }
     }
     .mobile {
@@ -680,7 +677,7 @@ body {
       width: 44px;
       height: 32px;
       left: 20rem;
-      top: -4rem;
+      top: -4.8rem;
     }
   }
     

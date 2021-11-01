@@ -3,8 +3,6 @@
 
 @mixin form {
     grid-template-columns: .5fr 1fr 1fr 1.5fr;
-    grid-template-rows: .5fr .5fr 2fr .5fr .5fr;
-    row-gap: 1rem;
     column-gap: 1rem;
     margin: 1rem 2rem 3rem;
     &__text {
@@ -15,9 +13,16 @@
             align-self: center;
         }
     }
+    &__label {
+        display: contents;
+        &--pages {
+            display: flex;
+        }
+    }
     &__input {
         grid-column: 2/4;
-        width: 40rem;
+        height: 4rem;
+        align-self: center;
         border-radius: 10px;
         padding: 0 1rem;
         font-size: 1.2rem;
@@ -30,8 +35,10 @@
     }
     &__synopsis {
         padding-top: 1.5rem;
+        margin: 1rem 0;
         font-family: inherit;
         resize: vertical;
+        height: 18rem;
     }
     &__pages {
         grid-column: 3/4;
@@ -41,14 +48,16 @@
         justify-self: auto;
     }
     &__rating {
-        font-size: 2rem;
+        font-size: 3rem;
         display: flex;
-        justify-content: center;
         align-items: center;
-        min-height: 60vh;
+        margin: 2rem 0;
         &--details {
             justify-self: center;
             margin-top: 0;
+        }
+        &--stars {
+            padding-right: .5rem;
         }
         &--checked {
             @include m.stars;
