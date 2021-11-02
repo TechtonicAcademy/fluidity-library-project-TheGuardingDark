@@ -29,12 +29,6 @@ body {
   right: 0;
   display: grid;
 }
-// @media only screen and (max-width: 480px) {
-//   body {
-//     width: 107%;
-//   }
-// };
-
 .grid {
   display: grid;
 }
@@ -218,6 +212,7 @@ body {
 }
 .rw-widget-input {
   width: 16rem;
+  box-shadow: none;
 }
 .rw-number-picker {
   width: 14rem;
@@ -257,14 +252,9 @@ body {
   .rw {
     &-widget {
     font-size: 1.3rem;
-      &-picker {
-        width: 14rem;
-      } 
     }
     &-btn {
     position: relative;
-    right: 5rem;
-    width: 2.7rem;
     }
     &-number {
       &-picker {
@@ -292,9 +282,6 @@ body {
   }
 }
 @media only screen and (max-width: 769px) {
-  // html {
-  //   font-size: 15px;
-  // }
   .rw {
     &-calendar {
       &-header {
@@ -312,7 +299,6 @@ body {
     }
     &-widget {
       font-size: 1rem;
-      // height: 3rem;
       &-input {
         width: 13rem;
       }
@@ -326,7 +312,6 @@ body {
   .blank {
     height: 86%;
     width: 74%;
-    // margin-top: 1rem;
     &__caption {
       font-size: 1rem;
       padding: 8rem 4rem;
@@ -341,7 +326,7 @@ body {
     }
     &__btns {
       justify-self: auto;
-      margin: 0;
+      margin: 2rem 0 0 1.5rem;
     }
   }
   .addImg {
@@ -351,7 +336,7 @@ body {
     height: 3rem;
   }
   .addChangeImg {
-    width: 13rem;
+    width: 12rem;
     height: 3rem;
     margin: 0;
   }
@@ -380,6 +365,10 @@ body {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         text-align: center;
+        &__btns {
+          margin: 3rem 0 2rem 3.5rem;
+          display: inline-grid;
+        }
         &__header {
           font-size: 3rem;
         }
@@ -432,6 +421,12 @@ body {
     }
   }
   @media only screen and (max-width: 425px) {
+    .addBook,
+    .editBook {
+      &__btns {
+        margin-left: 3rem;
+      }
+    }
     .form {
       &__input {
         width: 25rem;
@@ -445,6 +440,12 @@ body {
     }
   }
   @media only screen and (max-width: 375px) {
+    .addBook,
+    .editBook {
+      &__btns {
+        margin-left: 4rem;
+      }
+    }
     .blank {
       width: 70%;
     }

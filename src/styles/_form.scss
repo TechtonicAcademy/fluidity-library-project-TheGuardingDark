@@ -46,6 +46,7 @@
         display: flex;
         align-items: center;
         justify-self: auto;
+        padding-left: 1rem;
     }
     &__rating {
         font-size: 3rem;
@@ -66,7 +67,7 @@
             color: lighten(grey, 25%);
             stroke: black; 
             stroke-width: 1rem;
-            margin-right: .5rem;
+            margin-right: .4rem;
             cursor: pointer;       
         }  
     }
@@ -91,7 +92,7 @@
             font-size: 1.5rem;
         }
         &__input {
-            width: 33rem;
+            width: 33.8rem;
         }
         &__rating {
             font-size: 2rem;
@@ -104,7 +105,7 @@
         height: 93%;
         &__input {
             height: 3rem;
-            width: 25rem;
+            width: 25.5rem;
             font-size: .8rem;
             &--lg {
                 height: 12rem;
@@ -129,7 +130,17 @@
         }
     }
     @media only screen and (max-width: 480px) {
-        margin: 1rem 2rem;
+        margin: 1rem 2rem 5rem;
+        &__text {
+            &--pages {
+                padding-left: 0;
+            }
+        }
+        &__label {
+            &--pages {
+                display: inline-block;
+            }
+        }
         &__input {
             font-size: 1.2rem;
             &--sm {
@@ -137,6 +148,8 @@
             }
         }
         &__rating {
+            font-size: 2.3rem;
+            justify-content: center;
             &--details {
                 margin: 0 6rem 0 7rem;
             }
@@ -144,20 +157,22 @@
     }
     @media only screen and (max-width: 425px) {
         &__rating {
-            font-size: 1.5rem;
+            font-size: 2rem;
             &--details {
                 margin: 0 3rem 0 6rem;
             }
         }
     }
     @media only screen and (max-width: 375px) {
-        margin: 1rem;
+        margin: 1rem 1rem 4rem;
         &__input {
             &--sm {
                 width: 12rem;
             }
         }
         &__rating {
+            font-size: 2.2rem;
+            margin-left: 1rem;
             &--details {
                 margin: 0 4rem;
             }
