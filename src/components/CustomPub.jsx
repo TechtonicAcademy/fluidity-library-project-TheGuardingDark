@@ -1,29 +1,50 @@
-import { TiArrowSortedDown } from 'react-icons/ti';
 
-const CustomPub = ({ date }) => {
+import DatePicker from 'react-widgets/DatePicker';
+import PropTypes from 'prop-types';
+import 'react-widgets/scss/styles.scss';
+import { useState, useEffect } from 'react';
+
+const CustomPub = ({ handleDateChange, initialValue, reset, setReset }) => {
+  const [date, setDate] = useState(initialValue);
+  useEffect(() => {
+    setDate(new Date());
+    setReset(false);
+  }, [reset]);
 
   return (
-    <label htmlFor="published" className="form__label">
+    <div htmlFor="published" className="form__label">
       <p className="form__text form__mobile">Published</p>
       <div className="form__selectPub">
-        <TiArrowSortedDown className="form__selectPub--arrow" />
-        <select
-          type="select"
-          id="published"
-          className="form 
-          form__input 
-          form__input--sm 
-          form__mobile
-          form__selectPub--input"
-        >
-          <option value="0">{date}</option>
-          <option value="1">02/14/1975</option>
-          <option value="2">10/31/2020</option>
-          <option value="3">07/08/1990</option>
-        </select>
+        <DatePicker
+          defaultValue={new Date()}
+          max={new Date()}
+          dropUp
+          name="published"
+          value={date}
+          valueEditFormat={{ dateStyle: 'medium' }}
+          valueDisplayFormat={{ dateStyle: 'medium' }}
+          onChange={(date) => {
+            setDate(date);
+            handleDateChange(date);
+          }}
+        />
       </div>
-    </label>
+    </div>
   );
+};
+
+CustomPub.defaultProps = {
+  handleDateChange: () => {},
+  initialValue: new Date(),
+  setReset: () => {},
+  reset: false,
+};
+
+CustomPub.propTypes = {
+  handleDateChange: PropTypes.func,
+  initialValue: PropTypes.instanceOf(Date),
+  setReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
 
 export default CustomPub;

@@ -1,27 +1,45 @@
-import { TiArrowUnsorted } from 'react-icons/ti';
+import NumberPicker from 'react-widgets/NumberPicker';
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
-const CustomPage = ({ pages, ref }) => {
+const CustomPage = ({ handlePagesChange, reset, setReset }) => {
+  const [pages, setPages] = useState(300);
+  useEffect(() => {
+    setPages(300);
+    setReset(false);
+  }, [reset]);
+
   return (
-    <label htmlFor="pages" className="form__label--pages">
+    <div htmlFor="pages" className="form__label--pages">
       <p className="form__text form__pages form__mobile form__text--pages">
         Pages
       </p>
-
       <div className="form__selectPage">
-        <TiArrowUnsorted className="form__selectPage--arrow" />
-        <input
-          type="text"
-          inputMode="numeric"
-          id="pages"
-          min="0"
-          className="
-        form__input form__input--sm form__mobile"
+        <NumberPicker
+          defaultValue={300}
+          min={0}
+          value={pages}
           name="pages"
-          placeholder={pages}
+          onChange={(pages) => {
+            setPages(pages);
+            handlePagesChange(pages);
+          }}
         />
       </div>
-    </label>
+    </div>
   );
+};
+
+CustomPage.defaultProps = {
+  handlePagesChange: () => {},
+  setReset: () => {},
+  reset: false,
+};
+
+CustomPage.propTypes = {
+  handlePagesChange: PropTypes.func,
+  setReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
 
 export default CustomPage;

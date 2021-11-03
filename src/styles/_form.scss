@@ -3,10 +3,19 @@
 
 @mixin form {
     grid-template-columns: .5fr 1fr 1fr 1.5fr;
-    grid-template-rows: .5fr .5fr 2fr .5fr .5fr;
-    row-gap: 1rem;
     column-gap: 1rem;
     margin: 1rem 2rem 3rem;
+    &__err {
+        grid-column: 2;
+        grid-row: none;
+        color: red;
+        align-self: center;
+        font-size: 1.3rem;
+        padding-left: 1rem;
+        &--title {
+            grid-row: 1;
+        }
+    }
     &__text {
         grid-column: 1/2;
         font-size: 2rem;
@@ -18,17 +27,23 @@
     &__label {
         display: contents;
         &--pages {
-            display: inline-flex;
+
+            display: flex;
         }
     }
     &__input {
         grid-column: 2/4;
-        width: 40rem;
+        height: 4rem;
+        align-self: center;
         border-radius: 10px;
         padding: 0 1rem;
         font-size: 1.2rem;
-        height: 4rem;
-        align-self: center;
+        &--author {
+            grid-row: 2;
+        }
+        &--title {
+            grid-row: 1;
+        }
         &--sm {
             appearance: none;
             -webkit-appearance: none;
@@ -38,9 +53,10 @@
     }
     &__synopsis {
         padding-top: 1.5rem;
+        margin: 1rem 0;
         font-family: inherit;
         resize: vertical;
-        height: 14rem;
+        height: 18rem;
     }
     &__pages {
         grid-column: 3/4;
@@ -48,13 +64,19 @@
         display: flex;
         align-items: center;
         justify-self: auto;
+        padding-left: 1rem;
     }
     &__rating {
-        font-size: 2rem;
-        align-self: center;
+        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
         &--details {
             justify-self: center;
             margin-top: 0;
+        }
+        &--stars {
+            padding-right: .5rem;
         }
         &--checked {
             @include m.stars;
@@ -63,7 +85,8 @@
             color: lighten(grey, 25%);
             stroke: black; 
             stroke-width: 1rem;
-            margin-right: .5rem;       
+            margin-right: .4rem;
+            cursor: pointer;       
         }  
     }
     &__selectPub {
@@ -74,59 +97,37 @@
     }
     @media only screen and (max-width: 1200px) {
         &__input {
-            width: 37rem;
-            height: 3rem;
             &--sm {
                 width: 11rem;
-            }
-            &--lg {
-                height: 15rem;
-            }
-            &--title {
-                align-self: end;
             }
             &--author {
                 align-self: center;
             }
         }
-        &__text {
-            &--title {
-                margin: 0;
-                padding-top: 1rem;
-            }
-        }
     }
     @media only screen and (max-width: 1025px) {
-        margin: 1rem 2rem 4rem 2rem;
+        &__err {
+            font-size: 1rem;
+        }
         &__text {
             font-size: 1.5rem;
-            &--title {
-                align-self: center;
-                padding-bottom: 0;
-            }
         }
         &__input {
-            height: 3.5rem;
-            width: 33rem;
-            &--title {
-                align-self: end;
-            }
-            &--sm {
-                width: 11rem;
-                height: 3rem;
-            }
+            width: 33.8rem;
+            font-size: 1rem;
         }
-        &__synopsis {
-            height: 15rem;
+        &__rating {
+            font-size: 2rem;
         }
     }
     @media only screen and (max-width: 769px) {
         margin: 1rem 2rem 1rem 1rem;
         grid-template-columns: .5fr 1fr 1fr 1.5fr;
+        column-gap: .5rem;
         height: 93%;
         &__input {
             height: 3rem;
-            width: 24.5rem;
+            width: 25.5rem;
             font-size: .8rem;
             &--lg {
                 height: 12rem;
@@ -151,7 +152,15 @@
         }
     }
     @media only screen and (max-width: 480px) {
-        margin: 1rem 2rem;
+        margin: 1rem 2rem 5rem;
+        &__err {
+            padding-left: 0;
+        }
+        &__text {
+            &--pages {
+                padding-left: 0;
+            }
+        }
         &__label {
             &--pages {
                 display: inline-block;
@@ -164,6 +173,8 @@
             }
         }
         &__rating {
+            font-size: 2.3rem;
+            justify-content: center;
             &--details {
                 margin: 0 6rem 0 7rem;
             }
@@ -171,20 +182,22 @@
     }
     @media only screen and (max-width: 425px) {
         &__rating {
-            font-size: 1.5rem;
+            font-size: 2rem;
             &--details {
                 margin: 0 3rem 0 6rem;
             }
         }
     }
     @media only screen and (max-width: 375px) {
-        margin: 1rem;
+        margin: 1rem 1rem 4rem;
         &__input {
             &--sm {
                 width: 12rem;
             }
         }
         &__rating {
+            font-size: 2.2rem;
+            margin-left: 1rem;
             &--details {
                 margin: 0 4rem;
             }

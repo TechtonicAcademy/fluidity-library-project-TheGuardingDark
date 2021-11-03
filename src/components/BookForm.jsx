@@ -1,110 +1,187 @@
 
+import { useState, useRef } from 'react';
+import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { addBook } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
-const BookForm = ({ src, title, author, synopsis, published, pages }) => {
-  // const history = useHistory();
-  // const titleInputRef = useRef();
-  // const authorInputRef = useRef();
-  // const synopsisInputRef = useRef();
+const BookForm = ({ createBook }) => {
+  const [reset, setReset] = useState(false);
+  const [validTitle, setValidTitle] = useState(true);
+  const [validAuthor, setValidAuthor] = useState(true);
+  const titleRef = useRef();
+  const authorRef = useRef();
 
-  // const handleBookSubmit = (e) => {
-  //   e.preventDefault();
-  //   const title = titleInputRef.current.value.trim();
-  //   const author = authorInputRef.current.value.trim();
-  //   const synopsis = synopsisInputRef.current.value.trim();
-  //   // const published = publishedInputRef.current.value.trim();
-  //   // const pages = pagesInputRef.current.value.trim();
+  const [formObj, setFormObj] = useState({
+    src: '',
+    title: '',
+    author: '',
+    synopsis: '',
+    published: '',
+    pages: '',
+    rating: 0,
+  });
 
-  //   if (!title || !author) {
-  //     // do something;
-  //   }
+  const { src, title, author, synopsis } = formObj;
 
-  //   addBook({ title, author, synopsis, published, pages })
-  //     .then(() => history.push('/bookshelf'))
-  //     .catch((err) => console.log(err));
-  // };
+  const clearForm = () => {
+    setFormObj({
+      ...formObj,
+      src: '',
+      title: '',
+      author: '',
+      synopsis: '',
+      published: new Date(),
+      pages: 300,
+      rating: 0,
+    });
+    setReset(true);
+    setValidAuthor(true);
+    setValidTitle(true);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormObj({ ...formObj, [name]: value });
+    if (title !== '' || author !== '') {
+      setValidAuthor(true);
+      setValidTitle(true);
+    }
+  };
+
+  const handleRatingChange = (givenRating) => {
+    setFormObj({ ...formObj, rating: givenRating });
+  };
+
+  const handleDateChange = (date) => {
+    setFormObj({ ...formObj, published: date });
+  };
+
+  const handlePagesChange = (pages) => {
+    setFormObj({ ...formObj, pages });
+  };
+
+  const handleBookSubmit = (e) => {
+    e.preventDefault();
+    const book = { ...formObj, id: shortid.generate() };
+
+    if (title && author) {
+      createBook(book);
+      clearForm();
+    } else if (!title && !author) {
+      setValidTitle(false);
+      titleRef.current.focus();
+      setValidAuthor(false);
+    } else if (!title) {
+      setValidTitle(false);
+      titleRef.current.focus();
+    } else {
+      setValidAuthor(false);
+      authorRef.current.focus();
+    }
+  };
 
   return (
-    <form className="form grid form__mobile" id="addBookForm">
-      <label htmlFor="title" className="form__label">
-        <p className="form__text form__text--title form__mobile">Title</p>
+    <form
+      className="form grid form__mobile"
+      id="addBookForm"
+      onSubmit={handleBookSubmit}
+      onReset={clearForm}
+    >
+      <label className="form__label" htmlFor="title">
+        <p className="form__text form__text--title form__mobile"> Title </p>
         <input
           type="text"
-          className="form__input form__input--title form__mobile"
           id="title"
-          placeholder={title}
+          className="form__input form__input--title form__mobile"
+          placeholder=""
+          value={title}
+          name="title"
+          ref={titleRef}
+          onChange={handleInputChange}
         />
+        {validTitle ? (
+          ''
+        ) : (
+          <p className="form__err form__err--title">Title is Required</p>
+        )}
       </label>
-      <input
-        type="text"
-        id="title"
-        className="form__input form__input--title form__mobile"
-        placeholder={title}
-        ref={titleInputRef}
-      />
-      <label
-        className="form__text form__text--author form__mobile"
-        htmlFor="author"
-      >
-        Author
+      <label className="form__label" htmlFor="author">
+        <p className="form__text form__text--author form__mobile">Author</p>
+        <input
+          type="text"
+          id="author"
+          className="form__input form__input--author form__mobile"
+          placeholder=""
+          value={author}
+          name="author"
+          ref={authorRef}
+          onChange={handleInputChange}
+        />
+        {validAuthor ? '' : <p className="form__err">Author is Required</p>}
       </label>
-      <input
-        type="text"
-        id="author"
-        className="form__input form__input--author form__mobile"
-        placeholder={author}
-        ref={authorInputRef}
-      />
       <EmptyCard src={src} className="form blank" />
       <Button
         text={`${src ? 'Change Image' : 'Add Image'}`}
         type="submit"
         className="mdDark addChangeImg"
       />
-      <label className="form__text form__mobile" htmlFor="synopsis">
-        Synopsis
+      <label className="form__label" htmlFor="synopsis">
+        <p className="form__text form__mobile">Synopsis</p>
+        <textarea
+          type="text"
+          id="synopsis"
+          className="form__input form__input--lg form__mobile form__synopsis"
+          placeholder=""
+          value={synopsis}
+          name="synopsis"
+          onChange={handleInputChange}
+        />
       </label>
-      <textarea
-        type="text"
-        id="synopsis"
-        className="form__input form__input--lg form__mobile form__synopsis"
-        placeholder={synopsis}
-        ref={synopsisInputRef}
+      <CustomPub
+        handleDateChange={handleDateChange}
+        reset={reset}
+        setReset={setReset}
       />
-      <label className="form__text form__mobile" htmlFor="published">
-        Published
-
-      </label>
-      <CustomPub date={published} />
-      <CustomPage pages={pages} />
+      <CustomPage
+        handlePagesChange={handlePagesChange}
+        reset={reset}
+        setReset={setReset}
+      />
       <p className="form__text">Rating</p>
-      <Stars type={`${src ? 'checked' : 'unchecked'}`} />
+      <Stars
+        handleRatingChange={handleRatingChange}
+        reset={reset}
+        setReset={setReset}
+      />
+      <div className="addBook__btns">
+        <Button
+          text="Add Book"
+          type="submit"
+          form="addBookForm"
+          className="add rightBtn"
+        />
+        <Button
+          form="addBookForm"
+          text="Reset"
+          type="reset"
+          className="light leftBtn"
+          onClick={clearForm}
+        />
+      </div>
     </form>
   );
 };
 
 BookForm.defaultProps = {
-  src: '',
-  title: '',
-  author: '',
-  synopsis: '',
-  published: '',
-  pages: null,
+  createBook: () => {},
 };
 
 BookForm.propTypes = {
-  src: PropTypes.string,
-  title: PropTypes.string,
-  author: PropTypes.string,
-  synopsis: PropTypes.string,
-  published: PropTypes.string,
-  pages: PropTypes.number,
+  createBook: PropTypes.func,
 };
 
 export default BookForm;

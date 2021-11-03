@@ -1,27 +1,52 @@
-import { FaStar } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { FaStar } from 'react-icons/fa';
 
-const Stars = ({ type, className }) => {
+const Stars = ({ handleRatingChange, reset, setReset }) => {
+  const [currentRating, setCurrentRating] = useState(0);
+
+  useEffect(() => {
+    setCurrentRating(0);
+    setReset(false);
+  }, [reset]);
+
   return (
-    // Placeholder until rating is hooked up
-
-    <div className={`form__rating form__rating--${className}`} id="rating">
-      <FaStar type="button" key="1" className={`form__rating--${type}`} />
-      <FaStar type="button" key="2" className={`form__rating--${type}`} />
-      <FaStar type="button" key="3" className={`form__rating--${type}`} />
-      <FaStar type="button" key="4" className={`form__rating--${type}`} />
-      <FaStar type="button" key="5" className="form__rating--unchecked" />
+    <div className="form__rating">
+      {[...Array(5)].map((_star, index) => {
+        const givenRating = index + 1;
+        return (
+          <div className="form__rating--stars" key={givenRating}>
+            <FaStar
+              type="radio"
+              role="button"
+              name="rating"
+              value={givenRating}
+              className={
+                givenRating <= currentRating || givenRating === currentRating
+                  ? 'form__rating--checked'
+                  : 'form__rating--unchecked'
+              }
+              onClick={() => {
+                handleRatingChange(givenRating);
+                setCurrentRating(givenRating);
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 Stars.defaultProps = {
-  className: ' ',
-  type: 'unchecked',
+  handleRatingChange: () => {},
+  setReset: () => {},
+  reset: false,
 };
 Stars.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
+  handleRatingChange: PropTypes.func,
+  setReset: PropTypes.func,
+  reset: PropTypes.bool,
 };
 
 export default Stars;

@@ -1,20 +1,20 @@
-import Button from '../components/Button';
+import { useHistory } from 'react-router-dom';
+import { addBook } from '../utils/API';
 import BookForm from '../components/BookForm';
 
 const AddBook = () => {
+  const history = useHistory();
+
+  const createBook = (book) => {
+    addBook(book)
+      .then(() => history.push('/bookshelf'))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="addBook grid">
       <header className="addBook__header">Add Book</header>
-      <BookForm />
-      <div className="addBook__btns">
-        <Button
-          text="Add Book"
-          type="submit"
-          form="addBookForm"
-          className="add"
-        />
-        <Button text="Cancel" type="reset" className="light leftBtn" />
-      </div>
+      <BookForm createBook={createBook} />
     </div>
   );
 };
