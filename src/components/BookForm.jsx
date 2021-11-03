@@ -9,6 +9,7 @@ import Stars from './Stars';
 
 const BookForm = ({ createBook }) => {
   const [reset, setReset] = useState(false);
+
   const [formObj, setFormObj] = useState({
     src: '',
     title: '',
@@ -18,6 +19,7 @@ const BookForm = ({ createBook }) => {
     pages: '',
     rating: 0,
   });
+
   const { src, title, author, synopsis } = formObj;
 
   const clearForm = () => {
@@ -32,13 +34,6 @@ const BookForm = ({ createBook }) => {
       rating: 0,
     });
     setReset(true);
-  };
-
-  const handleBookSubmit = (e) => {
-    e.preventDefault();
-    const book = { ...formObj, id: shortid.generate() };
-    createBook(book);
-    clearForm();
   };
 
   const handleInputChange = (e) => {
@@ -58,10 +53,18 @@ const BookForm = ({ createBook }) => {
     setFormObj({ ...formObj, pages });
   };
 
+  const handleBookSubmit = (e) => {
+    e.preventDefault();
+    const book = { ...formObj, id: shortid.generate() };
+    createBook(book);
+    clearForm();
+  };
+
   return (
     <form
       className="form grid form__mobile"
       id="addBookForm"
+      // noValidate
       onSubmit={handleBookSubmit}
       onReset={clearForm}
     >
@@ -77,6 +80,11 @@ const BookForm = ({ createBook }) => {
           name="title"
           onChange={handleInputChange}
         />
+        {title ? (
+          ''
+        ) : (
+          <p className="form__err form__err--title">Title is Required</p>
+        )}
       </label>
       <label className="form__label" htmlFor="author">
         <p className="form__text form__text--author form__mobile">Author</p>
@@ -90,6 +98,7 @@ const BookForm = ({ createBook }) => {
           name="author"
           onChange={handleInputChange}
         />
+        {author ? '' : <p className="form__err">Author is Required</p>}
       </label>
       <EmptyCard src={src} className="form blank" />
       <Button
