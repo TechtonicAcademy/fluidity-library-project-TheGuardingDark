@@ -16,6 +16,7 @@
     font-size: 1.5rem;
     background-color: v.$coffee;
     color: white;
+    cursor: pointer;
     &__light {
         background-color: lighten(v.$coffee, 75%);
         color: black;
