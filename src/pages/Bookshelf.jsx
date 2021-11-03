@@ -11,6 +11,7 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
   useEffect(() => {
     if (term === '') {
       getBooks()
+        // how do I make eslint happy??
         .then(({ data: books }) => setBooks(books))
         .catch((err) => console.log(err));
     } else {
