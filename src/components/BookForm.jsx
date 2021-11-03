@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import CustomPage from './CustomPage';
@@ -9,6 +9,10 @@ import Stars from './Stars';
 
 const BookForm = ({ createBook }) => {
   const [reset, setReset] = useState(false);
+  const [validTitle, setValidTitle] = useState(true);
+  const [validAuthor, setValidAuthor] = useState(true);
+  const titleRef = useRef();
+  const authorRef = useRef();
 
   const [formObj, setFormObj] = useState({
     src: '',
@@ -34,11 +38,17 @@ const BookForm = ({ createBook }) => {
       rating: 0,
     });
     setReset(true);
+    setValidAuthor(true);
+    setValidTitle(true);
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormObj({ ...formObj, [name]: value });
+    if (title !== '' || author !== '') {
+      setValidAuthor(true);
+      setValidTitle(true);
+    }
   };
 
   const handleRatingChange = (givenRating) => {
@@ -56,15 +66,27 @@ const BookForm = ({ createBook }) => {
   const handleBookSubmit = (e) => {
     e.preventDefault();
     const book = { ...formObj, id: shortid.generate() };
-    createBook(book);
-    clearForm();
+
+    if (title !== '' && author !== '') {
+      createBook(book);
+      clearForm();
+    } else if (title === '' && author === '') {
+      setValidTitle(false);
+      titleRef.current.focus();
+      setValidAuthor(false);
+    } else if (title === '') {
+      setValidTitle(false);
+      titleRef.current.focus();
+    } else {
+      setValidAuthor(false);
+      authorRef.current.focus();
+    }
   };
 
   return (
     <form
       className="form grid form__mobile"
       id="addBookForm"
-      // noValidate
       onSubmit={handleBookSubmit}
       onReset={clearForm}
     >
@@ -72,15 +94,15 @@ const BookForm = ({ createBook }) => {
         <p className="form__text form__text--title form__mobile"> Title </p>
         <input
           type="text"
-          required
           id="title"
           className="form__input form__input--title form__mobile"
           placeholder=""
           value={title}
           name="title"
+          ref={titleRef}
           onChange={handleInputChange}
         />
-        {title ? (
+        {validTitle ? (
           ''
         ) : (
           <p className="form__err form__err--title">Title is Required</p>
@@ -90,15 +112,15 @@ const BookForm = ({ createBook }) => {
         <p className="form__text form__text--author form__mobile">Author</p>
         <input
           type="text"
-          required
           id="author"
           className="form__input form__input--author form__mobile"
           placeholder=""
           value={author}
           name="author"
+          ref={authorRef}
           onChange={handleInputChange}
         />
-        {author ? '' : <p className="form__err">Author is Required</p>}
+        {validAuthor ? '' : <p className="form__err">Author is Required</p>}
       </label>
       <EmptyCard src={src} className="form blank" />
       <Button

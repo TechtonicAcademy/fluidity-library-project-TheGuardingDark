@@ -93,4 +93,9 @@
             }
         }
     }
+    @media only screen and (max-width: 425px) {
+        &__noImg {
+            padding: 0 28%;
+        }
+    }
 }
