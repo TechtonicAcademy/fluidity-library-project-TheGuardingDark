@@ -1,21 +1,33 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getBook } from '../utils/API';
+import { getBook, deleteBook } from '../utils/API';
 import Button from '../components/Button';
 import Stars from '../components/Stars';
 import Jacket from '../styles/images/snuff.jpg';
 import EmptyCard from '../components/EmptyCard';
 
 const Details = () => {
+  const history = useHistory();
   const [book, setBook] = useState({});
   const { id } = useParams();
   const { title, author, synopsis, published, pages } = book;
+
+  const p = new Date(published);
+  const month = p.getMonth() + 1;
+  const day = p.getDate();
+  const year = p.getFullYear();
 
   useEffect(() => {
     getBook(id)
       .then(({ data: book }) => setBook(book))
       .catch((err) => console.log(err));
   }, [id]);
+
+  const deleteThisBook = () => {
+    deleteBook(id)
+      .then(() => history.push('/bookshelf'))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="details grid">
@@ -28,7 +40,7 @@ const Details = () => {
       <h2 className="details__text details__text--author desktop">{author}</h2>
 
       <h3 className=" details__text details__text--published">
-        Published: {published}
+        Published: {`${month}/${day}/${year}`}
       </h3>
       <h3 className="details__text details__text--pages">{pages} Pages</h3>
       <p className="details__text details__text--synopsis">
@@ -36,6 +48,7 @@ const Details = () => {
       </p>
 
       <div className="details__btns">
+        <Button text="Delete Book" type="button" onClick={deleteThisBook} />
         <Link to={`/editBook/${id}`}>
           <Button text="Edit This Book" type="button" className="editBtn" />
         </Link>
