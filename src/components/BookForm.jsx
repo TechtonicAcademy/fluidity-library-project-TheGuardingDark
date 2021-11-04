@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
@@ -67,14 +68,14 @@ const BookForm = ({ createBook }) => {
     e.preventDefault();
     const book = { ...formObj, id: shortid.generate() };
 
-    if (title !== '' && author !== '') {
+    if (title && author) {
       createBook(book);
       clearForm();
-    } else if (title === '' && author === '') {
+    } else if (!title && !author) {
       setValidTitle(false);
       titleRef.current.focus();
       setValidAuthor(false);
-    } else if (title === '') {
+    } else if (!title) {
       setValidTitle(false);
       titleRef.current.focus();
     } else {
@@ -165,7 +166,7 @@ const BookForm = ({ createBook }) => {
         />
         <Button
           form="addBookForm"
-          text="Cancel"
+          text="Reset"
           type="reset"
           className="light leftBtn"
           onClick={clearForm}
