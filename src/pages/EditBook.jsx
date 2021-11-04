@@ -15,7 +15,7 @@ const EditBook = ({ src, title, author, synopsis, published, pages }) => {
         published={published}
         pages={pages}
       />
-      <div className="editBook__btns">
+      {/* <div className="editBook__btns">
         <Button
           text="Submit"
           type="submit"
@@ -23,7 +23,7 @@ const EditBook = ({ src, title, author, synopsis, published, pages }) => {
           className="submit"
         />
         <Button text="Cancel" type="reset" className="light leftBtn" />
-      </div>
+      </div> */}
     </div>
   );
 };

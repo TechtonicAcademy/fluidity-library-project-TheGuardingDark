@@ -16,12 +16,20 @@
     font-size: 1.5rem;
     background-color: v.$coffee;
     color: white;
+    cursor: pointer;
     &__light {
         background-color: lighten(v.$coffee, 75%);
         color: black;
     }
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
+    }
+    &__delete {
+        place-self: center left;
+        width: 8rem;
+        height: 3rem;
+        font-size: 1rem;
+        grid-row: 1;
     }
     @media only screen and (max-width: 1024px) {
         width: 14rem;

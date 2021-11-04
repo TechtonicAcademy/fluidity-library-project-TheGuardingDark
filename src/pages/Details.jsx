@@ -5,12 +5,13 @@ import Button from '../components/Button';
 import Stars from '../components/Stars';
 import Jacket from '../styles/images/snuff.jpg';
 import EmptyCard from '../components/EmptyCard';
+import { FaStar } from 'react-icons/fa';
 
 const Details = () => {
   const history = useHistory();
   const [book, setBook] = useState({});
   const { id } = useParams();
-  const { title, author, synopsis, published, pages } = book;
+  const { title, author, synopsis, published, pages, rating } = book;
 
   const p = new Date(published);
   const month = p.getMonth() + 1;
@@ -36,19 +37,26 @@ const Details = () => {
       <h2 className="details__text details__text--author mobile">{author}</h2>
       <h3 className="details__text details__text--rating mobile">Rating</h3>
 
-      <Stars className="details" type="checked" />
+      <Stars className="details" id={id} rating={rating} />
       <h2 className="details__text details__text--author desktop">{author}</h2>
 
       <h3 className=" details__text details__text--published">
-        Published: {`${month}/${day}/${year}`}
+        Published: {published ? `${month}/${day}/${year}` : ''}
       </h3>
-      <h3 className="details__text details__text--pages">{pages} Pages</h3>
+      <h3 className="details__text details__text--pages">
+        {pages || ''} Pages
+      </h3>
       <p className="details__text details__text--synopsis">
         <q>{synopsis}</q>
       </p>
+      <Button
+        text="Delete Book"
+        className="delete"
+        type="button"
+        onClick={deleteThisBook}
+      />
 
       <div className="details__btns">
-        <Button text="Delete Book" type="button" onClick={deleteThisBook} />
         <Link to={`/editBook/${id}`}>
           <Button text="Edit This Book" type="button" className="editBtn" />
         </Link>

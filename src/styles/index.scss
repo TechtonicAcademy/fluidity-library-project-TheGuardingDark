@@ -471,7 +471,7 @@ body {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: .5fr .5fr 1fr .5fr .5fr;
     padding: 11rem 10rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     &__img {
       grid-column: 1;
     }
@@ -484,7 +484,7 @@ body {
       &--author {
         grid-row: 1;
         align-self: end;
-        padding-top: 6rem;
+        padding-top: 7rem;
       }
       &--published,
       &--pages {
@@ -509,6 +509,9 @@ body {
   
     &__btns {
       @include m.lowerPageBtns;
+      margin: 1rem 0;
+      grid-column: 1/5;
+
     }
   }
   @media only screen and (max-width: 1200px) {

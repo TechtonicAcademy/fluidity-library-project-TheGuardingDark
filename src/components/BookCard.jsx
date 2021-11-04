@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Jacket from '../styles/images/snuff.jpg';
 
 const BookCard = ({ book: { id, src, title, author } }) => {
+  // const { id, src, title, author } = book;
   return (
     <div className="card card__withImg">
       <Link to={`/details/${id}`} className="card__link">
