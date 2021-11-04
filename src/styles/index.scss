@@ -514,6 +514,11 @@ body {
 
     }
   }
+  @media only screen and (max-width: 1300px) {
+    .details {
+      column-gap: 2rem;
+    }
+  }
   @media only screen and (max-width: 1200px) {
     .details {
       padding: 10rem 4rem 0;
@@ -522,6 +527,10 @@ body {
   @media only screen and (max-width: 1025px) {
     .details {
       column-gap: 2rem;
+      padding-top: 6rem;
+      &__btns {
+        margin: 3rem 0 5rem;
+      }
       &__img {
         width: 15rem;
         align-self: center;
@@ -530,14 +539,16 @@ body {
   }
   @media only screen and (max-width: 769px) {
     .details {
-      padding: 3rem 1rem 0 2rem;
+      padding: 5rem 1rem 0 2rem;
       margin-bottom: 0;
       &__img {
         width: 13rem;
       }
       &__text {
+        grid-column: 2/4;
         &--synopsis {
           font-size: 1.3rem;
+          grid-column: 2/4;
         }
       }
       .form {
@@ -553,24 +564,26 @@ body {
   }
   @media only screen and (max-width: 480px) {
     .details {
+      display: block;
+      padding: 2rem 3rem 12rem;
+      text-align: center;
       .mobile {
         display: block;
       }
       .desktop {
         display: none;
       }
-      display: block;
-      padding: 1rem 3rem 5rem;
       &__text {
         text-align: center;
+        font-size: 2rem;
         &--title {
           font-size: 3rem;
           margin-bottom: 0;
         }
         &--author {
-          font-size: 2rem;
+          font-size: 2.5rem;
           margin-top: 0;
-          padding-top: 2rem;
+          padding-top: 1rem;
         }
         &--rating {
           margin: 3rem 0 1rem;
@@ -590,24 +603,32 @@ body {
       }
       &__img {
         margin: 2rem auto;
+        width: 19rem;
       }
       &__btns {
         text-align: center;
+        margin-top: 0;
       }
     }
   }
   @media only screen and (max-width: 425px) {
     .details {
+      padding-bottom: 9rem;
+      &__text {
+        &--synopsis {
+          font-size: 1.5rem;
+        }
+      }
       .form {
         &__rating {
-          font-size: 1.5rem;
+          font-size: 2rem;
         }
       }
     }
   }
   @media only screen and (max-width: 375px) {
     .details {
-      padding: 1rem 3rem 3rem;
+      padding: 1rem 1rem 11rem;
       &__text {
         &--author {
           margin: 2rem 0 1rem;
@@ -615,8 +636,12 @@ body {
         &--published {
           margin-top: 2rem;
         }
+        &--synopsis {
+          padding: 0 1rem;
+        }
       }
       &__img {
+        width: 16rem;
         &--mobile {
           width: 65%;
         }

@@ -66,12 +66,16 @@ Stars.defaultProps = {
   setReset: () => {},
   reset: false,
   className: '',
+  id: '',
+  rating: 0,
 };
 Stars.propTypes = {
   handleRatingChange: PropTypes.func,
   setReset: PropTypes.func,
   reset: PropTypes.bool,
   className: PropTypes.string,
+  id: PropTypes.string,
+  rating: PropTypes.number,
 };
 
 export default Stars;

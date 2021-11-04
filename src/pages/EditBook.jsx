@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Button from '../components/Button';
 import BookForm from '../components/BookForm';
 import Jacket from '../styles/images/snuff.jpg';
 
@@ -15,15 +14,6 @@ const EditBook = ({ src, title, author, synopsis, published, pages }) => {
         published={published}
         pages={pages}
       />
-      {/* <div className="editBook__btns">
-        <Button
-          text="Submit"
-          type="submit"
-          form="editBookForm"
-          className="submit"
-        />
-        <Button text="Cancel" type="reset" className="light leftBtn" />
-      </div> */}
     </div>
   );
 };

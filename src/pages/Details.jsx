@@ -5,7 +5,6 @@ import Button from '../components/Button';
 import Stars from '../components/Stars';
 import Jacket from '../styles/images/snuff.jpg';
 import EmptyCard from '../components/EmptyCard';
-import { FaStar } from 'react-icons/fa';
 
 const Details = () => {
   const history = useHistory();
