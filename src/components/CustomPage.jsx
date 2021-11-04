@@ -17,7 +17,7 @@ const CustomPage = ({ handlePagesChange, reset, setReset }) => {
       <div className="form__selectPage">
         <NumberPicker
           defaultValue={300}
-          min={0}
+          min={1}
           value={pages}
           name="pages"
           onChange={(pages) => {

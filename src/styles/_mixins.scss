@@ -24,8 +24,13 @@
     &__mdDark {
         background-color: lighten(v.$coffee, 25%);
     }
-    @media only screen and (max-width: 1024px) {
-        width: 14rem;
+    &__delete {
+        place-self: center left;
+        width: 8rem;
+        height: 3rem;
+        font-size: 1rem;
+        grid-row: 1;
+        background-color: v.$red;
     }
     @media only screen and (max-width: 769px) {
         width: 13rem;
@@ -34,12 +39,26 @@
             width: 10rem;
             margin-bottom: 1rem;
         }
+        &__delete {
+            grid-row: 4;
+            grid-column: 3;
+            width: 7rem;
+            height: 2.5rem;
+            align-self: flex-start;
+            font-size: .8rem;
+        }
     }
     @media only screen and (max-width: 480px) {
         width: 14rem;
         font-size: 1.5rem;
         &__mdDark {
             width: 17rem;
+        }
+        &__delete {
+            width: 11rem;
+            font-size: 1rem;
+            position: relative;
+            top: 14rem;
         }
     }
 }

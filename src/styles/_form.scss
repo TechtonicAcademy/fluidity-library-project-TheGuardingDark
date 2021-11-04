@@ -73,7 +73,10 @@
         margin: 2rem 0;
         &--details {
             justify-self: center;
-            margin-top: 0;
+            align-items: baseline;
+            margin: 1rem 0 0 1rem;
+            grid-column: 1;
+            font-size: 2.5rem;
         }
         &--stars {
             padding-right: .5rem;
@@ -182,9 +185,8 @@
     }
     @media only screen and (max-width: 425px) {
         &__rating {
-            font-size: 2rem;
             &--details {
-                margin: 0 3rem 0 6rem;
+                margin: 0 3rem 0 4rem;
             }
         }
     }

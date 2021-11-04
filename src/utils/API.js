@@ -21,3 +21,7 @@ export const addBook = (book) => {
     },
   });
 };
+
+export const deleteBook = (id) => {
+  return axios.delete(`${url}/${id}`);
+};
