@@ -2,13 +2,22 @@ import DatePicker from 'react-widgets/DatePicker';
 import PropTypes from 'prop-types';
 import 'react-widgets/scss/styles.scss';
 import { useState, useEffect } from 'react';
+import { getBook } from '../utils/API';
 
-const CustomPub = ({ handleDateChange, initialValue, reset, setReset }) => {
+const CustomPub = ({ handleDateChange, initialValue, reset, setReset, id }) => {
   const [date, setDate] = useState(initialValue);
   useEffect(() => {
     setDate(new Date());
     setReset(false);
   }, [reset]);
+
+  useEffect(() => {
+    if (id) {
+      getBook(id)
+        .then(({ data: book }) => setDate(new Date(book.published)))
+        .catch((err) => console.log(err));
+    }
+  }, [id]);
 
   return (
     <div htmlFor="published" className="form__label">

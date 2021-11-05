@@ -1,21 +1,31 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+import { getBook } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
-const BookForm = ({ createBook }) => {
+const BookForm = ({ createBook, existingBook, src }) => {
+  const pathname = useLocation();
+  const { id } = useParams();
+  const path = pathname.pathname;
+  const editPath = `/editBook/${id}`;
+
   const [reset, setReset] = useState(false);
   const [validTitle, setValidTitle] = useState(true);
   const [validAuthor, setValidAuthor] = useState(true);
+  // const [formObj, setFormObj] = useState({});
+
   const titleRef = useRef();
   const authorRef = useRef();
 
   const [formObj, setFormObj] = useState({
-    src: '',
+    // Until image functionality is set-up
+    // src: '',
     title: '',
     author: '',
     synopsis: '',
@@ -24,12 +34,19 @@ const BookForm = ({ createBook }) => {
     rating: 0,
   });
 
-  const { src, title, author, synopsis } = formObj;
+  useEffect(() => {
+    if (existingBook) {
+      setFormObj(existingBook);
+    }
+  }, [existingBook]);
+
+  const { rating, title, author, synopsis } = formObj;
 
   const clearForm = () => {
     setFormObj({
       ...formObj,
-      src: '',
+      // Until image functionality is set-up
+      // src: '',
       title: '',
       author: '',
       synopsis: '',
@@ -144,28 +161,32 @@ const BookForm = ({ createBook }) => {
         handleDateChange={handleDateChange}
         reset={reset}
         setReset={setReset}
+        id={id}
       />
       <CustomPage
         handlePagesChange={handlePagesChange}
         reset={reset}
         setReset={setReset}
+        id={id}
       />
       <p className="form__text">Rating</p>
       <Stars
         handleRatingChange={handleRatingChange}
         reset={reset}
         setReset={setReset}
+        rating={rating}
+        id={id}
       />
       <div className="addBook__btns">
         <Button
-          text="Add Book"
+          text={path === editPath ? 'Edit Book' : 'Add Book'}
           type="submit"
           form="addBookForm"
           className="add rightBtn"
         />
         <Button
           form="addBookForm"
-          text="Cancel"
+          text="Reset"
           type="reset"
           className="light leftBtn"
           onClick={clearForm}
@@ -177,10 +198,12 @@ const BookForm = ({ createBook }) => {
 
 BookForm.defaultProps = {
   createBook: () => {},
+  // existingBook: {},
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
+  // existingBook: PropTypes.objectOf(PropTypes.object),
 };
 
 export default BookForm;

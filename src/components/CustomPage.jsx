@@ -1,13 +1,23 @@
 import NumberPicker from 'react-widgets/NumberPicker';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import { getBook } from '../utils/API';
 
-const CustomPage = ({ handlePagesChange, reset, setReset }) => {
+const CustomPage = ({ handlePagesChange, reset, setReset, id }) => {
   const [pages, setPages] = useState(300);
+
   useEffect(() => {
     setPages(300);
     setReset(false);
   }, [reset]);
+
+  useEffect(() => {
+    if (id) {
+      getBook(id)
+        .then(({ data: book }) => setPages(book.pages))
+        .catch((err) => console.log(err));
+    }
+  }, [id]);
 
   return (
     <div htmlFor="pages" className="form__label--pages">

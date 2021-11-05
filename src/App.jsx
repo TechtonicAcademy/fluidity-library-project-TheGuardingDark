@@ -24,10 +24,7 @@ const App = () => {
           component={AddBook}
         />
         <Route path="/details/:id" component={Details} />
-        <Route
-          path={['/editbook/:id', '/edit-book/:id', '/editBook/:id']}
-          component={EditBook}
-        />
+        <Route path="/editBook/:id" component={EditBook} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
