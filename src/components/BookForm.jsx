@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { getBook } from '../utils/API';
+// import { editBook } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
-const BookForm = ({ createBook, existingBook, src }) => {
+const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   const pathname = useLocation();
   const { id } = useParams();
   const path = pathname.pathname;
@@ -18,10 +18,9 @@ const BookForm = ({ createBook, existingBook, src }) => {
   const [reset, setReset] = useState(false);
   const [validTitle, setValidTitle] = useState(true);
   const [validAuthor, setValidAuthor] = useState(true);
-  // const [formObj, setFormObj] = useState({});
 
-  const titleRef = useRef();
-  const authorRef = useRef();
+  const titleRef = document.getElementById('title');
+  const authorRef = document.getElementById('author');
 
   const [formObj, setFormObj] = useState({
     // Until image functionality is set-up
@@ -40,23 +39,30 @@ const BookForm = ({ createBook, existingBook, src }) => {
     }
   }, [existingBook]);
 
-  const { rating, title, author, synopsis } = formObj;
+  const { rating, title, author, synopsis, pages, published } = formObj;
 
-  const clearForm = () => {
-    setFormObj({
-      ...formObj,
-      // Until image functionality is set-up
-      // src: '',
-      title: '',
-      author: '',
-      synopsis: '',
-      published: new Date(),
-      pages: 300,
-      rating: 0,
-    });
-    setReset(true);
-    setValidAuthor(true);
-    setValidTitle(true);
+  const resetForm = () => {
+    if (id) {
+      setFormObj(existingBook);
+      setReset(true);
+      setValidAuthor(true);
+      setValidTitle(true);
+    } else {
+      setFormObj({
+        ...formObj,
+        // Until image functionality is set-up
+        // src: '',
+        title: '',
+        author: '',
+        synopsis: '',
+        published: new Date(),
+        pages: 300,
+        rating: 0,
+      });
+      setReset(true);
+      setValidAuthor(true);
+      setValidTitle(true);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -82,21 +88,25 @@ const BookForm = ({ createBook, existingBook, src }) => {
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
+
     const book = { ...formObj, id: shortid.generate() };
 
     if (title !== '' && author !== '') {
+      if (id) {
+        updateBook(book, id);
+      }
       createBook(book);
-      clearForm();
+      resetForm();
     } else if (title === '' && author === '') {
       setValidTitle(false);
-      titleRef.current.focus();
+      titleRef.focus();
       setValidAuthor(false);
     } else if (title === '') {
       setValidTitle(false);
-      titleRef.current.focus();
+      titleRef.focus();
     } else {
       setValidAuthor(false);
-      authorRef.current.focus();
+      authorRef.focus();
     }
   };
 
@@ -105,7 +115,7 @@ const BookForm = ({ createBook, existingBook, src }) => {
       className="form grid form__mobile"
       id="addBookForm"
       onSubmit={handleBookSubmit}
-      onReset={clearForm}
+      onReset={resetForm}
     >
       <label className="form__label" htmlFor="title">
         <p className="form__text form__text--title form__mobile"> Title </p>
@@ -116,7 +126,6 @@ const BookForm = ({ createBook, existingBook, src }) => {
           placeholder=""
           value={title}
           name="title"
-          ref={titleRef}
           onChange={handleInputChange}
         />
         {validTitle ? (
@@ -134,7 +143,6 @@ const BookForm = ({ createBook, existingBook, src }) => {
           placeholder=""
           value={author}
           name="author"
-          ref={authorRef}
           onChange={handleInputChange}
         />
         {validAuthor ? '' : <p className="form__err">Author is Required</p>}
@@ -162,12 +170,14 @@ const BookForm = ({ createBook, existingBook, src }) => {
         reset={reset}
         setReset={setReset}
         id={id}
+        savedPub={published}
       />
       <CustomPage
         handlePagesChange={handlePagesChange}
         reset={reset}
         setReset={setReset}
         id={id}
+        savedPages={pages}
       />
       <p className="form__text">Rating</p>
       <Stars
@@ -176,6 +186,7 @@ const BookForm = ({ createBook, existingBook, src }) => {
         setReset={setReset}
         rating={rating}
         id={id}
+        // savedRating={rating}
       />
       <div className="addBook__btns">
         <Button
@@ -189,7 +200,7 @@ const BookForm = ({ createBook, existingBook, src }) => {
           text="Reset"
           type="reset"
           className="light leftBtn"
-          onClick={clearForm}
+          onClick={resetForm}
         />
       </div>
     </form>
@@ -198,12 +209,14 @@ const BookForm = ({ createBook, existingBook, src }) => {
 
 BookForm.defaultProps = {
   createBook: () => {},
-  // existingBook: {},
+  existingBook: {},
+  src: '',
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
-  // existingBook: PropTypes.objectOf(PropTypes.object),
+  existingBook: PropTypes.objectOf(PropTypes.any),
+  src: PropTypes.string,
 };
 
 export default BookForm;

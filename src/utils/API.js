@@ -22,6 +22,14 @@ export const addBook = (book) => {
   });
 };
 
+export const editBook = (book, id) => {
+  return axios.put(`${url}/${id}`, book, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
 export const deleteBook = (id) => {
   return axios.delete(`${url}/${id}`);
 };

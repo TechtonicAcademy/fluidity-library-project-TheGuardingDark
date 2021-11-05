@@ -4,11 +4,23 @@ import 'react-widgets/scss/styles.scss';
 import { useState, useEffect } from 'react';
 import { getBook } from '../utils/API';
 
-const CustomPub = ({ handleDateChange, initialValue, reset, setReset, id }) => {
+const CustomPub = ({
+  handleDateChange,
+  initialValue,
+  reset,
+  setReset,
+  id,
+  savedPub,
+}) => {
   const [date, setDate] = useState(initialValue);
+
   useEffect(() => {
-    setDate(new Date());
-    setReset(false);
+    if (id) {
+      setDate(new Date(savedPub));
+    } else {
+      setDate(new Date());
+      setReset(false);
+    }
   }, [reset]);
 
   useEffect(() => {

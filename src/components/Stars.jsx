@@ -10,17 +10,21 @@ const Stars = ({
   setReset,
   className,
   id,
+  rating,
   bookRating,
 }) => {
   const pathname = useLocation();
   const path = pathname.pathname;
   const detailsPath = `/details/${id}`;
-  // const bookRating = rating;
   const [currentRating, setCurrentRating] = useState(0);
 
   useEffect(() => {
-    setCurrentRating(0);
-    setReset(false);
+    if (id) {
+      setCurrentRating(rating);
+    } else {
+      setCurrentRating(0);
+      setReset(false);
+    }
   }, [reset]);
 
   useEffect(() => {
@@ -76,7 +80,7 @@ Stars.defaultProps = {
   reset: false,
   className: '',
   id: '',
-  rating: 0,
+  bookRating: 0,
 };
 Stars.propTypes = {
   handleRatingChange: PropTypes.func,
@@ -84,7 +88,7 @@ Stars.propTypes = {
   reset: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string,
-  rating: PropTypes.number,
+  bookRating: PropTypes.number,
 };
 
 export default Stars;

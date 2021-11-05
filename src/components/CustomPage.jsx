@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { getBook } from '../utils/API';
 
-const CustomPage = ({ handlePagesChange, reset, setReset, id }) => {
+const CustomPage = ({ handlePagesChange, reset, setReset, id, savedPages }) => {
   const [pages, setPages] = useState(300);
 
   useEffect(() => {
-    setPages(300);
-    setReset(false);
+    if (id) {
+      setPages(savedPages);
+    } else {
+      setPages(300);
+      setReset(false);
+    }
   }, [reset]);
 
   useEffect(() => {
