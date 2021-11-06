@@ -17,6 +17,7 @@ const CustomPub = ({
   useEffect(() => {
     if (id) {
       setDate(new Date(savedPub));
+      setReset(false);
     } else {
       setDate(new Date());
       setReset(false);

@@ -10,15 +10,15 @@ const EditBook = () => {
 
   const [book, setBook] = useState({});
 
-  const updateBook = (book) => {
-    editBook(book, id)
+  const updateBook = (novel) => {
+    editBook(novel, id)
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data: novel }) => setBook(novel))
       .catch((err) => console.log(err));
   }, [id]);
 

@@ -9,6 +9,7 @@ const CustomPage = ({ handlePagesChange, reset, setReset, id, savedPages }) => {
   useEffect(() => {
     if (id) {
       setPages(savedPages);
+      setReset(false);
     } else {
       setPages(300);
       setReset(false);
@@ -48,12 +49,16 @@ CustomPage.defaultProps = {
   handlePagesChange: () => {},
   setReset: () => {},
   reset: false,
+  savedPages: 0,
+  id: '',
 };
 
 CustomPage.propTypes = {
   handlePagesChange: PropTypes.func,
   setReset: PropTypes.func,
   reset: PropTypes.bool,
+  savedPages: PropTypes.number,
+  id: PropTypes.string,
 };
 
 export default CustomPage;

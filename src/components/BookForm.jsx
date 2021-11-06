@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-// import { editBook } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
@@ -29,7 +28,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     author: '',
     synopsis: '',
     published: '',
-    pages: '',
+    pages: 0,
     rating: 0,
   });
 
@@ -43,7 +42,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
 
   const resetForm = () => {
     if (id) {
-      setFormObj(existingBook);
+      setFormObj({ ...existingBook });
       setReset(true);
       setValidAuthor(true);
       setValidTitle(true);
@@ -82,8 +81,8 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     setFormObj({ ...formObj, published: date });
   };
 
-  const handlePagesChange = (pages) => {
-    setFormObj({ ...formObj, pages });
+  const handlePagesChange = (page) => {
+    setFormObj({ ...formObj, pages: page });
   };
 
   const handleBookSubmit = (e) => {
@@ -186,7 +185,6 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
         setReset={setReset}
         rating={rating}
         id={id}
-        // savedRating={rating}
       />
       <div className="addBook__btns">
         <Button
@@ -210,12 +208,14 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
 BookForm.defaultProps = {
   createBook: () => {},
   existingBook: {},
+  updateBook: () => {},
   src: '',
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
   existingBook: PropTypes.objectOf(PropTypes.any),
+  updateBook: PropTypes.func,
   src: PropTypes.string,
 };
 

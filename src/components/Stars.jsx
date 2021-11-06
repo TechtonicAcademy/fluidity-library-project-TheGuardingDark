@@ -21,6 +21,7 @@ const Stars = ({
   useEffect(() => {
     if (id) {
       setCurrentRating(rating);
+      setReset(false);
     } else {
       setCurrentRating(0);
       setReset(false);
@@ -81,6 +82,7 @@ Stars.defaultProps = {
   className: '',
   id: '',
   bookRating: 0,
+  rating: 0,
 };
 Stars.propTypes = {
   handleRatingChange: PropTypes.func,
@@ -89,6 +91,7 @@ Stars.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   bookRating: PropTypes.number,
+  rating: PropTypes.number,
 };
 
 export default Stars;
