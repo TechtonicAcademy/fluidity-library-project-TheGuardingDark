@@ -44,9 +44,9 @@ const CustomPub = ({
           value={date}
           valueEditFormat={{ dateStyle: 'medium' }}
           valueDisplayFormat={{ dateStyle: 'medium' }}
-          onChange={(date) => {
-            setDate(date);
-            handleDateChange(date);
+          onChange={(pub) => {
+            setDate(pub);
+            handleDateChange(pub);
           }}
         />
       </div>
@@ -59,6 +59,8 @@ CustomPub.defaultProps = {
   initialValue: new Date(),
   setReset: () => {},
   reset: false,
+  id: '',
+  savedPub: '',
 };
 
 CustomPub.propTypes = {
@@ -66,6 +68,8 @@ CustomPub.propTypes = {
   initialValue: PropTypes.instanceOf(Date),
   setReset: PropTypes.func,
   reset: PropTypes.bool,
+  id: PropTypes.string,
+  savedPub: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 };
 
 export default CustomPub;

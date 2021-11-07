@@ -19,7 +19,7 @@ const Details = () => {
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data }) => setBook(data))
       .catch((err) => console.log(err));
   }, [id]);
 

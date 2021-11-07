@@ -35,9 +35,9 @@ const CustomPage = ({ handlePagesChange, reset, setReset, id, savedPages }) => {
           min={1}
           value={pages}
           name="pages"
-          onChange={(pages) => {
-            setPages(pages);
-            handlePagesChange(pages);
+          onChange={(page) => {
+            setPages(page);
+            handlePagesChange(page);
           }}
         />
       </div>
@@ -57,7 +57,7 @@ CustomPage.propTypes = {
   handlePagesChange: PropTypes.func,
   setReset: PropTypes.func,
   reset: PropTypes.bool,
-  savedPages: PropTypes.number,
+  savedPages: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   id: PropTypes.string,
 };
 
