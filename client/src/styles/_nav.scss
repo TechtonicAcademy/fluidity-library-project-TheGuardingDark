@@ -1,0 +1,229 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+@use "./hamburger" as h;
+
+@mixin nav {
+    .hamburger {
+        display: none;
+    }
+    grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+    align-items: center;
+    background-color: v.$coffee;
+    padding: 0 2rem;
+    width: 105%;
+    &__item {
+        text-decoration: none;
+        color: v.$beige;
+        font-size: 1.4rem;
+        justify-self: center;
+    }
+    &__links {
+        display: contents;
+    }
+    &__search {
+        width: 17rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        padding-left: 1rem;
+        margin-right: -1rem;
+        justify-self: center;
+    }
+    &__form {
+        display: contents;
+    }
+    .btn {
+        @include m.button;
+        width: 8rem;
+        height: 2.4rem;
+        color: v.$blue;
+        border-color: v.$blue;
+        justify-self: left;
+        font-size: 1rem;
+        &:hover {
+            color: lighten(v.$blue, 50%);
+        }
+        &:active {
+            color: v.$beige;
+            border-color: v.$beige;
+            
+        }
+    }
+    @media only screen and (max-width: 1259px) {
+        &__form {
+            margin-left: 2rem;
+        }
+    }
+    @media only screen and (max-width: 1222px) {
+        &__form {
+            margin-left: 1rem;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        .btn {
+            margin-right: 5rem;
+        }
+    }
+    @media only screen and (max-width: 1176px) {
+        .btn {
+            margin-right: 7rem;
+        }
+    }
+    @media only screen and (max-width: 1147px) {
+        .btn {
+            margin-right: 9rem;
+        }
+    }
+    @media only screen and (max-width: 1118px) {
+        padding-left: 0;
+        .btn {
+            margin-right: 12rem;
+        }
+        &__item {
+            &--header {
+                font-size: 2rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 1109px) {
+        &__search {
+            margin-right: 2rem;
+        }
+    }
+    @media only screen and (max-width: 1069px) {
+        .btn {
+            margin-right: 17rem;
+        }
+    }
+    @media only screen and (max-width: 1025px) {
+        width: 117%;
+        &__search {
+            width: 15rem;
+            height: 2.3rem;
+            margin-right: 0;
+        }
+        .btn {
+            width: 7rem;
+            height: 2rem;
+            margin-right: 11rem;
+        }
+    }
+    @media only screen and (max-width: 990px) {
+        .btn {
+            margin-right: 14rem;
+        }
+    }
+    @media only screen and (max-width: 950px) {
+        .btn {
+            margin-right: 17rem;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .btn {
+            margin-right: 19rem;
+        }
+        &__search {
+            width: 13rem;
+        }
+    }
+    @media only screen and (max-width: 870px) {
+        grid-template-columns: 2fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 21rem;
+        }
+        &__item {
+            font-size: 1rem;
+        }
+    }
+    @media only screen and (max-width: 840px) {
+        grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 22rem;
+        }
+        &__search {
+            width: 12rem;
+            height: 2rem;
+        }
+
+    }
+    @media only screen and (max-width: 827px) {
+        padding: 1rem;
+        grid-template-columns: repeat(4, 1fr) 2fr 1fr;
+        &__item {
+            &--header {
+                font-size: 1.4rem;
+            }
+        }
+        .btn {
+            margin-right: 24rem;
+        }
+
+    }
+    @media only screen and (max-width: 800px) {
+        grid-template-columns: 1.5fr repeat(3, 1fr) 2fr 1fr;
+        .btn {
+            margin-right: 26rem;
+        }
+    }
+    @media only screen and (max-width: 786px) {
+        padding: .5rem 1rem;
+        &__item {
+            font-size: 1.3rem;
+            &--header {
+                font-size: 2rem;
+                width: 11rem;
+            }
+        }
+        &__search {
+            width: 12rem;
+        }
+    }
+    @media only screen and (max-width: 769px) {
+        padding: 0 1rem;
+        &__item {
+            font-size: .9rem;
+        }
+        &__search {
+            width: 12rem;
+            height: 1.8rem;
+            font-size: .7rem;
+            margin-right: 1rem;
+        }
+        .btn {
+            width: 5rem;
+            height: 2rem;
+            font-size: .8rem;
+            margin-right: 9rem;
+        }
+    }
+}
+
+@mixin mobileNav {
+    grid-template-columns: auto;
+    padding: 0 1rem;
+    height: 6rem;
+    .hamburger {
+        display: block;
+        @include h.hamburger;
+    }
+    &__item,
+    &__search,
+    .btn {
+        display: none;
+    }
+    &__item {
+        &--header {
+            margin-top: 1.5rem;
+            font-size: 3rem;
+            width: 16rem;
+        }
+    }
+    &__mobile {
+        display: contents;
+        font-size: 1.5rem;
+    }
+    @media only screen and (max-width: 375px) {
+        &__mobile {
+            font-size: 1.2rem;
+        }
+    }
+}
