@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
@@ -100,7 +101,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
       setValidTitle(false);
       titleRef.focus();
       setValidAuthor(false);
-    } else if (title === '') {
+    } else if (!title) {
       setValidTitle(false);
       titleRef.focus();
     } else {
