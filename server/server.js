@@ -5,6 +5,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const { sequelize } = require('./models');
+
 const corsOptions = {
     origin: 'http://localhost:1234',
 };
@@ -22,8 +24,6 @@ app.get('/', (req, res) => {
     res.send(`Welcome Home!`);
 });
 
-
 sequelize.sync().then(() => {
     app.listen(PORT, () => console.log(`App listening on 'http://localhost:${PORT}'`));
   });
-  
