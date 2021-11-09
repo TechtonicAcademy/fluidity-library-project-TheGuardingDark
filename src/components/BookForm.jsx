@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
@@ -8,6 +7,15 @@ import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
+
+const clearObj = {
+  title: '',
+  author: '',
+  synopsis: '',
+  published: '',
+  pages: 0,
+  rating: 0,
+};
 
 const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   const pathname = useLocation();
@@ -19,19 +27,10 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   const [validTitle, setValidTitle] = useState(true);
   const [validAuthor, setValidAuthor] = useState(true);
 
-  const titleRef = document.getElementById('title');
-  const authorRef = document.getElementById('author');
+  const titleRef = useRef();
+  const authorRef = useRef();
 
-  const [formObj, setFormObj] = useState({
-    // Until image functionality is set-up
-    // src: '',
-    title: '',
-    author: '',
-    synopsis: '',
-    published: '',
-    pages: 0,
-    rating: 0,
-  });
+  const [formObj, setFormObj] = useState(clearObj);
 
   useEffect(() => {
     if (existingBook) {
@@ -48,17 +47,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
       setValidAuthor(true);
       setValidTitle(true);
     } else {
-      setFormObj({
-        ...formObj,
-        // Until image functionality is set-up
-        // src: '',
-        title: '',
-        author: '',
-        synopsis: '',
-        published: new Date(),
-        pages: 300,
-        rating: 0,
-      });
+      setFormObj(clearObj);
       setReset(true);
       setValidAuthor(true);
       setValidTitle(true);
@@ -99,14 +88,14 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
       resetForm();
     } else if (title === '' && author === '') {
       setValidTitle(false);
-      titleRef.focus();
+      titleRef.current.focus();
       setValidAuthor(false);
     } else if (!title) {
       setValidTitle(false);
-      titleRef.focus();
+      titleRef.current.focus();
     } else {
       setValidAuthor(false);
-      authorRef.focus();
+      authorRef.current.focus();
     }
   };
 
@@ -126,6 +115,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
           placeholder=""
           value={title}
           name="title"
+          ref={titleRef}
           onChange={handleInputChange}
         />
         {validTitle ? (
@@ -143,6 +133,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
           placeholder=""
           value={author}
           name="author"
+          ref={authorRef}
           onChange={handleInputChange}
         />
         {validAuthor ? '' : <p className="form__err">Author is Required</p>}
