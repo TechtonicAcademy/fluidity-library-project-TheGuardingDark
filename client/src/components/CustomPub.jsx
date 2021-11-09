@@ -1,4 +1,3 @@
-
 import DatePicker from 'react-widgets/DatePicker';
 import PropTypes from 'prop-types';
 import 'react-widgets/scss/styles.scss';

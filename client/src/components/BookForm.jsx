@@ -90,7 +90,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
       setValidTitle(false);
       titleRef.current.focus();
       setValidAuthor(false);
-    } else if (!title) {
+    } else if (title === '') {
       setValidTitle(false);
       titleRef.current.focus();
     } else {
