@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { getBook } from '../utils/API';
 
 const Stars = ({
   handleRatingChange,
@@ -19,6 +18,12 @@ const Stars = ({
   const [currentRating, setCurrentRating] = useState(0);
 
   useEffect(() => {
+    if (rating) {
+      setCurrentRating(rating);
+    }
+  }, [rating]);
+
+  useEffect(() => {
     if (id) {
       setCurrentRating(rating);
       setReset(false);
@@ -27,14 +32,6 @@ const Stars = ({
       setReset(false);
     }
   }, [reset]);
-
-  useEffect(() => {
-    if (id) {
-      getBook(id)
-        .then(({ data: book }) => setCurrentRating(book.rating))
-        .catch((err) => console.log(err));
-    }
-  }, [id]);
 
   return (
     <div className={`form__rating form__rating--${className}`}>
