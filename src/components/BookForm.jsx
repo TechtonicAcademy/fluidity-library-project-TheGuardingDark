@@ -1,5 +1,5 @@
-
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import CustomPage from './CustomPage';
@@ -8,39 +8,50 @@ import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
-const BookForm = ({ createBook }) => {
+const clearObj = {
+  title: '',
+  author: '',
+  synopsis: '',
+  published: '',
+  pages: 0,
+  rating: 0,
+};
+
+const BookForm = ({ createBook, existingBook, src, updateBook }) => {
+  const pathname = useLocation();
+  const { id } = useParams();
+  const path = pathname.pathname;
+  const editPath = `/editBook/${id}`;
+
   const [reset, setReset] = useState(false);
   const [validTitle, setValidTitle] = useState(true);
   const [validAuthor, setValidAuthor] = useState(true);
+
   const titleRef = useRef();
   const authorRef = useRef();
 
-  const [formObj, setFormObj] = useState({
-    src: '',
-    title: '',
-    author: '',
-    synopsis: '',
-    published: '',
-    pages: '',
-    rating: 0,
-  });
+  const [formObj, setFormObj] = useState(clearObj);
 
-  const { src, title, author, synopsis } = formObj;
+  useEffect(() => {
+    if (existingBook) {
+      setFormObj(existingBook);
+    }
+  }, [existingBook]);
 
-  const clearForm = () => {
-    setFormObj({
-      ...formObj,
-      src: '',
-      title: '',
-      author: '',
-      synopsis: '',
-      published: new Date(),
-      pages: 300,
-      rating: 0,
-    });
-    setReset(true);
-    setValidAuthor(true);
-    setValidTitle(true);
+  const { rating, title, author, synopsis, pages, published } = formObj;
+
+  const resetForm = () => {
+    if (id) {
+      setFormObj({ ...existingBook });
+      setReset(true);
+      setValidAuthor(true);
+      setValidTitle(true);
+    } else {
+      setFormObj(clearObj);
+      setReset(true);
+      setValidAuthor(true);
+      setValidTitle(true);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -60,18 +71,22 @@ const BookForm = ({ createBook }) => {
     setFormObj({ ...formObj, published: date });
   };
 
-  const handlePagesChange = (pages) => {
-    setFormObj({ ...formObj, pages });
+  const handlePagesChange = (page) => {
+    setFormObj({ ...formObj, pages: page });
   };
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
+
     const book = { ...formObj, id: shortid.generate() };
 
-    if (title && author) {
+    if (title !== '' && author !== '') {
+      if (id) {
+        updateBook(book, id);
+      }
       createBook(book);
-      clearForm();
-    } else if (!title && !author) {
+      resetForm();
+    } else if (title === '' && author === '') {
       setValidTitle(false);
       titleRef.current.focus();
       setValidAuthor(false);
@@ -89,7 +104,7 @@ const BookForm = ({ createBook }) => {
       className="form grid form__mobile"
       id="addBookForm"
       onSubmit={handleBookSubmit}
-      onReset={clearForm}
+      onReset={resetForm}
     >
       <label className="form__label" htmlFor="title">
         <p className="form__text form__text--title form__mobile"> Title </p>
@@ -145,21 +160,27 @@ const BookForm = ({ createBook }) => {
         handleDateChange={handleDateChange}
         reset={reset}
         setReset={setReset}
+        id={id}
+        savedPub={published}
       />
       <CustomPage
         handlePagesChange={handlePagesChange}
         reset={reset}
         setReset={setReset}
+        id={id}
+        savedPages={pages}
       />
       <p className="form__text">Rating</p>
       <Stars
         handleRatingChange={handleRatingChange}
         reset={reset}
         setReset={setReset}
+        rating={rating}
+        id={id}
       />
       <div className="addBook__btns">
         <Button
-          text="Add Book"
+          text={path === editPath ? 'Edit Book' : 'Add Book'}
           type="submit"
           form="addBookForm"
           className="add rightBtn"
@@ -169,7 +190,7 @@ const BookForm = ({ createBook }) => {
           text="Reset"
           type="reset"
           className="light leftBtn"
-          onClick={clearForm}
+          onClick={resetForm}
         />
       </div>
     </form>
@@ -178,10 +199,16 @@ const BookForm = ({ createBook }) => {
 
 BookForm.defaultProps = {
   createBook: () => {},
+  existingBook: {},
+  updateBook: () => {},
+  src: '',
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
+  existingBook: PropTypes.objectOf(PropTypes.any),
+  updateBook: PropTypes.func,
+  src: PropTypes.string,
 };
 
 export default BookForm;

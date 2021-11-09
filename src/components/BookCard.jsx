@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Jacket from '../styles/images/snuff.jpg';
 
-const BookCard = ({ book: { id, src, title, author } }) => {
+const BookCard = ({ book: { id, title, author } }) => {
   return (
     <div className="card card__withImg">
       <Link to={`/details/${id}`} className="card__link">
@@ -21,14 +21,14 @@ const BookCard = ({ book: { id, src, title, author } }) => {
 };
 
 BookCard.defaultProps = {
-  src: Jacket,
   title: '',
   author: '',
+  book: {},
 };
 BookCard.propTypes = {
-  src: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
+  book: PropTypes.objectOf(PropTypes.any),
 };
 
 export default BookCard;

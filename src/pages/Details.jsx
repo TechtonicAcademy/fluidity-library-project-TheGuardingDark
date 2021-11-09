@@ -19,7 +19,7 @@ const Details = () => {
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: book }) => setBook(book))
+      .then(({ data }) => setBook(data))
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -36,7 +36,7 @@ const Details = () => {
       <h2 className="details__text details__text--author mobile">{author}</h2>
       <h3 className="details__text details__text--rating mobile">Rating</h3>
 
-      <Stars className="details" id={id} rating={rating} />
+      <Stars className="details" id={id} bookRating={rating} />
       <h2 className="details__text details__text--author desktop">{author}</h2>
 
       <h3 className=" details__text details__text--published">

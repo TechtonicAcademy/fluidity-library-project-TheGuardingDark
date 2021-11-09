@@ -3,13 +3,35 @@ import DatePicker from 'react-widgets/DatePicker';
 import PropTypes from 'prop-types';
 import 'react-widgets/scss/styles.scss';
 import { useState, useEffect } from 'react';
+import { getBook } from '../utils/API';
 
-const CustomPub = ({ handleDateChange, initialValue, reset, setReset }) => {
+const CustomPub = ({
+  handleDateChange,
+  initialValue,
+  reset,
+  setReset,
+  id,
+  savedPub,
+}) => {
   const [date, setDate] = useState(initialValue);
+
   useEffect(() => {
-    setDate(new Date());
-    setReset(false);
+    if (id) {
+      setDate(new Date(savedPub));
+      setReset(false);
+    } else {
+      setDate(new Date());
+      setReset(false);
+    }
   }, [reset]);
+
+  useEffect(() => {
+    if (id) {
+      getBook(id)
+        .then(({ data: book }) => setDate(new Date(book.published)))
+        .catch((err) => console.log(err));
+    }
+  }, [id]);
 
   return (
     <div htmlFor="published" className="form__label">
@@ -23,9 +45,9 @@ const CustomPub = ({ handleDateChange, initialValue, reset, setReset }) => {
           value={date}
           valueEditFormat={{ dateStyle: 'medium' }}
           valueDisplayFormat={{ dateStyle: 'medium' }}
-          onChange={(date) => {
-            setDate(date);
-            handleDateChange(date);
+          onChange={(pub) => {
+            setDate(pub);
+            handleDateChange(pub);
           }}
         />
       </div>
@@ -38,6 +60,8 @@ CustomPub.defaultProps = {
   initialValue: new Date(),
   setReset: () => {},
   reset: false,
+  id: '',
+  savedPub: '',
 };
 
 CustomPub.propTypes = {
@@ -45,6 +69,8 @@ CustomPub.propTypes = {
   initialValue: PropTypes.instanceOf(Date),
   setReset: PropTypes.func,
   reset: PropTypes.bool,
+  id: PropTypes.string,
+  savedPub: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 };
 
 export default CustomPub;
