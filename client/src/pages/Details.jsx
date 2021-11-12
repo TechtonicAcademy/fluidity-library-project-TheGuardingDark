@@ -10,7 +10,8 @@ const Details = () => {
   const history = useHistory();
   const [book, setBook] = useState({});
   const { id } = useParams();
-  const { title, author, synopsis, published, pages, rating } = book;
+  const { title, firstName, lastName, synopsis, published, pages, rating } =
+    book;
 
   const p = new Date(published);
   const month = p.getMonth() + 1;
@@ -19,7 +20,13 @@ const Details = () => {
 
   useEffect(() => {
     getBook(id)
-      .then(({ data }) => setBook(data))
+      .then(({ data }) =>
+        setBook({
+          ...data,
+          firstName: data.Author.firstName,
+          lastName: data.Author.lastName,
+        })
+      )
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -33,11 +40,18 @@ const Details = () => {
     <div className="details grid">
       <h1 className=" details__text details__text--title">{title}</h1>
       <EmptyCard src={Jacket} className="form details__img" />
-      <h2 className="details__text details__text--author mobile">{author}</h2>
+      <h2 className="details__text details__text--author mobile">
+        {firstName}
+        {lastName}
+      </h2>
       <h3 className="details__text details__text--rating mobile">Rating</h3>
 
       <Stars className="details" id={id} bookRating={rating} />
-      <h2 className="details__text details__text--author desktop">{author}</h2>
+      <h2 className="details__text details__text--author desktop">
+        {firstName}
+        &nbsp;&nbsp;
+        {lastName}
+      </h2>
 
       <h3 className=" details__text details__text--published">
         Published: {published ? `${month}/${day}/${year}` : ''}

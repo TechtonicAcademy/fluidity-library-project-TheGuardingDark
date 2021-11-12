@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
@@ -8,6 +8,16 @@ import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
 
+const clearObj = {
+  title: '',
+  firstName: '',
+  lastName: '',
+  synopsis: '',
+  published: '',
+  pages: 0,
+  rating: 0,
+};
+
 const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   const pathname = useLocation();
   const { id } = useParams();
@@ -16,21 +26,14 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
 
   const [reset, setReset] = useState(false);
   const [validTitle, setValidTitle] = useState(true);
-  const [validAuthor, setValidAuthor] = useState(true);
+  const [validFirstName, setValidFirstName] = useState(true);
+  const [validLastName, setValidLastName] = useState(true);
 
-  const titleRef = document.getElementById('title');
-  const authorRef = document.getElementById('author');
+  const titleRef = useRef();
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
 
-  const [formObj, setFormObj] = useState({
-    // Until image functionality is set-up
-    // src: '',
-    title: '',
-    author: '',
-    synopsis: '',
-    published: '',
-    pages: 0,
-    rating: 0,
-  });
+  const [formObj, setFormObj] = useState(clearObj);
 
   useEffect(() => {
     if (existingBook) {
@@ -38,38 +41,38 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     }
   }, [existingBook]);
 
-  const { rating, title, author, synopsis, pages, published } = formObj;
+  const { rating, title, firstName, lastName, synopsis, pages, published } =
+    formObj;
+
+  const valid = () => {
+    setValidTitle(true);
+    setValidFirstName(true);
+    setValidLastName(true);
+  };
 
   const resetForm = () => {
     if (id) {
       setFormObj({ ...existingBook });
       setReset(true);
-      setValidAuthor(true);
-      setValidTitle(true);
+      valid();
+      // setValidAuthor(true);
+      // setValidTitle(true);
     } else {
-      setFormObj({
-        ...formObj,
-        // Until image functionality is set-up
-        // src: '',
-        title: '',
-        author: '',
-        synopsis: '',
-        published: new Date(),
-        pages: 300,
-        rating: 0,
-      });
+      setFormObj(clearObj);
       setReset(true);
-      setValidAuthor(true);
-      setValidTitle(true);
+      valid();
+      // setValidAuthor(true);
+      // setValidTitle(true);
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormObj({ ...formObj, [name]: value });
-    if (title !== '' || author !== '') {
-      setValidAuthor(true);
-      setValidTitle(true);
+    if (title !== '' || firstName !== '' || lastName !== '') {
+      valid();
+      // setValidAuthor(true);
+      // setValidTitle(true);
     }
   };
 
@@ -90,22 +93,26 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
 
     const book = { ...formObj, id: shortid.generate() };
 
-    if (title !== '' && author !== '') {
+    if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
         updateBook(book, id);
       }
       createBook(book);
       resetForm();
-    } else if (title === '' && author === '') {
+    } else if (title === '' && firstName === '' && lastName === '') {
       setValidTitle(false);
-      titleRef.focus();
-      setValidAuthor(false);
+      titleRef.current.focus();
+      setValidFirstName(false);
+      setValidLastName(false);
     } else if (title === '') {
       setValidTitle(false);
-      titleRef.focus();
+      titleRef.current.focus();
+    } else if (lastName === '') {
+      setValidLastName(false);
+      lastNameRef.current.focus();
     } else {
-      setValidAuthor(false);
-      authorRef.focus();
+      setValidFirstName(false);
+      firstNameRef.current.focus();
     }
   };
 
@@ -125,6 +132,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
           placeholder=""
           value={title}
           name="title"
+          ref={titleRef}
           onChange={handleInputChange}
         />
         {validTitle ? (
@@ -133,19 +141,36 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
           <p className="form__err form__err--title">Title is Required</p>
         )}
       </label>
-      <label className="form__label" htmlFor="author">
+
+      <label className="form__author" htmlFor="firstName">
         <p className="form__text form__text--author form__mobile">Author</p>
         <input
           type="text"
-          id="author"
-          className="form__input form__input--author form__mobile"
-          placeholder=""
-          value={author}
-          name="author"
+          id="firstName"
+          className="form__input form__input--firstName form__mobile"
+          placeholder="First Name"
+          value={firstName}
+          name="firstName"
+          ref={firstNameRef}
           onChange={handleInputChange}
         />
-        {validAuthor ? '' : <p className="form__err">Author is Required</p>}
+        <input
+          type="text"
+          id="lastName"
+          className="form__input form__input--lastName form__mobile"
+          placeholder="Last Name"
+          value={lastName}
+          name="lastName"
+          ref={lastNameRef}
+          onChange={handleInputChange}
+        />
+        {validFirstName && validLastName ? (
+          ''
+        ) : (
+          <p className="form__err">Author Full Name is Required</p>
+        )}
       </label>
+
       <EmptyCard src={src} className="form blank" />
       <Button
         text={`${src ? 'Change Image' : 'Add Image'}`}

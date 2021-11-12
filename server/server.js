@@ -23,4 +23,3 @@ if (process.env.NODE_ENV === 'production') {
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`App listening on 'http://localhost:${PORT}'`));
   });
-  

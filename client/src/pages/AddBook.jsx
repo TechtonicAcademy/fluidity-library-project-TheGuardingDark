@@ -10,10 +10,11 @@ const AddBook = () => {
     // Until image functionality is set-up
     // src: '',
     title: '',
-    author: '',
+    firstName: '',
+    lastName: '',
     synopsis: '',
     published: '',
-    pages: '',
+    pages: 0,
     rating: 0,
   });
 

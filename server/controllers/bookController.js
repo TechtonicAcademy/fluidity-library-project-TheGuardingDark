@@ -47,7 +47,7 @@ module.exports = {
     },
     findById: (req, res) => {
         Book.findByPk(req.params.id, {
-            include: [Author],
+            include: [Author]
         })
             .then((book) => res.json(book))
             .catch((err) => res.status(500).json(err));

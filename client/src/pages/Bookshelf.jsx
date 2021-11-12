@@ -11,11 +11,17 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
   useEffect(() => {
     if (term === '') {
       getBooks()
-        .then(({ data: books }) => setBooks(books))
+        .then(({ data: books }) => console.log(books), setBooks({ books }))
         .catch((err) => console.log(err));
     } else {
       searchBooks(term)
-        .then(({ data: books }) => setBooks(books))
+        .then(({ data: books }) =>
+          setBooks({
+            ...books,
+            firstName: books.Author.firstName,
+            lastName: books.Author.lastName,
+          })
+        )
         .catch((err) => console.log(err));
     }
   }, [term]);

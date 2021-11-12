@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             },
         },
         synopsis: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(1234),
             allowNull: true,
         },
         published: {
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             validate: {
                 isNumeric: true,
-                isIn: [[1,2,3,4,5]]
+                isIn: [[0,1,2,3,4,5]]
             },
         },
         src: {
