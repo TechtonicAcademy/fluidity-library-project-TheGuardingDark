@@ -1,30 +1,47 @@
-const { Author, Book } = require('../models');
+const { Author, Book, Sequelize } = require('../models');
+const { Op } = require("sequelize");
 
 module.exports = {
-    findAll: (req, res) => {
+    search: (req, res) => {
+        const { query } = req.query;
         Book.findAll({
             include: [Author],
+            where: {
+                [Op.or]: [
+                    {title: { [Op.substring]: query} },
+                    {'$Author.firstName$': { [Op.substring]: query} },
+                    {'$Author.lastName$': { [Op.substring]: query} }]
+            }
         })
             .then((book) => res.json(book))
             .catch((err) => res.status(500).json(err));
     },
+    findAll: (req, res) => {
+        Book.findAll()
+            .then((book) => res.json(book))
+            .catch((err) => res.status(500).json(err));
+    },
     findOrCreate: (req, res) => {
-        const { firstName } = req.body.firstName;
-        const { lastName } = req.body.lastName;
+        const firstName = req.body.firstName;
+        const lastName  = req.body.lastName;
             
-        Author.findOrCreate(req.body, {
+        Author.findOrCreate({
             where: {
                 [Op.and]: [
-                    { firstName: { [Op.substring]: firstName } },
-                    { lastName: { [Op.substring]: lastName } }]
-                }
+                    { firstName: firstName },
+                    { lastName: lastName }
+                ]
+            },
+            defaults: {
+                firstName: firstName,
+                lastName: lastName
+            }
+        }).then((author) => {
+            req.body.AuthorId = author[0].dataValues.id;
+            Book.create(req.body, {
+                include: [Author]
+            });            
         })
-            .then(authorData => {
-                return authorData.get();
-            })
-            .then(author => {
-                Book.create({...req.body, insertId: author.authorId})
-            })
             .then(() => res.end())
             .catch((err) => res.status(422).json);
     },
@@ -48,18 +65,5 @@ module.exports = {
         })
             .then(() => res.end())
             .catch((err) => res.status(500).json(err));
-    },
-    search: (req, res) => {
-        const { query } = req.query;
-        Book.findAll({
-            include: [Author],
-            where: {
-                [Op.or]: [{ title: { [Op.substring]: query } },
-                            { firstName: { [Op.substring]: query } },
-                            { lastName: { [Op.substring]: query } }]
-            },
-        })
-            .then((books) => res.json(books))
-            .catch((err) => res.status(500).json(err));
-    },
+    }
 };

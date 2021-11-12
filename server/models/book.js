@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     const Book = sequelize.define('Book', {
         title: {
             type: DataTypes.STRING,
@@ -9,6 +9,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         synopsis: {
             type: DataTypes.STRING,
+            allowNull: true,
+        },
+        published: {
+            type: DataTypes.DATE,
             allowNull: true,
         },
         pages: {
@@ -26,23 +30,18 @@ module.exports = function (sequelize, DataTypes) {
                 isIn: [[1,2,3,4,5]]
             },
         },
-        published: {
-            type: DataTypes.DATE,
-            allowNull: true,
-        },
-        image: {
+        src: {
             type: DataTypes.STRING,
             allowNull: true,
         },
+    
     }, {
         paranoid: true,
     });
 
     Book.associate = ({ Author }) => {
         Book.belongsTo(Author, {
-            foreignKey: {
-                allowNull: false
-            }
+            onDelete: 'CASCADE',
         });
     }
     return Book;
