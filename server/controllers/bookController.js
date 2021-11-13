@@ -17,7 +17,7 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     },
     findAll: (req, res) => {
-        Book.findAll()
+        Book.findAll({ include: [Author] })
             .then((book) => res.json(book))
             .catch((err) => res.status(500).json(err));
     },

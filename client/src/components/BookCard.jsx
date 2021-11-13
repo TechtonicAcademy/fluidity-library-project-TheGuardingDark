@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Jacket from '../styles/images/snuff.jpg';
 
-const BookCard = ({ book: { id, title, firstName, lastName } }) => {
+const BookCard = ({ book: { id, title }, firstName, lastName }) => {
   return (
     <div className="card card__withImg">
       <Link to={`/details/${id}`} className="card__link">
@@ -15,7 +15,7 @@ const BookCard = ({ book: { id, title, firstName, lastName } }) => {
           <h2 className="card__container--title">{title}</h2>
           <h3 className="card__container--author">
             {firstName}
-            &nbsp;&nbsp;
+            &nbsp;
             {lastName}
           </h3>
         </div>
