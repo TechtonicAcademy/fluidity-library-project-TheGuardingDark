@@ -6,6 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const routes = require('./routes');
 
+const { sequelize } = require('./models');
+
 const corsOptions = {
     origin: 'http://localhost:1234',
 };
@@ -19,8 +21,8 @@ app.use(routes);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../client/dist'));
 }
+
 // take out force true later
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`App listening on 'http://localhost:${PORT}'`));
   });
-  
