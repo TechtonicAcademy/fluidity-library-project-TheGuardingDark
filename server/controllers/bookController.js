@@ -1,5 +1,5 @@
-const { Author, Book, Sequelize } = require('../models');
-const { Op } = require("sequelize");
+const { Author, Book } = require('../models');
+const { Op } = require('sequelize');
 
 module.exports = {
     search: (req, res) => {
@@ -28,13 +28,13 @@ module.exports = {
         Author.findOrCreate({
             where: {
                 [Op.and]: [
-                    { firstName: firstName },
-                    { lastName: lastName }
+                    { firstName },
+                    { lastName }
                 ]
             },
             defaults: {
-                firstName: firstName,
-                lastName: lastName
+                firstName,
+                lastName
             }
         }).then((author) => {
             req.body.AuthorId = author[0].dataValues.id;
@@ -43,7 +43,7 @@ module.exports = {
             });            
         })
             .then(() => res.end())
-            .catch((err) => res.status(422).json);
+            .catch((err) => res.status(422).json(err));
     },
     findById: (req, res) => {
         Book.findByPk(req.params.id, {
@@ -67,3 +67,4 @@ module.exports = {
             .catch((err) => res.status(500).json(err));
     }
 };
+
