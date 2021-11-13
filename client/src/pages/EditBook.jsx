@@ -19,16 +19,6 @@ const EditBook = () => {
   useEffect(() => {
     getBook(id)
       .then(({ data: novel }) => {
-        // better way to do this???
-        // setFormObj({
-        //   title: novel.title,
-        //   firstName: novel.Author.firstName,
-        //   lastName: novel.Author.lastName,
-        //   synopsis: novel.synopsis,
-        //   published: novel.published,
-        //   pages: novel.pages,
-        //   rating: novel.rating,
-        // });
         setFormObj({
           ...novel,
           firstName: novel.Author.firstName,

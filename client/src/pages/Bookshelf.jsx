@@ -11,7 +11,7 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
   useEffect(() => {
     if (term === '') {
       getBooks()
-        .then(({ data: books }) => setBooks(books))
+        .then(({ data }) => setBooks(data))
         .catch((err) => console.log(err));
     } else {
       searchBooks(term)

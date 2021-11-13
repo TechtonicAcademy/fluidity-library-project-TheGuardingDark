@@ -55,14 +55,10 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
       setFormObj({ ...existingBook });
       setReset(true);
       valid();
-      // setValidAuthor(true);
-      // setValidTitle(true);
     } else {
       setFormObj(clearObj);
       setReset(true);
       valid();
-      // setValidAuthor(true);
-      // setValidTitle(true);
     }
   };
 
@@ -71,8 +67,6 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     setFormObj({ ...formObj, [name]: value });
     if (title !== '' || firstName !== '' || lastName !== '') {
       valid();
-      // setValidAuthor(true);
-      // setValidTitle(true);
     }
   };
 
