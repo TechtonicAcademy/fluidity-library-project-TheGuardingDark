@@ -1,0 +1,34 @@
+[
+    {
+        "firstName": "Stephen",
+        "lastName": "King"
+    },
+    {
+        "firstName": "Shirley",
+        "lastName": "Jackson"
+    },
+    {
+        "firstName": "Chuck",
+        "lastName": "Palahniuk"
+    },
+    {
+        "firstName": "J.G.",
+        "lastName": "Ballard"
+    },
+    {
+        "firstName": "Mary",
+        "lastName": "Roach"
+    },
+    {
+        "firstName": "Terry",
+        "lastName": "Pratchett"
+    },
+    {
+        "firstName": "Liv",
+        "lastName": "Heller"
+    },
+    {
+        "firstName": "Satchel",
+        "lastName": "Pooch"
+    }
+]

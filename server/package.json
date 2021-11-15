@@ -8,6 +8,7 @@
     "client": "cd ../client && npm start",
     "lint": "cd ../client && eslint --ext ts,tsx,js,jsx src",
     "build": "cd ../client && npm run build",
+    "seed": "node seeds/index.js",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\""

@@ -1,0 +1,112 @@
+[
+    {
+      "id": "1",
+      "title": "Pet Sematary",
+      "synopsis": "The Creed family suffers a series of tragic events after relocating to a house near a busy highway. When his daughter’s beloved cat, Church, is killed by a speeding truck, Louis Creed follows his neighbor to a hidden burial ground said to bring the dead back to life. When the cat shows up alive, Louis is elated, but soon discovers that everything comes with a price.",
+      "published": "1983-11-15",
+      "pages": 373,
+      "rating": 4,
+      "src": "https://postimg.cc/9DJ1w0Lh",
+      "AuthorId": "1"
+    },
+    {
+      "id": "2",
+      "title": "The Haunting of Hill House",
+      "synopsis": "An occult scholar invites a troubled young woman to join himself and two others at an old manor to search for evidence of psychic phenomena. Their sanity is put to the test when Hill House seems intent to keep them within its walls.",
+      "published": "1959-10-17",
+      "pages": 246,
+      "rating": 3,
+      "src": "https://postimg.cc/xJbJgtM9",
+      "AuthorId": "2"
+    },
+    {
+      "id": "3",
+      "title": "Survivor",
+      "synopsis": "Tender Branson, the last surviving member of a death cult, recounts his life story, from childhood to fitness addict and media messiah, while he waits for his plane to crash into the Australian outback.",
+      "published": "1999-02-18",
+      "pages": 304,
+      "rating": 3,
+      "src": "https://postimg.cc/946swQBJ",
+      "AuthorId": "3"
+    },
+    {
+      "id": "4",
+      "title": "Crash",
+      "synopsis": "After an horrific car accident, James is drawn into a world full of fellow crash survivors, obsessed with re-creating famous car accidents for sexual thrills.",
+      "published": "1973-07-29",
+      "pages": 224,
+      "rating": 4,
+      "src": "https://postimg.cc/CZNQvsCn",
+      "AuthorId": "4"
+    },
+    {
+      "id": "5",
+      "title": "Spook",
+      "synopsis": "A scientific look through the ages at those who have dedicated their lives to finding some evidence of life after death.",
+      "published": "2005-02-11",
+      "pages": 334,
+      "rating": 4,
+      "src": "https://postimg.cc/bssyn3cJ",
+      "AuthorId": "5"
+    },
+    {
+      "id": "6",
+      "title": "Snuff",
+      "synopsis": "Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but a body in the wardrobe would be far too simple. Instead he finds many, many bodies –  and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches and out of his mind, but never out of guile. Where there is a crime there must be a punishment.",
+      "published": "2011-10-12",
+      "pages": 378,
+      "rating": 5,
+      "src": "https://postimg.cc/WdzFWb3L",
+      "AuthorId": "6"
+    },
+    {
+      "id": "VW-nn1Kk1",
+      "title": "A Long Dark Hall",
+      "synopsis": "There is a hallway. It is long. Also dark.",
+      "published": "",
+      "pages": 1,
+      "rating": 2,
+      "src": "https://postimg.cc/ZBr83WFC",
+      "AuthorId": "7"
+    },
+    {
+      "id": "VS7TF-k2C",
+      "title": "Harry Otter and the Fishy Frying Pan",
+      "synopsis": "Harry and his friends purchase a used frying pan. It smells like fish. Harry likes it. The others also like it. It is fish.",
+      "published": "1985-03-12T02:49:19.480Z",
+      "pages": 9748,
+      "rating": 5,
+      "src": "https://postimg.cc/ZBr83WFC",
+      "AuthorId": "8"
+    },
+    {
+      "id": "wtdjk",
+      "title": "Guards! Guards!",
+      "synopsis": "Insurrection is in the air in the city of Ankh-Morpork. The Haves and Have-Nots are about to fall out all over again. Captain Sam Vimes of the city’s ramshackle Night Watch is used to this. It’s enough to drive a man to drink. Well, to drink more. But this time, something is different – the Have-Nots have found the key to a dormant, lethal weapon that even they don’t fully understand, and they’re about to unleash a campaign of terror on the city.",
+      "published": "1989-08-12T02:49:19.480Z",
+      "pages": 355,
+      "rating": 5,
+      "src": "https://postimg.cc/CBNW7xwx",
+      "AuthorId": "6"
+    },
+    {
+      "id": "dsfdasfas",
+      "title": "Stiff",
+      "synopsis": "Stiff: The Curious Lives of Human Cadavers is a nonfiction book about the history of human cadavers. Mary Roach explores how, for nearly two thousand years, dead bodies have been used in research and experimentation leading to some of the most consequential innovations in medical science.",
+      "published": "2003-04-18",
+      "pages": 304,
+      "rating": 5,
+      "src": "https://postimg.cc/t1x1s7Fw",
+      "AuthorId": "5"
+    },
+    {
+      "id": "afdsa",
+      "title": "Monstrous Regiment",
+      "synopsis": "Women belong in the kitchen –  everyone knows that. Not in jobs, pubs or indeed trousers, and certainly not on the front line. Nonetheless, Polly Perks has to become a boy in a hurry if she wants to find her missing brother in the army. Cutting off her hair and wearing the trousers is easy. Learning to fart and belch in public and walk like an ape takes more time.",
+      "published": "1985-03-12T02:49:19.480Z",
+      "pages": 389,
+      "rating": 5,
+      "src": "https://postimg.cc/GTYbbsYh",
+      "AuthorId": "6"
+    }      
+  ]
