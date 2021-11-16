@@ -49,7 +49,7 @@ const Details = () => {
       <Stars className="details" id={id} bookRating={rating} />
       <h2 className="details__text details__text--author desktop">
         {firstName}
-        &nbsp;&nbsp;
+        &nbsp;
         {lastName}
       </h2>
 

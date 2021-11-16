@@ -25,12 +25,7 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
       <MobileSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <h1 className="bookshelf__header">Release the Kraken of Knowledge!</h1>
       {books.map((book) => (
-        <BookCard
-          key={book.id}
-          book={book}
-          firstName={book.Author.firstName}
-          lastName={book.Author.lastName}
-        />
+        <BookCard key={book.id} book={book} author={book.Author} />
       ))}
     </div>
   );

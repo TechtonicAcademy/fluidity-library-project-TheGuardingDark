@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000/books';
+const url = 'http://localhost:8080/api/books';
 
 export const getBooks = () => {
   return axios.get(url);

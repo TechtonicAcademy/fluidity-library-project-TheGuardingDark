@@ -16,9 +16,10 @@ const clearObj = {
   published: '',
   pages: 0,
   rating: 0,
+  src: '',
 };
 
-const BookForm = ({ createBook, existingBook, src, updateBook }) => {
+const BookForm = ({ createBook, existingBook, updateBook }) => {
   const pathname = useLocation();
   const { id } = useParams();
   const path = pathname.pathname;
@@ -34,6 +35,7 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   const lastNameRef = useRef();
 
   const [formObj, setFormObj] = useState(clearObj);
+  const [image, setImage] = useState();
 
   useEffect(() => {
     if (existingBook) {
@@ -41,8 +43,16 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     }
   }, [existingBook]);
 
-  const { rating, title, firstName, lastName, synopsis, pages, published } =
-    formObj;
+  const {
+    rating,
+    title,
+    firstName,
+    lastName,
+    synopsis,
+    pages,
+    published,
+    src,
+  } = formObj;
 
   const valid = () => {
     setValidTitle(true);
@@ -82,6 +92,23 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
     setFormObj({ ...formObj, pages: page });
   };
 
+  const handleImage = () => {
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      const imageName = reader.result;
+      // console.log(imageName);
+      setImage(imageName);
+    });
+    // reader.onload = () => {
+    //   const img = file.name;
+    //   setImage(img);
+    //   // console.log(img);
+    // };
+    reader.readAsDataURL(file);
+    console.log(image);
+  };
+
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
@@ -111,116 +138,153 @@ const BookForm = ({ createBook, existingBook, src, updateBook }) => {
   };
 
   return (
-    <form
-      className="form grid form__mobile"
-      id="addBookForm"
-      onSubmit={handleBookSubmit}
-      onReset={resetForm}
-    >
-      <label className="form__label" htmlFor="title">
-        <p className="form__text form__text--title form__mobile"> Title </p>
-        <input
-          type="text"
-          id="title"
-          className="form__input form__input--title form__mobile"
-          placeholder=""
-          value={title}
-          name="title"
-          ref={titleRef}
-          onChange={handleInputChange}
-        />
-        {validTitle ? (
-          ''
-        ) : (
-          <p className="form__err form__err--title">Title is Required</p>
-        )}
-      </label>
+    <>
+      <form
+        className="form grid form__mobile"
+        id="addBookForm"
+        onSubmit={handleBookSubmit}
+        onReset={resetForm}
+      >
+        <label className="form__label" htmlFor="title">
+          <p className="form__text form__text--title form__mobile"> Title </p>
+          <input
+            type="text"
+            id="title"
+            className="form__input form__input--title form__mobile"
+            placeholder=""
+            value={title}
+            name="title"
+            ref={titleRef}
+            onChange={handleInputChange}
+          />
+          {validTitle ? (
+            ''
+          ) : (
+            <p className="form__err form__err--title">Title is Required</p>
+          )}
+        </label>
 
-      <label className="form__author" htmlFor="firstName">
-        <p className="form__text form__text--author form__mobile">Author</p>
-        <input
-          type="text"
-          id="firstName"
-          className="form__input form__input--firstName form__mobile"
-          placeholder="First Name"
-          value={firstName}
-          name="firstName"
-          ref={firstNameRef}
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          id="lastName"
-          className="form__input form__input--lastName form__mobile"
-          placeholder="Last Name"
-          value={lastName}
-          name="lastName"
-          ref={lastNameRef}
-          onChange={handleInputChange}
-        />
-        {validFirstName && validLastName ? (
-          ''
-        ) : (
-          <p className="form__err">Author Full Name is Required</p>
-        )}
-      </label>
+        <label className="form__author" htmlFor="firstName">
+          <p className="form__text form__text--author form__mobile">Author</p>
+          <input
+            type="text"
+            id="firstName"
+            className="form__input form__input--firstName form__mobile"
+            placeholder="First Name"
+            value={firstName}
+            name="firstName"
+            ref={firstNameRef}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            id="lastName"
+            className="form__input form__input--lastName form__mobile"
+            placeholder="Last Name"
+            value={lastName}
+            name="lastName"
+            ref={lastNameRef}
+            onChange={handleInputChange}
+          />
+          {validFirstName && validLastName ? (
+            ''
+          ) : (
+            <p className="form__err">Author Full Name is Required</p>
+          )}
+        </label>
 
-      <EmptyCard src={src} className="form blank" />
-      <Button
-        text={`${src ? 'Change Image' : 'Add Image'}`}
-        type="submit"
-        className="mdDark addChangeImg"
-      />
-      <label className="form__label" htmlFor="synopsis">
-        <p className="form__text form__mobile">Synopsis</p>
-        <textarea
-          type="text"
-          id="synopsis"
-          className="form__input form__input--lg form__mobile form__synopsis"
-          placeholder=""
-          value={synopsis}
-          name="synopsis"
-          onChange={handleInputChange}
+        {/* <form action="/image" method="POST" encType="multipart/form-data">
+        <EmptyCard src={src} className="form blank" />
+        <input
+          type="file"
+          name="image"
+          accepts="image/*"
+          multiple={false}
+          // onChange={handleImage}
         />
-      </label>
-      <CustomPub
-        handleDateChange={handleDateChange}
-        reset={reset}
-        setReset={setReset}
-        id={id}
-        savedPub={published}
-      />
-      <CustomPage
-        handlePagesChange={handlePagesChange}
-        reset={reset}
-        setReset={setReset}
-        id={id}
-        savedPages={pages}
-      />
-      <p className="form__text">Rating</p>
-      <Stars
-        handleRatingChange={handleRatingChange}
-        reset={reset}
-        setReset={setReset}
-        rating={rating}
-        id={id}
-      />
-      <div className="addBook__btns">
         <Button
-          text={path === editPath ? 'Edit Book' : 'Add Book'}
+          text={`${src ? 'Change Image' : 'Add Image'}`}
           type="submit"
-          form="addBookForm"
-          className="add rightBtn"
+          className="mdDark addChangeImg"
+          onSubmit={handleImage}
+        />
+      </form> */}
+
+        <label className="form__label" htmlFor="synopsis">
+          <p className="form__text form__mobile">Synopsis</p>
+          <textarea
+            type="text"
+            id="synopsis"
+            className="form__input form__input--lg form__mobile form__synopsis"
+            placeholder=""
+            value={synopsis}
+            name="synopsis"
+            onChange={handleInputChange}
+          />
+        </label>
+        <CustomPub
+          handleDateChange={handleDateChange}
+          reset={reset}
+          setReset={setReset}
+          id={id}
+          savedPub={published}
+        />
+        <CustomPage
+          handlePagesChange={handlePagesChange}
+          reset={reset}
+          setReset={setReset}
+          id={id}
+          savedPages={pages}
+        />
+        <p className="form__text">Rating</p>
+        <Stars
+          handleRatingChange={handleRatingChange}
+          reset={reset}
+          setReset={setReset}
+          rating={rating}
+          id={id}
+        />
+        <div className="addBook__btns">
+          <Button
+            text={path === editPath ? 'Edit Book' : 'Add Book'}
+            type="submit"
+            form="addBookForm"
+            className="add rightBtn"
+          />
+          <Button
+            form="addBookForm"
+            text="Reset"
+            type="reset"
+            className="light leftBtn"
+            onClick={resetForm}
+          />
+        </div>
+      </form>
+
+      <EmptyCard src={image} className="form blank" />
+
+      <form
+        action="/upload"
+        method="POST"
+        encType="multipart/form-data"
+        // id="imgForm"
+        // onSubmit={handleImage}
+      >
+        <input
+          type="file"
+          name="file"
+          id="inputFiles"
+          accepts="image/*"
+          multiple={false}
+          onChange={handleImage}
         />
         <Button
-          form="addBookForm"
-          text="Reset"
-          type="reset"
-          className="light leftBtn"
-          onClick={resetForm}
+          text={`${src ? 'Change Image' : 'Add Image'}`}
+          type="submit"
+          className="mdDark addChangeImg"
         />
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 
@@ -228,14 +292,14 @@ BookForm.defaultProps = {
   createBook: () => {},
   existingBook: {},
   updateBook: () => {},
-  src: '',
+  // src: '',
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
   existingBook: PropTypes.objectOf(PropTypes.any),
   updateBook: PropTypes.func,
-  src: PropTypes.string,
+  // src: PropTypes.string,
 };
 
 export default BookForm;
