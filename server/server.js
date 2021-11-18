@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const app = express();
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 8080;
 const routes = require('./routes');
 
@@ -13,7 +13,7 @@ const corsOptions = {
   origin: 'http://localhost:1234',
 };
 
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));

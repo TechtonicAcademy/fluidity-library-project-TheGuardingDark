@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Jacket from '../styles/images/snuff.jpg';
+// import Jacket from '../styles/images/snuff.jpg';
 
 const EmptyCard = ({ className, src }) => {
   return (
@@ -17,11 +17,14 @@ const EmptyCard = ({ className, src }) => {
 
 EmptyCard.defaultProps = {
   className: 'card',
-  src: Jacket,
+  src: {} || '',
 };
 EmptyCard.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string,
+  src: PropTypes.oneOfType([
+    PropTypes.objectOf(PropTypes.string),
+    PropTypes.string,
+  ]),
 };
 
 export default EmptyCard;

@@ -5,7 +5,9 @@ const upload = require('../../middleware/upload');
 
 router.route('/search').get(bookController.search);
 
-router.route('/upload').post(upload.single('file'), imageController.uploadFile);
+router
+  .route('/upload/:id')
+  .post(upload.single('file'), imageController.uploadFile);
 
 router
   .route('/:id')

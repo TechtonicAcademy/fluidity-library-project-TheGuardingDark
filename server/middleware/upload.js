@@ -10,7 +10,7 @@ const imageVerification = (req, file, cb) => {
 
 let storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, __basedir + '../assets/uploads/');
+    cb(null, __basedir + '/assets/uploads/');
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-library-${file.originalname}`);

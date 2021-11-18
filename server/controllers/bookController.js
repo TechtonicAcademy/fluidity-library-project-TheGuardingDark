@@ -1,4 +1,4 @@
-const { Author, Book } = require('../models');
+const { Author, Book, Image } = require('../models');
 const { Op } = require('sequelize');
 
 // Add function here that finds or creates author and plugs in the author id for update and create

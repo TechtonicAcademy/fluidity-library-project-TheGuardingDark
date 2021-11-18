@@ -33,3 +33,11 @@ export const editBook = (book, id) => {
 export const deleteBook = (id) => {
   return axios.delete(`${url}/${id}`);
 };
+
+export const uploadImg = (form, id) => {
+  return axios.post(`${url}/upload/${id}`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data, boundary="-XXX-"',
+    },
+  });
+};

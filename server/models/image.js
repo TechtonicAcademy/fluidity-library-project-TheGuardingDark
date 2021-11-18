@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       data: {
         type: DataTypes.BLOB('long'),
       },
+      imgId: {
+        type: DataTypes.STRING,
+      },
     },
     {
       paranoid: true,
@@ -18,9 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Image.associate = ({ Book }) => {
-    Image.belongsTo(Book, {
-      onDelete: 'CASCADE',
-    });
+    Image.belongsTo(Book);
   };
 
   return Image;

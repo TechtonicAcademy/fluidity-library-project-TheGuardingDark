@@ -2,11 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+import { uploadImg } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
 import Button from './Button';
 import Stars from './Stars';
+
+const form = new FormData();
 
 const clearObj = {
   title: '',
@@ -24,7 +27,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const { id } = useParams();
   const path = pathname.pathname;
   const editPath = `/editBook/${id}`;
-
   const [reset, setReset] = useState(false);
   const [validTitle, setValidTitle] = useState(true);
   const [validFirstName, setValidFirstName] = useState(true);
@@ -35,7 +37,10 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const lastNameRef = useRef();
 
   const [formObj, setFormObj] = useState(clearObj);
-  const [image, setImage] = useState();
+
+  const bookId = id || shortid.generate();
+
+  const [image, setImage] = useState('');
 
   useEffect(() => {
     if (existingBook) {
@@ -51,7 +56,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     synopsis,
     pages,
     published,
-    src,
+    // src,
   } = formObj;
 
   const valid = () => {
@@ -93,32 +98,37 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   };
 
   const handleImage = () => {
-    const file = document.querySelector('input[type=file]').files[0];
+    const imgFile = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
     reader.addEventListener('load', () => {
       const imageName = reader.result;
-      // console.log(imageName);
       setImage(imageName);
     });
-    // reader.onload = () => {
-    //   const img = file.name;
-    //   setImage(img);
-    //   // console.log(img);
-    // };
-    reader.readAsDataURL(file);
-    console.log(image);
+    reader.readAsDataURL(imgFile);
+  };
+
+  const handleImg = (e) => {
+    e.preventDefault();
+    const imgFile = document.querySelector('input[type=file]').files[0];
+    // const form = new FormData();
+    form.append('file', imgFile, imgFile.name);
+    // uploadImg(form, bookId);
   };
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
-    const book = { ...formObj, id: shortid.generate() };
+    // if img then bind book id to it here
+    const book = { ...formObj, src: bookId };
 
     if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
         updateBook(book, id);
+        uploadImg(form, id);
       }
       createBook(book);
+      uploadImg(form, bookId);
+
       resetForm();
     } else if (title === '' && firstName === '' && lastName === '') {
       setValidTitle(false);
@@ -192,24 +202,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
             <p className="form__err">Author Full Name is Required</p>
           )}
         </label>
-
-        {/* <form action="/image" method="POST" encType="multipart/form-data">
-        <EmptyCard src={src} className="form blank" />
-        <input
-          type="file"
-          name="image"
-          accepts="image/*"
-          multiple={false}
-          // onChange={handleImage}
-        />
-        <Button
-          text={`${src ? 'Change Image' : 'Add Image'}`}
-          type="submit"
-          className="mdDark addChangeImg"
-          onSubmit={handleImage}
-        />
-      </form> */}
-
         <label className="form__label" htmlFor="synopsis">
           <p className="form__text form__mobile">Synopsis</p>
           <textarea
@@ -263,13 +255,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
       <EmptyCard src={image} className="form blank" />
 
-      <form
-        action="/upload"
-        method="POST"
-        encType="multipart/form-data"
-        // id="imgForm"
-        // onSubmit={handleImage}
-      >
+      <form encType="multipart/form-data" onSubmit={handleImg}>
         <input
           type="file"
           name="file"
@@ -279,8 +265,9 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
           onChange={handleImage}
         />
         <Button
-          text={`${src ? 'Change Image' : 'Add Image'}`}
+          text={`${image ? 'Change Image' : 'Add Image'}`}
           type="submit"
+          form="imgForm"
           className="mdDark addChangeImg"
         />
       </form>
@@ -292,14 +279,12 @@ BookForm.defaultProps = {
   createBook: () => {},
   existingBook: {},
   updateBook: () => {},
-  // src: '',
 };
 
 BookForm.propTypes = {
   createBook: PropTypes.func,
   existingBook: PropTypes.objectOf(PropTypes.any),
   updateBook: PropTypes.func,
-  // src: PropTypes.string,
 };
 
 export default BookForm;
