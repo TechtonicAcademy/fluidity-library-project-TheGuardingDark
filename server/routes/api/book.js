@@ -7,7 +7,7 @@ router.route('/search').get(bookController.search);
 
 router
   .route('/upload/:id')
-  .post(upload.single('file'), imageController.uploadFile);
+  .post(upload.single('bookImg'), imageController.uploadFile);
 
 router
   .route('/:id')

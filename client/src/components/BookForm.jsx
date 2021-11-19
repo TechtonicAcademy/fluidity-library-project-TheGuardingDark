@@ -56,7 +56,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     synopsis,
     pages,
     published,
-    // src,
+    src,
   } = formObj;
 
   const valid = () => {
@@ -97,7 +97,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     setFormObj({ ...formObj, pages: page });
   };
 
-  const handleImage = () => {
+  const previewImage = () => {
     const imgFile = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
     reader.addEventListener('load', () => {
@@ -107,27 +107,25 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     reader.readAsDataURL(imgFile);
   };
 
-  const handleImg = (e) => {
-    e.preventDefault();
-    const imgFile = document.querySelector('input[type=file]').files[0];
-    // const form = new FormData();
-    form.append('file', imgFile, imgFile.name);
-    // uploadImg(form, bookId);
-  };
-
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
-    // if img then bind book id to it here
+    if (image) {
+      const bookImg = document.querySelector('input[type=file]').files[0];
+      form.append('bookImg', bookImg, bookImg.name);
+      console.log(bookImg);
+    }
+
     const book = { ...formObj, src: bookId };
 
     if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
         updateBook(book, id);
         uploadImg(form, id);
+      } else {
+        createBook(book);
+        uploadImg(form, bookId);
       }
-      createBook(book);
-      uploadImg(form, bookId);
 
       resetForm();
     } else if (title === '' && firstName === '' && lastName === '') {
@@ -253,23 +251,22 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
         </div>
       </form>
 
-      <EmptyCard src={image} className="form blank" />
-
-      <form encType="multipart/form-data" onSubmit={handleImg}>
+      <form encType="multipart/form-data">
+        <EmptyCard src={image} className="form blank" />
         <input
           type="file"
-          name="file"
-          id="inputFiles"
+          name="bookImg"
+          className="form__inputFiles"
           accepts="image/*"
           multiple={false}
-          onChange={handleImage}
+          onChange={previewImage}
         />
-        <Button
+        {/* <Button
           text={`${image ? 'Change Image' : 'Add Image'}`}
-          type="submit"
+          type="button"
           form="imgForm"
           className="mdDark addChangeImg"
-        />
+        /> */}
       </form>
     </>
   );

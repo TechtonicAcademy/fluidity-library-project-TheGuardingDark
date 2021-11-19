@@ -46,18 +46,5 @@ module.exports = (sequelize, DataTypes) => {
     Book.belongsTo(Author);
     Book.hasOne(Image);
   };
-  //   Book.associate = ({ Author }) => {
-  //     Book.belongsTo(Author, {
-  //       onDelete: 'CASCADE',
-  //     });
-  //   };
-  //   //   Book.associate = ({ Image }) => {
-  //   //     Book.belongsTo(Image);
-  //   //   };
-  //   Book.associate = ({ Image }) => {
-  //     Book.belongsTo(Image, {
-  //       //   onDelete: 'CASCADE',
-  //     });
-  //   };
   return Book;
 };

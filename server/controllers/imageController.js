@@ -3,24 +3,36 @@ const { Image, Book } = require('../models');
 
 module.exports = {
   uploadFile: (req, res) => {
-    // console.log(req.file);
     if (req.file == undefined) {
       return res.send('No valid File');
     }
-    console.log(req.params.id);
-    // const id = req.params.id;
-    Image.create({
-      type: req.file.mimetype,
-      name: req.file.originalname,
-      data: fs.readFileSync(__basedir + '/assets/uploads/' + req.file.filename),
-      imgId: req.params.id,
+    console.log(req.file);
+    Image.findOrCreate({
+      // include: [Book],
+      where: {
+        BookId: req.params.id,
+      },
+      defaults: {
+        type: req.file.mimetype,
+        name: req.file.originalname,
+        data: fs.readFileSync(
+          __basedir + '/assets/uploads/' + req.file.filename
+        ),
+        BookId: req.params.id,
+      },
     })
       .then((image) => {
-        const file = image.dataValues;
-        // console.log(file.name);
-        fs.writeFileSync(__basedir + '/assets/tmp/' + file.name, file.data);
+        const file = image[0].dataValues;
+        try {
+          fs.writeFileSync(__basedir + '/assets/tmp/' + file.name, file.data);
+        } catch (err) {
+          console.log(err);
+        }
         return res.send('File has been uploaded.');
       })
-      .catch((err) => res.status(420).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
   },
 };

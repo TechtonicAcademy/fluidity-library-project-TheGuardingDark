@@ -43,14 +43,4 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-// db.images = require('./image.js')(sequelize, Sequelize);
-// db.authors = require('./author.js')(sequelize, Sequelize);
-// db.books = require('./book')(sequelize, Sequelize);
-
-// db.authors.hasMany(db.books);
-// db.books.belongsTo(db.authors);
-
-// db.images.belongsTo(db.books);
-// db.books.hasOne(db.images);
-
 module.exports = db;

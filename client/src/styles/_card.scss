@@ -1,101 +1,103 @@
-@use "./variables" as v;
-@use "./mixins" as m;
+@use './variables' as v;
+@use './mixins' as m;
 
 @mixin card {
-    transition: 0.3s;
-    width: 16rem;
-    height: fit-content;
-    text-align: center;
-    background-color: lighten(v.$brown, 30%);
-    &__link {
-        text-decoration: none;
+  transition: 0.3s;
+  width: 16rem;
+  height: fit-content;
+  text-align: center;
+  background-color: lighten(v.$brown, 30%);
+  &__link {
+    text-decoration: none;
+  }
+  &__img {
+    width: 100%;
+    margin: 0;
+    object-fit: contain;
+    box-shadow: 19px 10px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  &__noImg {
+    height: 27rem;
+    display: table;
+    padding: 0 31%;
+    &--caption {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 1.5rem;
     }
-    &__img {
-        width:100%;
-        margin: 0;
-        object-fit: contain;
-        box-shadow: 19px 10px 16px 0 rgba(0, 0, 0, 0.2);    
+  }
+  &__withImg {
+    width: 21rem;
+    height: auto;
+    padding-top: 1rem;
+    &--bookshelf {
+      width: 80%;
+    }
+  }
+  &__container {
+    color: black;
+    cursor: pointer;
+    &--title {
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+    }
+  }
+  &__form {
+    grid-column: 4/5;
+    grid-row: 1/4;
+    place-self: center;
+    width: 18rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+  }
+  &__details {
+    grid-column: 1;
+  }
+  @media only screen and (max-width: 1200px) {
+    &__withImg {
+      width: 18rem;
+    }
+  }
+  @media only screen and (max-width: 1025px) {
+    &__form {
+      width: 16rem;
     }
     &__noImg {
-        height: 27rem;
-        display: table;
-        padding: 0 31%;
-        &--caption {
-            display: table-cell;
-            vertical-align: middle;
-            font-size: 1.5rem;
-        }
+      height: 24rem;
+      padding: 0 29%;
     }
     &__withImg {
-        width: 20rem;
-        height: auto;
-        padding-top: 1rem;
-        &--bookshelf {
-            width: 80%;
-        }
+      width: 16rem;
     }
+  }
+  @media only screen and (max-width: 769px) {
+    width: 13rem;
     &__container {
-        color: black;
-        cursor: pointer;
-        &--title {
-            font-size: 2rem;
-            margin: 1rem 0 .5rem;
-        }
+      &--title {
+        font-size: 1.5rem;
+      }
     }
-    &__form {
-        grid-column: 4/5;
-        grid-row: 1/4;
-        place-self: center;
-        width: 18rem;
+    &__noImg {
+      height: 19rem;
+      padding: 0 31%;
+      &--caption {
+        font-size: 1rem;
+      }
     }
-    &__details {
-        grid-column: 1;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 17rem;
+    &__noImg {
+      height: 25rem;
+      padding: 0 30%;
+      &--caption {
+        font-size: 1.5rem;
+      }
     }
-    @media only screen and (max-width: 1200px) {
-        &__withImg {
-            width: 18rem;
-        }
+  }
+  @media only screen and (max-width: 425px) {
+    &__noImg {
+      padding: 0 28%;
     }
-    @media only screen and (max-width: 1025px) {
-        &__form {
-            width: 16rem;
-        }
-        &__noImg {
-            height: 24rem;
-            padding: 0 29%;
-        }
-        &__withImg {
-            width: 16rem;
-        }
-    }
-    @media only screen and (max-width: 769px) {
-        width: 13rem;
-        &__container {
-            &--title {
-                font-size: 1.5rem;
-            }
-        }
-        &__noImg {
-            height: 19rem;
-            padding: 0 31%;
-            &--caption {
-                font-size: 1rem;
-            }
-        }
-    }
-    @media only screen and (max-width: 480px) {
-        width: 17rem;
-        &__noImg {
-            height: 25rem;
-            padding: 0 30%;
-            &--caption {
-                font-size: 1.5rem;
-            }
-        }
-    }
-    @media only screen and (max-width: 425px) {
-        &__noImg {
-            padding: 0 28%;
-        }
-    }
+  }
 }

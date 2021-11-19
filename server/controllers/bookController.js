@@ -8,6 +8,7 @@ module.exports = {
     const { query } = req.query;
     Book.findAll({
       include: [Author],
+      include: [Image],
       where: {
         [Op.or]: [
           { title: { [Op.substring]: query } },
@@ -20,7 +21,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   findAll: (req, res) => {
-    Book.findAll({ include: [Author] })
+    Book.findAll({ include: [Author, Image] })
       .then((book) => res.json(book))
       .catch((err) => res.status(500).json(err));
   },
