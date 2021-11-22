@@ -42,6 +42,7 @@ const Details = () => {
       <EmptyCard src={Jacket} className="form details__img" />
       <h2 className="details__text details__text--author mobile">
         {firstName}
+        &nbsp;
         {lastName}
       </h2>
       <h3 className="details__text details__text--rating mobile">Rating</h3>

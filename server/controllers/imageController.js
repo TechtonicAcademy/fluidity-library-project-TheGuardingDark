@@ -8,7 +8,6 @@ module.exports = {
     }
     console.log(req.file);
     Image.findOrCreate({
-      // include: [Book],
       where: {
         BookId: req.params.id,
       },

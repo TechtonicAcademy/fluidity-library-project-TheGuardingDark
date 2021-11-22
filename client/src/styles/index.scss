@@ -1,7 +1,7 @@
 @use './mixins' as m;
 @use './variables' as v;
 @use './nav' as n;
-@use './hamburger' as h;
+// @use './hamburger' as h;
 @use './footer' as f;
 @use './card' as c;
 @use './mobileSearch' as ms;
@@ -67,7 +67,6 @@ body {
 }
 .landing {
   text-align: center;
-  // padding: 0 10rem 8rem 0;
   padding-bottom: 8rem;
   &__header {
     font-size: 3rem;
@@ -113,6 +112,7 @@ body {
   .heroImg {
     height: 19rem;
     padding-top: 15%;
+    padding-left: 1rem;
     &__caption {
       &--sm {
         font-size: 3rem;
@@ -120,6 +120,10 @@ body {
     }
   }
   .landing {
+    &__text {
+      padding: 2rem 4rem;
+      text-align: center;
+    }
     &__header {
       padding-bottom: 0;
     }
@@ -150,7 +154,7 @@ body {
       font-size: 2rem;
     }
     &__text {
-      padding: 2rem;
+      padding: 3rem;
     }
   }
 }
@@ -187,17 +191,23 @@ body {
 }
 @media only screen and (max-width: 769px) {
   .bookshelf {
-    margin: 1rem auto 6rem;
+    margin: 0 0 6rem;
+    padding: 0 1rem;
   }
 }
 @media only screen and (max-width: 480px) {
   .bookshelf {
     grid-template-columns: 1fr;
-    margin: 0 1.5rem 8rem;
+    padding: 0;
     &__header {
       grid-column: auto;
       font-size: 2rem;
       text-align: center;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .bookshelf {
+      margin: 0 0 7rem;
     }
   }
   .mobileSearch {
@@ -237,7 +247,10 @@ body {
   }
   &__btns {
     @include m.lowerPageBtns;
-    margin: 3rem 0 0 12rem;
+    margin: 2rem 0 0 20rem;
+    grid-row: none;
+    position: absolute;
+    bottom: 6rem;
   }
 }
 .form {
@@ -255,19 +268,14 @@ body {
   .rw-number-picker {
     width: 13rem;
   }
-  .addBook,
-  .editBook {
-    margin: 2rem 0 0;
-    &__btns {
-      margin-left: 9rem;
-      grid-column: 2/11;
-    }
-  }
 }
 @media only screen and (max-width: 1025px) {
   .rw {
     &-widget {
       font-size: 1.3rem;
+      &-picker {
+        height: 3rem;
+      }
     }
     &-btn {
       position: relative;
@@ -287,14 +295,6 @@ body {
     row-gap: 0;
     &__header {
       margin: 2rem 0 3rem;
-    }
-    &__btns {
-      grid-column: none;
-      position: relative;
-      margin: 0;
-      display: inline-flex;
-      top: 8rem;
-      right: 23rem;
     }
   }
   .addImg {
@@ -335,7 +335,8 @@ body {
   }
   .blank {
     height: 100%;
-    width: 74%;
+    width: 77%;
+    margin: 0 0 1rem 2rem;
     &__caption {
       font-size: 1rem;
       padding: 8rem 4rem;
@@ -346,11 +347,10 @@ body {
   .addBook {
     &__header {
       font-size: 2rem;
-      margin: 3rem 0 1rem;
+      margin: 4rem 3rem 2rem 0;
     }
     &__btns {
-      justify-self: auto;
-      margin: 2rem 0 0 1.5rem;
+      margin-left: 9rem;
     }
   }
   .addImg {
@@ -369,32 +369,24 @@ body {
     height: 3rem;
   }
 }
-@media only screen and (max-width: 602px) {
-  html {
-    font-size: 11px;
-  }
-  .addBook {
-    margin-top: 3rem;
-  }
-}
 
 // MOBILE BREAKPOINTS
 
 @media only screen and (max-width: 480px) {
-  html {
-    font-size: 15px;
-  }
   .addBook,
   .editBook {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     text-align: center;
+    width: 32rem;
     &__btns {
-      margin: 3rem 0 2rem 3.5rem;
+      top: -20rem;
+      right: 4rem;
       display: inline-grid;
     }
     &__header {
       font-size: 3rem;
+      margin-right: 0rem;
     }
   }
   .form {
@@ -403,14 +395,10 @@ body {
     }
     &__text {
       font-size: 2rem;
-      margin: 2rem auto 1rem;
-      &--pages {
-        width: fit-content;
-      }
     }
     &__input {
       width: 28rem;
-      height: 3rem;
+      height: 4rem;
       &--lg {
         height: 18rem;
         font-size: 1.5rem;
@@ -437,7 +425,7 @@ body {
   .blank {
     width: 60%;
     margin: 4rem auto 2rem;
-    height: fit-content;
+    height: 28rem;
     &__caption {
       font-size: 1.5rem;
       padding: 11rem 4rem;
@@ -448,7 +436,10 @@ body {
   .addBook,
   .editBook {
     &__btns {
-      margin-left: 3rem;
+      right: 2rem;
+    }
+    &__header {
+      margin-right: 4rem;
     }
   }
   .blank {
@@ -459,6 +450,7 @@ body {
       width: 25rem;
       &--lg {
         height: 18rem;
+        padding-top: 3rem;
       }
       &--sm {
         width: 14rem;
@@ -470,17 +462,22 @@ body {
   .addBook,
   .editBook {
     &__btns {
-      margin-left: 4rem;
+      margin-left: -4.5rem;
+    }
+    &__header {
+      margin-right: 7rem;
     }
   }
   .blank {
-    width: 70%;
+    width: 75%;
   }
   .form {
     &__input {
-      width: 23rem;
+      width: 22.5rem;
+      margin-left: 0.5rem;
       &--lg {
         height: 16rem;
+        font-size: 1.3rem;
       }
       &--sm {
         width: 12rem;
@@ -533,16 +530,12 @@ body {
 
   &__btns {
     @include m.lowerPageBtns;
-    // margin: 1rem 0;
     grid-column: 1/5;
   }
 }
 @media only screen and (max-width: 1300px) {
   .details {
     column-gap: 2rem;
-    &__btns {
-      margin-left: 0;
-    }
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -555,7 +548,7 @@ body {
     column-gap: 2rem;
     padding-top: 6rem;
     &__btns {
-      margin: 3rem 0 5rem;
+      margin: 3rem 0 7rem 13rem;
     }
     &__img {
       width: 15rem;
@@ -565,16 +558,25 @@ body {
 }
 @media only screen and (max-width: 769px) {
   .details {
-    padding: 5rem 1rem 0 2rem;
-    margin-bottom: 0;
+    padding: 2rem 1rem 3rem;
+    grid-template-rows: auto;
+    column-gap: 1rem;
+    width: 51rem;
+    height: 57rem;
+    margin: 0;
+    &__btns {
+      margin: 5rem 0 0 10rem;
+    }
     &__img {
       width: 13rem;
+      margin-bottom: 1rem;
     }
     &__text {
       grid-column: 2/4;
       &--synopsis {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         grid-column: 2/4;
+        padding-right: 2rem;
       }
     }
     .form {
@@ -583,6 +585,7 @@ body {
         font-size: 1.8rem;
         &--details {
           margin-top: 0;
+          padding-right: 2rem;
         }
       }
     }
@@ -591,8 +594,18 @@ body {
 @media only screen and (max-width: 480px) {
   .details {
     display: block;
-    padding: 2rem 3rem 12rem;
+    padding: 2rem 3rem;
+    margin: 0;
+    width: 32rem;
     text-align: center;
+    height: auto;
+    .form {
+      &__rating {
+        &--details {
+          margin: 4rem 0 0 2rem;
+        }
+      }
+    }
     .mobile {
       display: block;
     }
@@ -608,11 +621,10 @@ body {
       }
       &--author {
         font-size: 2.5rem;
-        margin-top: 0;
         padding-top: 1rem;
       }
       &--rating {
-        margin: 3rem 0 1rem;
+        margin: 4rem 0 2rem;
       }
       &--published {
         margin: 3rem 0;
@@ -621,49 +633,85 @@ body {
         padding-top: 0;
       }
       &--synopsis {
-        margin: 2rem 0;
+        padding-right: 0;
+        font-size: 1.5rem;
       }
     }
-    h3 {
-      font-size: 1.5rem;
-    }
     &__img {
-      margin: 2rem auto;
+      margin: 3rem auto;
       width: 19rem;
     }
     &__btns {
       text-align: center;
-      margin-top: 0;
+      margin: 0 0 10rem;
     }
   }
 }
 @media only screen and (max-width: 425px) {
   .details {
-    padding-bottom: 9rem;
+    padding: 2rem 3rem 9rem;
+    &__btns {
+      margin: 0 2rem 3rem -1.5rem;
+    }
+    &__img {
+      margin: 2rem;
+    }
     &__text {
+      padding-right: 3rem;
       &--synopsis {
         font-size: 1.5rem;
       }
+      &--title {
+        padding-right: 3rem;
+      }
+    }
+    .blank {
+      width: 67%;
     }
     .form {
       &__rating {
         font-size: 2rem;
+        &--details {
+          margin: 0 3rem;
+        }
       }
+    }
+    .editBook,
+    .addBook {
+      padding-right: 2rem;
     }
   }
 }
 @media only screen and (max-width: 375px) {
   .details {
-    padding: 1rem 1rem 11rem;
+    padding: 1rem 2.5rem 10rem;
+    width: 25rem;
+    .form {
+      &__rating {
+        &--details {
+          padding-right: 0;
+          margin: 0 3.5rem;
+        }
+      }
+    }
     &__text {
+      padding: 0;
+      font-size: 1.7rem;
+      &--title {
+        font-size: 2rem;
+        padding-right: 0;
+        margin: 3rem 0 4rem;
+      }
       &--author {
         margin: 2rem 0 1rem;
       }
       &--published {
-        margin-top: 2rem;
+        margin-top: 4rem;
+        font-size: 1.8rem;
       }
       &--synopsis {
-        padding: 0 1rem;
+        padding: 0;
+        font-size: 1.5rem;
       }
     }
     &__img {
@@ -673,7 +721,7 @@ body {
       }
     }
     &__btns {
-      margin-top: 1rem;
+      margin: 1rem -1rem;
     }
   }
 }
@@ -753,9 +801,6 @@ body {
     // NEEDED TO OVERRIDE THEIR INLINE STYLING
     background: rgba(0, 0, 0, 0.8) !important;
   }
-  .bm-menu-wrap {
-    width: 337px;
-  }
   .bm-burger-button {
     position: relative;
     width: 48px;
@@ -768,6 +813,7 @@ body {
     height: 18%;
   }
   .open.bm-burger-bars:first-child {
+    -moz-transform: rotate(-45deg) translate(-9px, 6px);
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
     transform: rotate(-45px) translate(-9px, -6px);
   }
@@ -775,6 +821,7 @@ body {
     display: none;
   }
   .open.bm-burger-bars:last-child {
+    -moz-transform: rotate(45deg) translate(-8px, -8px);
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
   }
@@ -785,12 +832,6 @@ body {
     font-size: 3rem;
     padding: 1rem 0;
     text-shadow: 4px 2px black;
-    &:hover {
-      color: darken(v.$brown, 25%);
-    }
-  }
-  .bm-itm:hover {
-    background-color: royalblue;
   }
   .bm-item-list {
     margin-top: 2rem;

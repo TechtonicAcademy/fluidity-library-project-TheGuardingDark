@@ -1,14 +1,11 @@
 const { Author, Book, Image } = require('../models');
 const { Op } = require('sequelize');
 
-// Add function here that finds or creates author and plugs in the author id for update and create
-
 module.exports = {
   search: (req, res) => {
     const { query } = req.query;
     Book.findAll({
       include: [Author],
-      include: [Image],
       where: {
         [Op.or]: [
           { title: { [Op.substring]: query } },
@@ -21,7 +18,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   findAll: (req, res) => {
-    Book.findAll({ include: [Author, Image] })
+    Book.findAll({ include: [Author] })
       .then((book) => res.json(book))
       .catch((err) => res.status(500).json(err));
   },

@@ -56,7 +56,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     synopsis,
     pages,
     published,
-    src,
+    // src,
   } = formObj;
 
   const valid = () => {
@@ -201,7 +201,9 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
           )}
         </label>
         <label className="form__label" htmlFor="synopsis">
-          <p className="form__text form__mobile">Synopsis</p>
+          <p className="form__text form__mobile form__text--synopsis">
+            Synopsis
+          </p>
           <textarea
             type="text"
             id="synopsis"
@@ -226,7 +228,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
           id={id}
           savedPages={pages}
         />
-        <p className="form__text">Rating</p>
+        <p className="form__text form__text--rating">Rating</p>
         <Stars
           handleRatingChange={handleRatingChange}
           reset={reset}
@@ -251,7 +253,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
         </div>
       </form>
 
-      <form encType="multipart/form-data">
+      <form encType="multipart/form-data" className="form__img">
         <EmptyCard src={image} className="form blank" />
         <input
           type="file"

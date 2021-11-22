@@ -42,7 +42,7 @@ BookCard.propTypes = {
   lastName: PropTypes.string,
   book: PropTypes.objectOf(PropTypes.any),
   author: PropTypes.objectOf(PropTypes.any),
-  // src: PropTypes.oneOf([PropTypes.string, PropTypes.objectOf(PropTypes.any)]),
+  src: PropTypes.string,
 };
 
 export default BookCard;

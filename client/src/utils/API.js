@@ -11,7 +11,7 @@ export const getBook = (id) => {
 };
 
 export const searchBooks = (term) => {
-  return axios.get(`${url}?q=${term}`);
+  return axios.get(`${url}/search/?query=${term}`);
 };
 
 export const addBook = (book) => {

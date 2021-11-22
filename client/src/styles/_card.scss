@@ -61,6 +61,7 @@
   @media only screen and (max-width: 1025px) {
     &__form {
       width: 16rem;
+      margin-bottom: 2rem;
     }
     &__noImg {
       height: 24rem;
@@ -79,14 +80,14 @@
     }
     &__noImg {
       height: 19rem;
-      padding: 0 31%;
+      padding: 0 34%;
       &--caption {
         font-size: 1rem;
       }
     }
   }
   @media only screen and (max-width: 480px) {
-    width: 17rem;
+    width: 25rem;
     &__noImg {
       height: 25rem;
       padding: 0 30%;
@@ -96,8 +97,9 @@
     }
   }
   @media only screen and (max-width: 425px) {
+    width: 20rem;
     &__noImg {
-      padding: 0 28%;
+      padding: 0 32%;
     }
   }
 }

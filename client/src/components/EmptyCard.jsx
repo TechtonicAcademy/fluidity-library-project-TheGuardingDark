@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-// import Jacket from '../styles/images/snuff.jpg';
 
 const EmptyCard = ({ className, src }) => {
   return (

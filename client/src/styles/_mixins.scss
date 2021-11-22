@@ -10,7 +10,7 @@
 }
 
 @mixin button {
-  width: 17rem;
+  width: 18rem;
   height: 3.5rem;
   border-radius: 10px;
   font-size: 1.5rem;
@@ -51,7 +51,12 @@
       width: 10rem;
       margin-bottom: 1rem;
     }
+    &__editBtn {
+      width: 13rem;
+    }
     &__delete {
+      margin-right: 1rem;
+
       grid-row: 4;
       grid-column: 3;
       width: 7rem;
@@ -61,43 +66,100 @@
     }
   }
   @media only screen and (max-width: 480px) {
-    width: 14rem;
-    font-size: 1.5rem;
+    width: 24rem;
+    height: 4rem;
+    font-size: 2rem;
+    &__landing {
+      height: 4rem;
+      margin-right: 0;
+    }
+
     &__mdDark {
       width: 17rem;
     }
     &__delete {
-      width: 11rem;
+      width: 24rem;
+      height: 3rem;
       font-size: 1rem;
       position: relative;
       top: 14rem;
+      margin-left: 1rem;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    margin: 0 2rem 0 -1.5rem;
+    font-size: 1.5rem;
+    &__landing {
+      width: 16rem;
+      margin-left: 2rem;
+    }
+    &__editBtn {
+      margin-right: -1rem;
+      font-size: 1.5rem;
+    }
+    &__add {
+      margin: 0;
+    }
+    &__light {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    &__editBtn {
+      width: 21rem;
+    }
+    &__delete {
+      width: 20rem;
+      top: 15rem;
+      margin-left: 0;
     }
   }
 }
 
 @mixin lowerPageBtns {
-  grid-column: 2/8;
-  justify-self: center;
-  .leftBtn {
-    margin-left: 3rem;
-  }
+  margin: 1rem 0 0 22rem;
   .rightBtn {
-    // margin-right: 4rem;
+    height: 3.5rem;
+  }
+  .leftBtn {
+    margin-left: 2rem;
   }
   @media only screen and (max-width: 1300px) {
-    margin: 1rem 0 0 8rem;
+    margin-left: 19rem;
   }
-  // @media only screen and (max-width: 1200px) {
-  //   .addBook,
-  //   .editBook {
-  //     grid-column: 2/11;
-  //   }
-  // }
+  @media only screen and (max-width: 1200px) {
+    margin-left: 18rem;
+  }
+  @media only screen and (max-width: 1025px) {
+    margin-left: 15rem;
+    .leftBtn,
+    .rightBtn {
+      height: 3rem;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    margin-left: 10rem;
+    .leftBtn,
+    .rightBtn {
+      width: 13rem;
+    }
+  }
   @media only screen and (max-width: 480px) {
     display: inherit;
     margin-top: 4rem;
+    .leftBtn,
+    .rightBtn {
+      width: 24rem;
+      height: 4rem;
+    }
     .leftBtn {
       margin: 1.5rem auto auto 0;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .leftBtn,
+    .rightBtn {
+      width: 21rem;
     }
   }
 }
@@ -127,7 +189,7 @@
     }
   }
   @media only screen and (max-width: 1025px) {
-    height: 4rem;
+    height: 3rem;
     .rw {
       &-widget {
         width: 12rem;
@@ -146,11 +208,12 @@
         }
       }
       &-calendar {
+        width: 17rem;
         &-header {
           padding: 1.5rem 0.8rem 0.5rem;
         }
         &-popup {
-          width: 14.4em;
+          width: 15.2em;
         }
         &-btn {
           right: -1rem;
@@ -166,21 +229,26 @@
     }
   }
   @media only screen and (max-width: 769px) {
-    width: 11rem;
     height: 3rem;
     &--input {
       padding: 0 0.5rem;
     }
     .rw {
       &-widget {
-        width: 13.1rem;
+        width: 12rem;
         &-picker {
-          width: 13rem;
+          width: 12rem;
+        }
+      }
+      &-input {
+        &-addon {
+          right: 4rem;
         }
       }
       &-calendar {
+        width: 17rem;
         &-popup {
-          width: 15.2em;
+          width: 19em;
         }
         &-btn {
           width: 2rem;
@@ -198,6 +266,7 @@
         }
       }
       &-calendar {
+        width: 18rem;
         &-popup {
           width: 20rem;
         }
@@ -211,23 +280,28 @@
         }
       }
       &-widget {
+        &-input {
+          font-size: 1.5rem;
+        }
         width: 17.9rem;
         &-picker {
           font-size: 1.5rem;
           width: 17.9rem;
+          height: 4rem;
+        }
+        &-container {
+          height: 4rem;
         }
       }
     }
-  }
-  @media only screen and (max-width: 425px) {
-    margin-left: 3.5rem;
   }
   @media only screen and (max-width: 375px) {
     margin-left: 4rem;
     .rw {
       &-calendar {
+        width: 19rem;
         &-popup {
-          width: 17.1rem;
+          width: 21rem;
         }
       }
       &-input {
@@ -237,6 +311,9 @@
       }
       &-widget {
         width: 15rem;
+        &-input {
+          font-size: 1.3rem;
+        }
         &-picker {
           width: 15rem;
         }
@@ -266,15 +343,15 @@
       }
       &-widget {
         &-container {
-          width: 10rem;
+          width: 9rem;
           border-right: 1px solid black;
         }
       }
       &-number {
         &-picker {
-          width: 10rem;
+          width: 9rem;
           &-spinners {
-            right: 2rem;
+            right: 3rem;
             width: 2.8rem;
           }
         }
@@ -289,38 +366,53 @@
     input {
       width: 8rem;
       height: 3rem;
+      padding-left: 0.5rem;
     }
     .rw {
       &-number {
         &-picker {
-          width: 8rem;
+          width: 6.5rem;
           &-spinners {
-            right: 3rem;
+            right: 4.5rem;
+            width: 2.5rem;
           }
         }
       }
       &-widget {
         &-container {
-          width: 8rem;
+          width: 6.5rem;
         }
       }
     }
   }
   @media only screen and (max-width: 480px) {
-    margin: 0;
+    margin: 0 1rem 1rem 0;
     .rw {
       &-number {
         &-picker {
           font-size: 1.5rem;
+          width: 11.5rem;
           &-spinners {
-            right: 4.8rem;
+            right: 1.8rem;
             top: -1px;
           }
+        }
+      }
+      &-widget {
+        &-container {
+          width: 11.5rem;
+          height: 4rem;
         }
       }
     }
     input {
       width: 10rem;
+      padding-top: 1rem;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    input {
+      padding-left: 2rem;
     }
   }
 }
