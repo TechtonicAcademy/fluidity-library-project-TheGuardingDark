@@ -54,7 +54,7 @@ module.exports = {
   update: (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    console.log(firstName, lastName);
+    // console.log(firstName, lastName);
 
     Author.findOrCreate({
       where: {

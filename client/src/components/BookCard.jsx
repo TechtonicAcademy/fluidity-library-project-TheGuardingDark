@@ -6,7 +6,7 @@ const BookCard = ({
   book: { id, title, src },
   author: { firstName, lastName },
 }) => {
-  console.log(src);
+  // console.log(src);
   return (
     <div className="card card__withImg">
       <Link to={`/details/${id}`} className="card__link">

@@ -41,3 +41,11 @@ export const uploadImg = (form, id) => {
     },
   });
 };
+
+// export const updateImg = (form, id) => {
+//   return axios.put(`${url}/upload/${id}`, form, {
+//     headers: {
+//       'Content-Type': 'multipart/form-data, boundary="-XXX-"',
+//     },
+//   });
+// };

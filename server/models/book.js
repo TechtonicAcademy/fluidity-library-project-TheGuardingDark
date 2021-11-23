@@ -2,6 +2,12 @@ module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define(
     'Book',
     {
+      id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        foreignKey: true,
+        allowNull: false,
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,

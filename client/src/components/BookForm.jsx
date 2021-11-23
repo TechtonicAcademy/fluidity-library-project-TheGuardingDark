@@ -112,11 +112,11 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
     if (image) {
       const bookImg = document.querySelector('input[type=file]').files[0];
-      form.append('bookImg', bookImg, bookImg.name);
-      console.log(bookImg);
+      form.set('bookImg', bookImg, bookImg.name);
+      // console.log(bookImg);
     }
 
-    const book = { ...formObj, src: bookId };
+    const book = { ...formObj, id: bookId };
 
     if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
