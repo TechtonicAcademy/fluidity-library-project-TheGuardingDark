@@ -32,7 +32,7 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
           key={book.id}
           book={book}
           author={book.Author}
-          src={book.src}
+          image={book.Image || ''}
         />
       ))}
     </div>

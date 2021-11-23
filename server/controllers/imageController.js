@@ -32,4 +32,15 @@ module.exports = {
         res.status(422).json(err);
       });
   },
+  getFile: (req, res) => {
+    Image.findOne({
+      include: [Book],
+      where: { BookId: req.params.id },
+      // order: ['DESC'],
+    })
+      .then((image) => {
+        res.send(image);
+      })
+      .catch((err) => res.status(500).json(err));
+  },
 };

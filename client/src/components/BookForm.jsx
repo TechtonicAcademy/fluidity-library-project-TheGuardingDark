@@ -99,6 +99,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
   const previewImage = () => {
     const imgFile = document.querySelector('input[type=file]').files[0];
+    // console.log(imgFile);
     const reader = new FileReader();
     reader.addEventListener('load', () => {
       const imageName = reader.result;
