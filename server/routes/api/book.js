@@ -9,10 +9,6 @@ router
   .route('/upload/:id')
   .post(upload.single('bookImg'), imageController.uploadFile)
   .get(imageController.getFile);
-// .put(upload.single('bookImg'), imageController.updateFile);
-// router.route('/upload/:filename', (req, res) => {
-//   res.sendFile(`${__basedir}/assets/uploads/${req.params.filename}`);
-// });
 router
   .route('/:id')
   .get(bookController.findById)

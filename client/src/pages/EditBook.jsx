@@ -23,6 +23,7 @@ const EditBook = () => {
           ...novel,
           firstName: novel.Author.firstName,
           lastName: novel.Author.lastName,
+          image: novel.Image,
         });
       })
       .catch((err) => console.log(err));

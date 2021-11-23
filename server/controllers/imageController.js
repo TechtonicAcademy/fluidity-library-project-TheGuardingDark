@@ -15,7 +15,6 @@ module.exports = {
           __basedir + '/assets/uploads/' + req.file.filename
         ),
         BookId: req.params.id,
-        // imgId: req.params.id,
       },
       { where: { src: req.params.id } }
     )
@@ -39,7 +38,7 @@ module.exports = {
       // order: ['DESC'],
     })
       .then((image) => {
-        res.send(image);
+        res.send(image.data);
       })
       .catch((err) => res.status(500).json(err));
   },

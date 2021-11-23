@@ -5,13 +5,22 @@ import Button from '../components/Button';
 import Stars from '../components/Stars';
 import Jacket from '../styles/images/snuff.jpg';
 import EmptyCard from '../components/EmptyCard';
+import BookCard from '../components/BookCard';
 
 const Details = () => {
   const history = useHistory();
   const [book, setBook] = useState({});
   const { id } = useParams();
-  const { title, firstName, lastName, synopsis, published, pages, rating } =
-    book;
+  const {
+    title,
+    firstName,
+    lastName,
+    synopsis,
+    published,
+    pages,
+    rating,
+    image,
+  } = book;
 
   const p = new Date(published);
   const month = p.getMonth() + 1;
@@ -25,6 +34,7 @@ const Details = () => {
           ...data,
           firstName: data.Author.firstName,
           lastName: data.Author.lastName,
+          image: data.Image,
         })
       )
       .catch((err) => console.log(err));
@@ -39,7 +49,7 @@ const Details = () => {
   return (
     <div className="details grid">
       <h1 className=" details__text details__text--title">{title}</h1>
-      <EmptyCard src={Jacket} className="form details__img" />
+      <BookCard image={image} book={book} className="form details__img" />
       <h2 className="details__text details__text--author mobile">
         {firstName}
         &nbsp;

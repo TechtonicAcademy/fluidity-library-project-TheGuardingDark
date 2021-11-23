@@ -13,7 +13,6 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
       getBooks()
         .then(({ data }) => {
           setBooks(data);
-          // console.log(data);
         })
         .catch((err) => console.log(err));
     } else {

@@ -43,6 +43,7 @@ export const uploadImg = (form, id) => {
 };
 
 export const getImg = (id) => {
-  // return axios.get(`${url}/tmp/${file}`);
-  return axios.get(`${url}/upload/${id}`);
+  return axios.get(`${url}/upload/${id}`, {
+    responseType: 'arraybuffer',
+  });
 };

@@ -6,6 +6,7 @@ import { uploadImg } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import EmptyCard from './EmptyCard';
+import BookCard from './BookCard';
 import Button from './Button';
 import Stars from './Stars';
 
@@ -99,7 +100,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
   const previewImage = () => {
     const imgFile = document.querySelector('input[type=file]').files[0];
-    // console.log(imgFile);
     const reader = new FileReader();
     reader.addEventListener('load', () => {
       const imageName = reader.result;
@@ -114,7 +114,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     if (image) {
       const bookImg = document.querySelector('input[type=file]').files[0];
       form.set('bookImg', bookImg, bookImg.name);
-      // console.log(bookImg);
     }
 
     const book = { ...formObj, id: bookId };
@@ -255,7 +254,15 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
       </form>
 
       <form encType="multipart/form-data" className="form__img">
-        <EmptyCard src={image} className="form blank" />
+        {existingBook ? (
+          <BookCard
+            image={existingBook.Image}
+            book={existingBook}
+            className="form details__img"
+          />
+        ) : (
+          <EmptyCard src={image} className="form blank" />
+        )}
         <input
           type="file"
           name="bookImg"
@@ -264,12 +271,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
           multiple={false}
           onChange={previewImage}
         />
-        {/* <Button
-          text={`${image ? 'Change Image' : 'Add Image'}`}
-          type="button"
-          form="imgForm"
-          className="mdDark addChangeImg"
-        /> */}
       </form>
     </>
   );
