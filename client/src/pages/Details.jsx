@@ -19,7 +19,7 @@ const Details = () => {
     published,
     pages,
     rating,
-    image,
+    imageFile,
   } = book;
 
   const p = new Date(published);
@@ -34,7 +34,7 @@ const Details = () => {
           ...data,
           firstName: data.Author.firstName,
           lastName: data.Author.lastName,
-          image: data.Image,
+          imageFile: data.Image || '',
         })
       )
       .catch((err) => console.log(err));
@@ -49,7 +49,7 @@ const Details = () => {
   return (
     <div className="details grid">
       <h1 className=" details__text details__text--title">{title}</h1>
-      <BookCard image={image} book={book} className="form details__img" />
+      <BookCard image={imageFile} book={book} className="form details__img" />
       <h2 className="details__text details__text--author mobile">
         {firstName}
         &nbsp;

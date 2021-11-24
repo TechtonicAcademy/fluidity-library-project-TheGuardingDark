@@ -2,7 +2,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getBook, editBook } from '../utils/API';
 import BookForm from '../components/BookForm';
-import Jacket from '../styles/images/snuff.jpg';
+// import Jacket from '../styles/images/snuff.jpg';
 
 const EditBook = () => {
   const { id } = useParams();
@@ -23,7 +23,7 @@ const EditBook = () => {
           ...novel,
           firstName: novel.Author.firstName,
           lastName: novel.Author.lastName,
-          image: novel.Image,
+          imageFile: novel.Image || '',
         });
       })
       .catch((err) => console.log(err));
@@ -33,7 +33,7 @@ const EditBook = () => {
     <div className="editBook grid">
       <header className="editBook__header">Edit Book</header>
       {formObj.title && (
-        <BookForm existingBook={formObj} src={Jacket} updateBook={updateBook} />
+        <BookForm existingBook={formObj} updateBook={updateBook} />
       )}
     </div>
   );

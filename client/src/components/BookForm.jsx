@@ -20,7 +20,7 @@ const clearObj = {
   published: '',
   pages: 0,
   rating: 0,
-  src: '',
+  imageFile: '',
 };
 
 const BookForm = ({ createBook, existingBook, updateBook }) => {
@@ -57,7 +57,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     synopsis,
     pages,
     published,
-    // src,
+    imageFile,
   } = formObj;
 
   const valid = () => {
@@ -256,7 +256,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
       <form encType="multipart/form-data" className="form__img">
         {existingBook ? (
           <BookCard
-            image={existingBook.Image}
+            image={imageFile}
             book={existingBook}
             className="form details__img"
           />
