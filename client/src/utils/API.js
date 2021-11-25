@@ -42,6 +42,14 @@ export const uploadImg = (form, id) => {
   });
 };
 
+export const updateImg = (form, id) => {
+  return axios.put(`${url}/upload/${id}`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data, boundary="-XXX-',
+    },
+  });
+};
+
 export const getImg = (id) => {
   return axios.get(`${url}/upload/${id}`, {
     responseType: 'arraybuffer',

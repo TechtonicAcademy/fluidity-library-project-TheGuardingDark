@@ -7,8 +7,6 @@ const AddBook = () => {
   const history = useHistory();
 
   const [formObj] = useState({
-    // Until image functionality is set-up
-    // src: '',
     title: '',
     firstName: '',
     lastName: '',
@@ -16,6 +14,7 @@ const AddBook = () => {
     published: '',
     pages: 0,
     rating: 0,
+    imageFile: {},
   });
 
   const createBook = (book) => {

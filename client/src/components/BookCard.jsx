@@ -7,16 +7,22 @@ import { getImg } from '../utils/API';
 const BookCard = ({
   book: { id, title },
   author: { firstName, lastName },
-  image: { name },
+  image,
 }) => {
   const [src, setSrc] = useState('');
   const pathname = useLocation();
   const path = pathname.pathname;
-  const detailsPath = `/details/${id}`;
-  const editPath = `/editBook/${id}`;
+  const bookshelf = '/bookshelf';
 
   useEffect(() => {
-    if (!name || name === '') {
+    if (!image.id && image.name) {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        const imageName = reader.result;
+        setSrc(imageName);
+      });
+      reader.readAsDataURL(image);
+    } else if (!image.id) {
       setSrc(Jacket);
     } else {
       getImg(id).then(({ data }) => {
@@ -29,11 +35,11 @@ const BookCard = ({
         };
       });
     }
-  }, [name]);
+  }, [image]);
 
   return (
     <div className="card card__withImg">
-      {path === (detailsPath || editPath) ? (
+      {path !== bookshelf ? (
         <img
           className="card__img card__withImg--bookshelf"
           alt={title}

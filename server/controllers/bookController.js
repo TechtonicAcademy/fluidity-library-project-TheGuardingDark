@@ -38,7 +38,7 @@ module.exports = {
       .then((author) => {
         req.body.AuthorId = author[0].dataValues.id;
         Book.create(req.body, {
-          include: [Author],
+          include: [Author, Image],
         });
       })
       .then(() => res.end())
@@ -54,7 +54,6 @@ module.exports = {
   update: (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    // console.log(firstName, lastName);
 
     Author.findOrCreate({
       where: {
@@ -71,7 +70,7 @@ module.exports = {
           where: {
             id: req.params.id,
           },
-          include: [Author],
+          include: [Author, Image],
         });
       })
       .then(() => res.end())

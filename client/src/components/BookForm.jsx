@@ -2,10 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { uploadImg } from '../utils/API';
+import { uploadImg, updateImg } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
-import EmptyCard from './EmptyCard';
 import BookCard from './BookCard';
 import Button from './Button';
 import Stars from './Stars';
@@ -20,7 +19,7 @@ const clearObj = {
   published: '',
   pages: 0,
   rating: 0,
-  imageFile: '',
+  imageFile: {},
 };
 
 const BookForm = ({ createBook, existingBook, updateBook }) => {
@@ -32,6 +31,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const [validTitle, setValidTitle] = useState(true);
   const [validFirstName, setValidFirstName] = useState(true);
   const [validLastName, setValidLastName] = useState(true);
+  const [tempImg, setTempImg] = useState(false);
 
   const titleRef = useRef();
   const firstNameRef = useRef();
@@ -40,8 +40,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const [formObj, setFormObj] = useState(clearObj);
 
   const bookId = id || shortid.generate();
-
-  const [image, setImage] = useState('');
 
   useEffect(() => {
     if (existingBook) {
@@ -100,18 +98,14 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
   const previewImage = () => {
     const imgFile = document.querySelector('input[type=file]').files[0];
-    const reader = new FileReader();
-    reader.addEventListener('load', () => {
-      const imageName = reader.result;
-      setImage(imageName);
-    });
-    reader.readAsDataURL(imgFile);
+    setFormObj({ ...formObj, imageFile: imgFile });
+    setTempImg(true);
   };
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
-    if (image) {
+    if (tempImg) {
       const bookImg = document.querySelector('input[type=file]').files[0];
       form.set('bookImg', bookImg, bookImg.name);
     }
@@ -120,11 +114,13 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
     if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
+        // console.log(imageFile);
         updateBook(book, id);
-        uploadImg(form, id);
+        updateImg(form, id);
       } else {
-        createBook(book);
-        uploadImg(form, bookId);
+        console.log('added');
+        // createBook(book);
+        // uploadImg(form, bookId);
       }
 
       resetForm();
@@ -254,15 +250,11 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
       </form>
 
       <form encType="multipart/form-data" className="form__img">
-        {existingBook ? (
-          <BookCard
-            image={imageFile}
-            book={existingBook}
-            className="form details__img"
-          />
-        ) : (
-          <EmptyCard src={image} className="form blank" />
-        )}
+        <BookCard
+          image={imageFile}
+          book={existingBook}
+          className="form details__img"
+        />
         <input
           type="file"
           name="bookImg"
