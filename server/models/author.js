@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         unique: false,
         validate: {
-          isAlpha: true,
+          // isAlpha: true,
           len: [1, 100],
         },
       },

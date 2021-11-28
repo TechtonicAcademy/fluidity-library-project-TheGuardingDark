@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { addBook } from '../utils/API';
+import { addBook, getBook, uploadImg } from '../utils/API';
 import BookForm from '../components/BookForm';
 
 const AddBook = () => {
@@ -17,8 +17,34 @@ const AddBook = () => {
     imageFile: {},
   });
 
-  const createBook = (book) => {
-    addBook(book)
+  const checkAndLoad = (img, id) => {
+    getBook(id)
+      .then(({ data }) => {
+        console.log(data);
+        if (data) {
+          uploadImg(img, id);
+        }
+      })
+      .then(() => history.push('/bookshelf'))
+      .catch((err) => console.log('Upload Img error: ', err));
+  };
+
+  const createBook = (book, img, id) => {
+    const novelJSON = {
+      id: book.id,
+      title: book.title,
+      synopsis: book.synopsis,
+      firstName: book.firstName,
+      lastName: book.lastName,
+      published: book.published,
+      rating: book.rating,
+      pages: book.pages,
+    };
+    // console.log(novelJSON);
+    addBook(novelJSON)
+      .then(() => {
+        checkAndLoad(img, id);
+      })
       .then(() => history.push('/bookshelf'))
       .catch((err) => console.log(err, book));
   };

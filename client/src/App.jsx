@@ -16,7 +16,7 @@ const App = () => {
       <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/bookshelf">
+        <Route path="/bookshelf" forceRefresh>
           <Bookshelf searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </Route>
         <Route

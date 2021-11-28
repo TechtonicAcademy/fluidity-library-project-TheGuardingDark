@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/dist'));
 }
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () =>
     console.log(`App listening on 'http://localhost:${PORT}'`)
   );

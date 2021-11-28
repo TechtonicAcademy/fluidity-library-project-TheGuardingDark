@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { uploadImg, updateImg } from '../utils/API';
+import { uploadImg, updateImg, getImg } from '../utils/API';
 import CustomPage from './CustomPage';
 import CustomPub from './CustomPub';
 import BookCard from './BookCard';
@@ -32,6 +32,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const [validFirstName, setValidFirstName] = useState(true);
   const [validLastName, setValidLastName] = useState(true);
   const [tempImg, setTempImg] = useState(false);
+  const [nullImg, setNullImg] = useState();
 
   const titleRef = useRef();
   const firstNameRef = useRef();
@@ -40,12 +41,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const [formObj, setFormObj] = useState(clearObj);
 
   const bookId = id || shortid.generate();
-
-  useEffect(() => {
-    if (existingBook) {
-      setFormObj(existingBook);
-    }
-  }, [existingBook]);
 
   const {
     rating,
@@ -57,6 +52,29 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
     published,
     imageFile,
   } = formObj;
+
+  useEffect(() => {
+    if (existingBook) {
+      setFormObj(existingBook);
+    }
+  }, [existingBook]);
+
+  useEffect(() => {
+    if (id) {
+      // findandcountall
+      getImg(id)
+        .then((image) => {
+          const bytes = image.data.byteLength;
+          // console.log(bytes);
+          if (bytes === 0) {
+            setNullImg(true);
+          } else {
+            setNullImg(false);
+          }
+        })
+        .catch((err) => console.log('Get Book Err', err));
+    }
+  }, []);
 
   const valid = () => {
     setValidTitle(true);
@@ -105,21 +123,25 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
+    // console.log(nullImg);
+
     if (tempImg) {
       const bookImg = document.querySelector('input[type=file]').files[0];
       form.set('bookImg', bookImg, bookImg.name);
     }
-
     const book = { ...formObj, id: bookId };
 
     if (title !== '' && firstName !== '' && lastName !== '') {
       if (id) {
-        // console.log(imageFile);
+        if (nullImg) {
+          uploadImg(form, id);
+        } else {
+          updateImg(form, id);
+        }
+        // console.log(book);
         updateBook(book, id);
-        updateImg(form, id);
       } else {
-        console.log('added');
-        // createBook(book);
+        createBook(book, form, bookId);
         // uploadImg(form, bookId);
       }
 

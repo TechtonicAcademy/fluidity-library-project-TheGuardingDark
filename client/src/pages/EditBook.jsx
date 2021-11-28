@@ -9,11 +9,22 @@ const EditBook = () => {
   const history = useHistory();
 
   const [formObj, setFormObj] = useState({});
+  const [noImg, setNoImg] = useState(true);
 
-  const updateBook = (novel) => {
-    editBook(novel, id)
-      .then(() => history.push('/bookshelf'))
-      .catch((err) => console.log(err));
+  const updateBook = (novel, bookId) => {
+    // console.log('Novel is: ', novel);
+    const novelJSON = {
+      id: novel.id,
+      title: novel.title,
+      firstName: novel.firstName,
+      lastName: novel.lastName,
+      published: novel.published,
+      rating: novel.rating,
+      pages: novel.pages,
+    };
+    // console.log(novelJSON);
+    editBook(novelJSON, bookId);
+    history.push('/bookshelf');
   };
 
   useEffect(() => {
@@ -26,14 +37,21 @@ const EditBook = () => {
           imageFile: novel.Image || '',
         });
       })
+      .then(() => {
+        setNoImg(formObj.imageFile);
+      })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, []);
 
   return (
     <div className="editBook grid">
       <header className="editBook__header">Edit Book</header>
       {formObj.title && (
-        <BookForm existingBook={formObj} updateBook={updateBook} />
+        <BookForm
+          existingBook={formObj}
+          updateBook={updateBook}
+          noImg={noImg}
+        />
       )}
     </div>
   );
