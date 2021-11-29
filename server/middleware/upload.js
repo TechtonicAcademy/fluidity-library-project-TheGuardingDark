@@ -17,5 +17,9 @@ let storage = multer.diskStorage({
   },
 });
 
-let uploadFile = multer({ storage: storage, fileFilter: imageVerification });
+let uploadFile = multer({
+  storage: storage,
+  fileFilter: imageVerification,
+  limits: { fileSize: 10000000 },
+});
 module.exports = uploadFile;
