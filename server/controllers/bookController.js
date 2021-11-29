@@ -37,13 +37,7 @@ module.exports = {
     })
       .then((author) => {
         req.body.AuthorId = author[0].dataValues.id;
-        // console.log(req.body);
-        Book.create(
-          req.body
-          //   , {
-          //   include: [Author],
-          // }
-        );
+        Book.create(req.body);
       })
       .then(() => res.end())
       .catch((err) => res.status(422).json(err));
@@ -56,10 +50,8 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   update: (req, res) => {
-    console.log('MADE IT TO THE END--------------------------');
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    console.log(firstName, lastName);
 
     Author.findOrCreate({
       where: {
@@ -71,7 +63,6 @@ module.exports = {
       },
     })
       .then((author) => {
-        console.log(author);
         req.body.AuthorId = author[0].dataValues.id;
         Book.update(req.body, {
           where: {

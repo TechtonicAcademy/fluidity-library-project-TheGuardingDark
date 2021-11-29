@@ -1,6 +1,5 @@
 @use './variables' as v;
 @use './mixins' as m;
-// @use './hamburger' as h;
 
 @mixin nav {
   .hamburger {
@@ -100,7 +99,6 @@
   height: 6rem;
   .hamburger {
     display: block;
-    // @include h.hamburger;
   }
   &__item,
   &__search,

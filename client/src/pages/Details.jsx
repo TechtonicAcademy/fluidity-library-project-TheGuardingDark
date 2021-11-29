@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { getBook, deleteBook } from '../utils/API';
 import Button from '../components/Button';
 import Stars from '../components/Stars';
-import Jacket from '../styles/images/snuff.jpg';
-import EmptyCard from '../components/EmptyCard';
 import BookCard from '../components/BookCard';
 
 const Details = () => {

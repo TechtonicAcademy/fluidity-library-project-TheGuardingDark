@@ -38,10 +38,6 @@ module.exports = (sequelize, DataTypes) => {
           isIn: [[0, 1, 2, 3, 4, 5]],
         },
       },
-      // src: {
-      //   type: DataTypes.STRING,
-      //   allowNull: true,
-      // },
     },
     {
       paranoid: true,

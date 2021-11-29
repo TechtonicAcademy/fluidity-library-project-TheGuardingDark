@@ -15,8 +15,6 @@ export const searchBooks = (term) => {
 };
 
 export const addBook = (book) => {
-  console.log('Axios worked', book);
-
   return axios.post(url, book, {
     headers: {
       'Content-Type': 'application/json',
@@ -25,13 +23,11 @@ export const addBook = (book) => {
 };
 
 export const editBook = (book, id) => {
-  console.log('Axios worked', book);
   return axios.put(`${url}/${id}`, book, {
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  // return axios.put(`${url}/${id}`, book);
 };
 
 export const deleteBook = (id) => {

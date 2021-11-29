@@ -15,7 +15,6 @@ module.exports = {
         ),
         BookId: req.params.id,
       },
-      // { where: { src: req.params.id } }
       { include: [Book] }
     )
       .then((image) => {
@@ -50,13 +49,6 @@ module.exports = {
     if (req.file == undefined) {
       return res.send('No valid File');
     }
-    console.log('Update File: ', req.file);
-    // Image.findOne({
-    //   // include: [Book],
-    //   where: { BookId: req.params.id },
-    // })
-    //   .then((image) => {
-    //     if (image) {
     Image.update(
       {
         type: req.file.mimetype,
@@ -70,11 +62,8 @@ module.exports = {
     )
       .then(() => {
         Image.findOne({
-          // include: [Book],
           where: { BookId: req.params.id },
         }).then((image) => {
-          console.log('This is the updated img', image);
-
           try {
             fs.writeFileSync(
               __basedir + '/assets/tmp/' + image.name,
@@ -87,8 +76,6 @@ module.exports = {
         });
       })
       .then(() => res.end())
-      //   }
-      // })
       .catch((err) => res.status(422).json(err));
   },
 };

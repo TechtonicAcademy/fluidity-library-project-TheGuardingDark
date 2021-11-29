@@ -2,7 +2,6 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getBook, editBook } from '../utils/API';
 import BookForm from '../components/BookForm';
-// import Jacket from '../styles/images/snuff.jpg';
 
 const EditBook = () => {
   const { id } = useParams();
@@ -12,7 +11,6 @@ const EditBook = () => {
   const [noImg, setNoImg] = useState(true);
 
   const updateBook = (novel, bookId) => {
-    // console.log('Novel is: ', novel);
     const novelJSON = {
       id: novel.id,
       title: novel.title,
@@ -22,7 +20,6 @@ const EditBook = () => {
       rating: novel.rating,
       pages: novel.pages,
     };
-    // console.log(novelJSON);
     editBook(novelJSON, bookId);
     history.push('/bookshelf');
   };

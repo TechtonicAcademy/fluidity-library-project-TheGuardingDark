@@ -8,6 +8,7 @@ const BookCard = ({
   book: { id, title },
   author: { firstName, lastName },
   image,
+  className,
 }) => {
   const [src, setSrc] = useState('');
   const pathname = useLocation();
@@ -38,7 +39,7 @@ const BookCard = ({
   }, [image]);
 
   return (
-    <div className="card card__withImg">
+    <div className={`card card_withImg card__${className}`}>
       {path !== bookshelf ? (
         <img
           className="card__img card__withImg--bookshelf"
@@ -73,6 +74,7 @@ BookCard.defaultProps = {
   book: {},
   author: {},
   image: {} || '',
+  className: '',
 };
 BookCard.propTypes = {
   title: PropTypes.string,
@@ -80,6 +82,7 @@ BookCard.propTypes = {
   lastName: PropTypes.string,
   book: PropTypes.objectOf(PropTypes.any),
   author: PropTypes.objectOf(PropTypes.any),
+  className: PropTypes.string,
   image: PropTypes.oneOfType([
     PropTypes.objectOf(PropTypes.any),
     PropTypes.string,

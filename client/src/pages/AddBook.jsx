@@ -20,7 +20,6 @@ const AddBook = () => {
   const checkAndLoad = (img, id) => {
     getBook(id)
       .then(({ data }) => {
-        console.log(data);
         if (data) {
           uploadImg(img, id);
         }
@@ -40,7 +39,6 @@ const AddBook = () => {
       rating: book.rating,
       pages: book.pages,
     };
-    // console.log(novelJSON);
     addBook(novelJSON)
       .then(() => {
         checkAndLoad(img, id);

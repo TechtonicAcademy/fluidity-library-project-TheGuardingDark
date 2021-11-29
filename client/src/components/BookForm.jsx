@@ -61,11 +61,9 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
 
   useEffect(() => {
     if (id) {
-      // findandcountall
       getImg(id)
         .then((image) => {
           const bytes = image.data.byteLength;
-          // console.log(bytes);
           if (bytes === 0) {
             setNullImg(true);
           } else {
@@ -123,8 +121,6 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
   const handleBookSubmit = (e) => {
     e.preventDefault();
 
-    // console.log(nullImg);
-
     if (tempImg) {
       const bookImg = document.querySelector('input[type=file]').files[0];
       form.set('bookImg', bookImg, bookImg.name);
@@ -138,11 +134,9 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
         } else {
           updateImg(form, id);
         }
-        // console.log(book);
         updateBook(book, id);
       } else {
         createBook(book, form, bookId);
-        // uploadImg(form, bookId);
       }
 
       resetForm();
