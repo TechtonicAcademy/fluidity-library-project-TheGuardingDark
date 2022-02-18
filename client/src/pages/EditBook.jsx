@@ -2,34 +2,52 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getBook, editBook } from '../utils/API';
 import BookForm from '../components/BookForm';
-import Jacket from '../styles/images/snuff.jpg';
 
 const EditBook = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  const [book, setBook] = useState({});
+  const [formObj, setFormObj] = useState({});
+  const [noImg, setNoImg] = useState(true);
 
-  const updateBook = (novel) => {
-    editBook(novel, id)
-      .then(() => history.push('/bookshelf'))
-      .catch((err) => console.log(err));
+  const updateBook = (novel, bookId) => {
+    const novelJSON = {
+      id: novel.id,
+      title: novel.title,
+      firstName: novel.firstName,
+      lastName: novel.lastName,
+      published: novel.published,
+      rating: novel.rating,
+      pages: novel.pages,
+    };
+    editBook(novelJSON, bookId);
+    history.push('/bookshelf');
   };
 
   useEffect(() => {
     getBook(id)
-      .then(({ data: novel }) => setBook(novel))
+      .then(({ data: novel }) => {
+        setFormObj({
+          ...novel,
+          firstName: novel.Author.firstName,
+          lastName: novel.Author.lastName,
+          imageFile: novel.Image || '',
+        });
+      })
+      .then(() => {
+        setNoImg(formObj.imageFile);
+      })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, []);
 
   return (
     <div className="editBook grid">
       <header className="editBook__header">Edit Book</header>
-      {book.title && (
+      {formObj.title && (
         <BookForm
-          existingBook={{ ...book }}
-          src={Jacket}
+          existingBook={formObj}
           updateBook={updateBook}
+          noImg={noImg}
         />
       )}
     </div>

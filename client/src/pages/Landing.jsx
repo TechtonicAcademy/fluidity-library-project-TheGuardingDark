@@ -22,7 +22,7 @@ const Landing = () => {
         magnam!
       </p>
       <Link to="/bookshelf">
-        <Button text="See Books" />
+        <Button text="See Books" className="landing" />
       </Link>
       <p className="landing landing__text">
         Lorem ipsum dolor sit amet. At nobis galisum rem inventore tempore ut
@@ -31,7 +31,7 @@ const Landing = () => {
         magnam!
       </p>
       <Link to="/addbook">
-        <Button text="Add a Book" />
+        <Button text="Add a Book" className="landing" />
       </Link>
     </div>
   );

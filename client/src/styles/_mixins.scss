@@ -1,301 +1,418 @@
-@use "./variables" as v;
+@use './variables' as v;
 
 @mixin stars {
-    display: inline-block;
-    color: yellow;
-    stroke: black;
-    stroke-width: 1rem;
-    margin-right: .4rem;
-    cursor: pointer;
+  display: inline-block;
+  color: yellow;
+  stroke: black;
+  stroke-width: 1rem;
+  margin-right: 0.4rem;
+  cursor: pointer;
 }
 
 @mixin button {
-    width: 17rem;
-    height: 3.5rem;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    background-color: v.$coffee;
-    color: white;
-    cursor: pointer;
-    &__light {
-        background-color: lighten(v.$coffee, 75%);
-        color: black;
+  width: 18rem;
+  height: 3.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: v.$coffee;
+  color: white;
+  cursor: pointer;
+  &__light {
+    background-color: lighten(v.$coffee, 75%);
+    color: black;
+  }
+  &__mdDark {
+    background-color: lighten(v.$coffee, 25%);
+  }
+  &__delete {
+    place-self: center left;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1rem;
+    grid-row: 1;
+    background-color: v.$red;
+  }
+  &__landing {
+    margin-right: 2rem;
+  }
+  @media only screen and (max-width: 1025px) {
+    width: 15rem;
+    height: 3rem;
+    &__delete {
+      width: 11rem;
+      height: 3rem;
+      grid-column: 3;
     }
+  }
+  @media only screen and (max-width: 769px) {
+    width: 13rem;
+    font-size: 1rem;
     &__mdDark {
-        background-color: lighten(v.$coffee, 25%);
+      width: 10rem;
+      margin-bottom: 1rem;
+    }
+    &__editBtn {
+      width: 13rem;
     }
     &__delete {
-        place-self: center left;
-        width: 8rem;
-        height: 3rem;
-        font-size: 1rem;
-        grid-row: 1;
-        background-color: v.$red;
+      margin-right: 1rem;
+
+      grid-row: 4;
+      grid-column: 3;
+      width: 7rem;
+      height: 2.5rem;
+      align-self: flex-start;
+      font-size: 0.8rem;
     }
-    @media only screen and (max-width: 769px) {
-        width: 13rem;
-        font-size: 1rem;
-        &__mdDark {
-            width: 10rem;
-            margin-bottom: 1rem;
-        }
-        &__delete {
-            grid-row: 4;
-            grid-column: 3;
-            width: 7rem;
-            height: 2.5rem;
-            align-self: flex-start;
-            font-size: .8rem;
-        }
+  }
+  @media only screen and (max-width: 480px) {
+    width: 24rem;
+    height: 4rem;
+    font-size: 2rem;
+    &__landing {
+      height: 4rem;
+      margin-right: 0;
     }
-    @media only screen and (max-width: 480px) {
-        width: 14rem;
-        font-size: 1.5rem;
-        &__mdDark {
-            width: 17rem;
-        }
-        &__delete {
-            width: 11rem;
-            font-size: 1rem;
-            position: relative;
-            top: 14rem;
-        }
+
+    &__mdDark {
+      width: 17rem;
     }
+    &__delete {
+      width: 24rem;
+      height: 3rem;
+      font-size: 1rem;
+      position: relative;
+      top: 14rem;
+      margin-left: 1rem;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    margin: 0 2rem 0 -1.5rem;
+    font-size: 1.5rem;
+    &__landing {
+      width: 16rem;
+      margin-left: 2rem;
+    }
+    &__editBtn {
+      margin-right: -1rem;
+      font-size: 1.5rem;
+    }
+    &__add {
+      margin: 0;
+    }
+    &__light {
+      font-size: 1.5rem;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    &__editBtn {
+      width: 21rem;
+    }
+    &__delete {
+      width: 20rem;
+      top: 15rem;
+      margin-left: 0;
+    }
+  }
 }
 
 @mixin lowerPageBtns {
-    grid-column: 2/5;
-    justify-self: center;
-    margin: 4rem 12rem 6rem 0;
-    .leftBtn {
-        margin-left: 4rem;
-    }
+  margin: 1rem 0 0 22rem;
+  .rightBtn {
+    height: 3.5rem;
+  }
+  .leftBtn {
+    margin-left: 2rem;
+  }
+  @media only screen and (max-width: 1300px) {
+    margin-left: 19rem;
+  }
+  @media only screen and (max-width: 1200px) {
+    margin-left: 18rem;
+  }
+  @media only screen and (max-width: 1025px) {
+    margin-left: 15rem;
+    .leftBtn,
     .rightBtn {
-        margin-right: 4rem;
+      height: 3rem;
     }
-    @media only screen and (max-width: 480px) {
-        display: inherit;
-        margin-top: 4rem;
-        .leftBtn {
-            margin: 1.5rem auto auto 0;
-        }
+  }
+  @media only screen and (max-width: 769px) {
+    margin-left: 10rem;
+    .leftBtn,
+    .rightBtn {
+      width: 13rem;
     }
+  }
+  @media only screen and (max-width: 480px) {
+    display: inherit;
+    margin-top: 4rem;
+    .leftBtn,
+    .rightBtn {
+      width: 24rem;
+      height: 4rem;
+    }
+    .leftBtn {
+      margin: 1.5rem auto auto 0;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .leftBtn,
+    .rightBtn {
+      width: 21rem;
+    }
+  }
 }
 
 @mixin CustomPub {
-    grid-column: 2/3;
-    align-self: center;
-    height: 4rem;
+  grid-column: 2/3;
+  align-self: center;
+  height: 4rem;
+  &--input {
+    position: absolute;
+    top: -32%;
+    right: -18%;
+  }
+  .rw {
+    &-calendar {
+      &-btn {
+        &-view {
+          font-size: 1.2rem;
+        }
+      }
+      &-popup {
+        width: 15.1em;
+      }
+    }
+    &-widget {
+      width: 19.5rem;
+    }
+  }
+  @media only screen and (max-width: 1025px) {
+    height: 3rem;
+    .rw {
+      &-widget {
+        width: 12rem;
+        &-picker {
+          width: 12rem;
+          border-right: 1px solid black;
+        }
+        &-input {
+          font-size: 1rem;
+        }
+      }
+      &-input {
+        &-addon {
+          right: 7rem;
+          width: 3rem;
+        }
+      }
+      &-calendar {
+        width: 17rem;
+        &-header {
+          padding: 1.5rem 0.8rem 0.5rem;
+        }
+        &-popup {
+          width: 15.2em;
+        }
+        &-btn {
+          right: -1rem;
+          top: -0.5rem;
+          &-view {
+            display: contents;
+            & > :last-child {
+              margin: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    height: 3rem;
     &--input {
-        position: absolute;
-        top: -32%;
-        right: -18%;
+      padding: 0 0.5rem;
     }
     .rw {
-        &-calendar {
-            &-btn {
-                &-view {
-                    font-size: 1.2rem;
-                }
-            }
-            &-popup {
-                width: 15.1em;
-            }
+      &-widget {
+        width: 12rem;
+        &-picker {
+          width: 12rem;
         }
-        &-widget {
-            width: 19.5rem;
+      }
+      &-input {
+        &-addon {
+          right: 4rem;
         }
+      }
+      &-calendar {
+        width: 17rem;
+        &-popup {
+          width: 19em;
+        }
+        &-btn {
+          width: 2rem;
+        }
+      }
     }
-    @media only screen and (max-width: 1025px) {
-        .rw {
-            &-widget {
-                width: 16rem;
-                &-picker {
-                    width: 16rem;
-                    border-right: 1px solid black;
-                }
-            }
-            &-input {
-                &-addon {
-                    right: 3rem;
-                    width: 3rem;
-                }
-            }
-            &-calendar {
-                &-header {
-                    padding: 1.5rem .8rem .5rem;
-                }
-                &-popup {
-                    width: 14.4em;
-                }
-                &-btn {
-                    right: -1rem;
-                    top: -.5rem;
-                    &-view {
-                        display: contents;
-                        &> :last-child {
-                            margin: .5rem;
-                        }
-                    }
-                }
-            }
+  }
+  @media only screen and (max-width: 480px) {
+    margin: 2rem 5rem;
+    .rw {
+      &-input {
+        &-addon {
+          right: 1rem;
+          width: 4rem;
         }
-    }
-    @media only screen and (max-width: 769px) {
-        width: 11rem;
-        height: 3rem;
-        &--input {
-            padding: 0 .5rem;
+      }
+      &-calendar {
+        width: 18rem;
+        &-popup {
+          width: 20rem;
         }
-        .rw {
-            &-widget {
-                width: 13.1rem;
-                &-picker {
-                    width: 13rem;
-                }
-            }
-            &-calendar {
-                &-popup {
-                    width: 15.2em;
-                }
-                &-btn {
-                    width: 2rem;
-                }
-            }
+        &-header {
+          padding: 1rem 1rem 0.5rem;
+          align-items: center;
         }
-    }
-    @media only screen and (max-width: 480px) {
-        margin: 2rem 5rem;
-        .rw {
-            &-input {
-                &-addon {
-                    right: 1rem;
-                    width: 4rem;
-                }
-            }
-            &-calendar {
-                &-popup {
-                    width: 20rem;
-                }
-                &-header {
-                    padding: 1rem 1rem 0.5rem;
-                    align-items: center;
-                }
-                &-btn {
-                    right: 0;
-                    top: 0;
-                }
-            }
-            &-widget {
-                width: 17.9rem;
-                &-picker {
-                    font-size: 1.5rem;
-                    width: 17.9rem;
-                }
-            }
+        &-btn {
+          right: 0;
+          top: 0;
         }
-    }
-    @media only screen and (max-width: 425px) {
-        margin-left: 3.5rem;
-    }
-    @media only screen and (max-width: 375px) {
-        margin-left: 4rem;
-        .rw {
-            &-calendar {
-                &-popup {
-                    width: 17.1rem;
-                }
-            }
-            &-input {
-                &-addon {
-                    right: 2rem;
-                }
-            }
-            &-widget {
-                width: 15rem;
-                &-picker {
-                    width: 15rem;
-                }
-            }
+      }
+      &-widget {
+        &-input {
+          font-size: 1.5rem;
         }
+        width: 17.9rem;
+        &-picker {
+          font-size: 1.5rem;
+          width: 17.9rem;
+          height: 4rem;
+        }
+        &-container {
+          height: 4rem;
+        }
+      }
     }
+  }
+  @media only screen and (max-width: 375px) {
+    margin-left: 4rem;
+    .rw {
+      &-calendar {
+        width: 19rem;
+        &-popup {
+          width: 21rem;
+        }
+      }
+      &-input {
+        &-addon {
+          right: 2rem;
+        }
+      }
+      &-widget {
+        width: 15rem;
+        &-input {
+          font-size: 1.3rem;
+        }
+        &-picker {
+          width: 15rem;
+        }
+      }
+    }
+  }
 }
 
 @mixin CustomPage {
-    margin: 0 0 0 3rem;
-    align-self: center;
+  margin: 0 0 0 3rem;
+  align-self: center;
+  input {
+    width: 9rem;
+    padding-left: 1.5rem;
+  }
+  @media only screen and (max-width: 1200px) {
+    margin-left: 1rem;
+  }
+  @media only screen and (max-width: 1025px) {
+    margin-left: 0;
+    .rw {
+      &-input {
+        &-addon {
+          right: 5rem;
+          width: 2.7rem;
+        }
+      }
+      &-widget {
+        &-container {
+          width: 9rem;
+          border-right: 1px solid black;
+        }
+      }
+      &-number {
+        &-picker {
+          width: 9rem;
+          &-spinners {
+            right: 3rem;
+            width: 2.8rem;
+          }
+        }
+      }
+    }
     input {
-        width: 9rem;
-        padding-left: 1.5rem;
+      width: 9rem;
     }
-    @media only screen and (max-width: 1200px) {
-        margin-left: 1rem;
+  }
+  @media only screen and (max-width: 769px) {
+    margin: 0 0 0 1rem;
+    input {
+      width: 8rem;
+      height: 3rem;
+      padding-left: 0.5rem;
     }
-    @media only screen and (max-width: 1025px) {
-        .rw {
-            &-input {
-                &-addon {
-                    right: 5rem;
-                    width: 2.7rem;                
-                }
-            }
-            &-widget {
-                &-container {
-                    width: 11rem;
-                    border-right: 1px solid black;
-                }
-            }
-            &-number {
-                &-picker {
-                    width: 11rem;
-                    &-spinners {
-                        right: 1rem;
-                        width: 2.8rem;  
-                    }
-                }
-            }
+    .rw {
+      &-number {
+        &-picker {
+          width: 6.5rem;
+          &-spinners {
+            right: 4.5rem;
+            width: 2.5rem;
+          }
         }
-        input {
-            width: 9rem;
+      }
+      &-widget {
+        &-container {
+          width: 6.5rem;
         }
+      }
     }
-    @media only screen and (max-width: 769px) {
-        margin: 0 0 0 1rem;
-        input {
-            width: 8rem;
-            height: 3rem;
+  }
+  @media only screen and (max-width: 480px) {
+    margin: 0 1rem 1rem 0;
+    .rw {
+      &-number {
+        &-picker {
+          font-size: 1.5rem;
+          width: 11.5rem;
+          &-spinners {
+            right: 1.8rem;
+            top: -1px;
+          }
         }
-        .rw {
-            &-number {
-                &-picker {
-                    width: 8rem;
-                    &-spinners {
-                        right: 3rem;
-                    }
-                }
-            }
-            &-widget {
-                &-container {
-                    width: 8rem;
-                }
-            }
+      }
+      &-widget {
+        &-container {
+          width: 11.5rem;
+          height: 4rem;
         }
+      }
     }
-    @media only screen and (max-width: 480px) {
-        margin: 0;
-        .rw {
-            &-number {
-                &-picker {
-                    font-size: 1.5rem;
-                    &-spinners {
-                        right: 4.8rem;
-                        top: -1px;
-                    }
-                }
-            }
-        }
-        input {
-            width: 10rem;
-        }
+    input {
+      width: 10rem;
+      padding-top: 1rem;
     }
+  }
+  @media only screen and (max-width: 375px) {
+    input {
+      padding-left: 2rem;
+    }
+  }
 }

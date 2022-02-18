@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:3000/books';
+const url = 'http://localhost:8080/api/books';
 
 export const getBooks = () => {
   return axios.get(url);
@@ -11,7 +11,7 @@ export const getBook = (id) => {
 };
 
 export const searchBooks = (term) => {
-  return axios.get(`${url}?q=${term}`);
+  return axios.get(`${url}/search/?query=${term}`);
 };
 
 export const addBook = (book) => {
@@ -32,4 +32,26 @@ export const editBook = (book, id) => {
 
 export const deleteBook = (id) => {
   return axios.delete(`${url}/${id}`);
+};
+
+export const uploadImg = (form, id) => {
+  return axios.post(`${url}/upload/${id}`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data, boundary="-XXX-"',
+    },
+  });
+};
+
+export const updateImg = (form, id) => {
+  return axios.put(`${url}/upload/${id}`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data, boundary="-XXX-',
+    },
+  });
+};
+
+export const getImg = (id) => {
+  return axios.get(`${url}/upload/${id}`, {
+    responseType: 'arraybuffer',
+  });
 };

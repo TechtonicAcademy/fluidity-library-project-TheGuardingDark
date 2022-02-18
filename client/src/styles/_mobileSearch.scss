@@ -1,36 +1,41 @@
-@use "./variables" as v;
+@use './variables' as v;
 
 @mixin mobileSearch {
-    display: inline-block;
-    background-color: lighten( v.$coffee, 75%);
-    height: 6rem;
-    width: 111%;
+  display: inline-block;
+  background-color: lighten(v.$coffee, 75%);
+  height: 6rem;
+  width: 100%;
+  &__input {
+    padding: 1rem;
+    margin: 1.5rem 1rem;
+    width: 94%;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: none;
+  }
+  &__icon {
+    font-size: 2rem;
+    position: relative;
+    float: right;
+    top: -4.5rem;
+    right: 2rem;
+    opacity: 0.3;
+  }
+  @media only screen and (max-width: 425px) {
     &__input {
-        padding: 1rem;
-        margin: 1.5rem 1rem;
-        width: 93%;
-        font-size: 1rem;
-        border-radius: 10px;
-        border: none;
+      font-size: 1rem;
     }
     &__icon {
-        font-size: 2rem;
-        position: relative;
-        float: right;
-        top: -4rem;
-        right: 2rem;
-        opacity: .3;
+      top: -4rem;
     }
-    @media only screen and (max-width: 425px) {
-        width: 113%;
+  }
+  @media only screen and (max-width: 375px) {
+    &__input {
+      height: 2.5rem;
+      font-size: 1rem;
     }
-    @media only screen and (max-width: 375px) {
-        width: 114%;
-        &__input {
-            height: 2.5rem;
-        }
-        &__icon {
-            top: -3.7rem;
-        }
+    &__icon {
+      top: -3.7rem;
     }
+  }
 }

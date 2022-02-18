@@ -5,6 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: false,
         validate: {
           len: [1, 100],
         },
@@ -12,7 +13,9 @@ module.exports = function (sequelize, DataTypes) {
       lastName: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: false,
         validate: {
+          isAlpha: true,
           len: [1, 100],
         },
       },

@@ -31,7 +31,6 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -41,7 +40,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "json-server": "^0.16.3",
-    "parcel": "^2.0.1",
     "prettier": "^2.4.1"
   }
 }

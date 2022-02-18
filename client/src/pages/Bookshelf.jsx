@@ -11,11 +11,13 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
   useEffect(() => {
     if (term === '') {
       getBooks()
-        .then(({ data: books }) => setBooks(books))
+        .then(({ data }) => {
+          setBooks(data);
+        })
         .catch((err) => console.log(err));
     } else {
       searchBooks(term)
-        .then(({ data: books }) => setBooks(books))
+        .then(({ data }) => setBooks(data))
         .catch((err) => console.log(err));
     }
   }, [term]);
@@ -25,7 +27,12 @@ const Bookshelf = ({ searchTerm, setSearchTerm }) => {
       <MobileSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <h1 className="bookshelf__header">Release the Kraken of Knowledge!</h1>
       {books.map((book) => (
-        <BookCard key={book.id} book={book} />
+        <BookCard
+          key={book.id}
+          book={book}
+          author={book.Author}
+          image={book.Image || ''}
+        />
       ))}
     </div>
   );
