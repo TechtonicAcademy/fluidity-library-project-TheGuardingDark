@@ -2,22 +2,52 @@
 @use './mixins' as m;
 
 @mixin card {
-  transition: 0.3s;
-  width: 16rem;
-  height: fit-content;
+  padding: 3rem;
   text-align: center;
-  background-color: lighten(v.$brown, 30%);
+  transition: 0.4s ease-out;
+  &:hover {
+    transform: translateY(20px);
+    opacity: 0.8;
+    .card__container {
+      opacity: 1;
+      height: 11rem;
+    }
+  }
+  &__body {
+    height: 32rem;
+    width: 20rem;
+    padding-top: 2rem;
+    position: relative;
+    box-shadow: 4px 6px 7px 0 rgb(215, 215, 215);
+    background-color: lighten(v.$brown, 30%);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .card__container {
+      // position: relative;
+      // bottom: 0;
+      // z-index: 200;
+      // opacity: 1;
+      // transform: translateY(30px);
+      // transition: 0.5s;
+    }
+  }
   &__link {
     text-decoration: none;
   }
   &__img {
-    width: 100%;
-    margin: 0;
-    object-fit: contain;
-    box-shadow: 19px 10px 16px 0 rgba(0, 0, 0, 0.2);
+    width: 18rem;
+    height: 28rem;
+    box-shadow: 23px 16px 16px 0 rgba(0, 0, 0, 0.2);
   }
   &__noImg {
-    height: 27rem;
+    height: 11rem;
+    width: 16rem;
     display: table;
     padding: 0 31%;
     &--caption {
@@ -26,20 +56,43 @@
       font-size: 1.5rem;
     }
   }
-  &__withImg {
-    width: 21rem;
-    height: auto;
-    padding-top: 1rem;
-    &--bookshelf {
-      width: 80%;
-    }
-  }
+  // &__withImg {
+  //   width: 17rem;
+  //   height: auto;
+  //   padding-top: 1rem;
+  //   &--bookshelf {
+  //     // width: 80%;
+  //     width: 17rem;
+  //   }
+  // }
   &__container {
     color: black;
+    background-color: darkslategrey;
+    border-radius: 9px;
     cursor: pointer;
+    opacity: 0;
+    z-index: 15;
+    height: 0rem;
+    position: relative;
+    top: -8rem;
+    left: 3rem;
+
+    // &:hover {
+    //   transition: 0.3s ease-in;
+    //   transition: 0.5s ease-out;
+    //   // transform: translateY(15px);
+    //   height: 11rem;
+    //   opacity: 1;
+    // }
+    &--title,
+    &--author {
+      text-shadow: 2px 3px 3px rgba(117, 125, 125, 0.5);
+    }
     &--title {
       font-size: 2rem;
-      margin: 1rem 0 0.5rem;
+      margin: 2rem 0 0.5rem;
+      border-top: 1px solid grey;
+      padding-top: 2rem;
     }
   }
   &__form {

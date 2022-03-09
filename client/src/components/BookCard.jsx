@@ -39,31 +39,27 @@ const BookCard = ({
   }, [image]);
 
   return (
-    <div className={`card card_withImg card__${className}`}>
-      {path !== bookshelf ? (
-        <img
-          className="card__img card__withImg--bookshelf"
-          alt={title}
-          src={src}
-        />
-      ) : (
-        <Link to={`/details/${id}`} className="card__link">
-          <img
-            className="card__img card__withImg--bookshelf"
-            alt={title}
-            src={src}
-          />
-          <div className="card__container">
-            <h2 className="card__container--title">{title}</h2>
-            <h3 className="card__container--author">
-              {firstName}
-              &nbsp;
-              {lastName}
-            </h3>
-          </div>
-        </Link>
-      )}
-    </div>
+    <section className={`card card__${className}`}>
+      <div className="card__body">
+        {path !== bookshelf ? (
+          <img className="card__img" alt={title} src={src} />
+        ) : (
+          <>
+            <div className="card__container">
+              <h2 className="card__container--title">{title}</h2>
+              <h3 className="card__container--author">
+                {firstName}
+                &nbsp;
+                {lastName}
+              </h3>
+            </div>
+            <Link to={`/details/${id}`} className="card__link">
+              <img className="card__img" alt={title} src={src} />
+            </Link>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 
