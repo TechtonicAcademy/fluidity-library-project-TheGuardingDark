@@ -44,7 +44,7 @@ const BookCard = ({
         {path !== bookshelf ? (
           <img className="card__img" alt={title} src={src} />
         ) : (
-          <>
+          <Link to={`/details/${id}`} className="card__link">
             <div className="card__container">
               <h2 className="card__container--title">{title}</h2>
               <h3 className="card__container--author">
@@ -53,10 +53,8 @@ const BookCard = ({
                 {lastName}
               </h3>
             </div>
-            <Link to={`/details/${id}`} className="card__link">
-              <img className="card__img" alt={title} src={src} />
-            </Link>
-          </>
+            <img className="card__img" alt={title} src={src} />
+          </Link>
         )}
       </div>
     </section>

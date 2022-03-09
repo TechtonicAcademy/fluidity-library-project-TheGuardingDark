@@ -5,16 +5,29 @@
   padding: 3rem;
   text-align: center;
   transition: 0.4s ease-out;
+  -moz-transition: 0.4s ease-out;
+  -webkit-transition: 0.4s ease-out;
+
   &:hover {
     transform: translateY(20px);
-    opacity: 0.8;
+    -moz-transform: translateY(20px);
+    -webkit-transform: translateY(20px);
     .card__container {
       opacity: 1;
       height: 11rem;
+      box-shadow: 5px 7px 8px;
+
+      &--title,
+      &--author {
+        opacity: 1;
+      }
+    }
+    img {
+      opacity: 0.7;
     }
   }
   &__body {
-    height: 32rem;
+    height: 31rem;
     width: 20rem;
     padding-top: 2rem;
     position: relative;
@@ -27,14 +40,6 @@
       position: absolute;
       top: 0;
       left: 0;
-    }
-    .card__container {
-      // position: relative;
-      // bottom: 0;
-      // z-index: 200;
-      // opacity: 1;
-      // transform: translateY(30px);
-      // transition: 0.5s;
     }
   }
   &__link {
@@ -67,7 +72,7 @@
   // }
   &__container {
     color: black;
-    background-color: darkslategrey;
+    background-color: rgb(47, 80, 95);
     border-radius: 9px;
     cursor: pointer;
     opacity: 0;
@@ -76,22 +81,26 @@
     position: relative;
     top: -8rem;
     left: 3rem;
+    transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -webkit-transition: 0.3s ease-out;
 
-    // &:hover {
-    //   transition: 0.3s ease-in;
-    //   transition: 0.5s ease-out;
-    //   // transform: translateY(15px);
-    //   height: 11rem;
-    //   opacity: 1;
-    // }
     &--title,
     &--author {
-      text-shadow: 2px 3px 3px rgba(117, 125, 125, 0.5);
+      color: v.$beige;
+      opacity: 0;
+      text-shadow: 3px 4px 3px rgba(17, 18, 18, 0.5);
+      transition: 0.9s ease-in;
+      -moz-transition: 0.9s ease-in;
+      -webkit-transition: 0.9s ease-in;
+
+      transition: 0.2s ease-out;
+      -moz-transition: 0.2s ease-out;
+      -webkit-transition: 0.2s ease-out;
     }
     &--title {
       font-size: 2rem;
       margin: 2rem 0 0.5rem;
-      border-top: 1px solid grey;
       padding-top: 2rem;
     }
   }
