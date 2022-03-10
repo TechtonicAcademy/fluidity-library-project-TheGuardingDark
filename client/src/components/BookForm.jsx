@@ -269,7 +269,7 @@ const BookForm = ({ createBook, existingBook, updateBook }) => {
         <BookCard
           image={imageFile}
           book={existingBook}
-          className="form details__img"
+          className="form disabled details__img"
         />
         <input
           type="file"
