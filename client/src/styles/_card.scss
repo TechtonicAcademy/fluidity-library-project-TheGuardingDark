@@ -61,15 +61,6 @@
       font-size: 1.5rem;
     }
   }
-  // &__withImg {
-  //   width: 17rem;
-  //   height: auto;
-  //   padding-top: 1rem;
-  //   &--bookshelf {
-  //     // width: 80%;
-  //     width: 17rem;
-  //   }
-  // }
   &__container {
     color: black;
     background-color: rgb(47, 80, 95);
@@ -108,7 +99,6 @@
   &__form {
     grid-column: 4/5;
     grid-row: 1/4;
-    place-self: center;
     width: 18rem;
     margin-bottom: 3rem;
     margin-top: 1rem;
