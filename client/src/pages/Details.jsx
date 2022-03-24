@@ -47,7 +47,11 @@ const Details = () => {
   return (
     <div className="details grid">
       <h1 className=" details__text details__text--title">{title}</h1>
-      <BookCard image={imageFile} book={book} className="form details__img" />
+      <BookCard
+        image={imageFile}
+        book={book}
+        className="form disabled details__img"
+      />
       <h2 className="details__text details__text--author mobile">
         {firstName}
         &nbsp;
